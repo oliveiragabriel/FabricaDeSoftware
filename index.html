@@ -18,13 +18,13 @@
 				<div class="container">
 					<div class="main-content">
 						<h1 class="main-title">Inscrição</h1>
-						<form class="main-form" method="POST" name="inscricao">
+						<form class="main-form"  action="./php/extrairvalidar.php" method="POST" >
 							<label class="main-form-label main-form-labelNome">Nome</label>
 							<input  class="main-form-input main-form-inputNome" type="text" name="name">
 							<label class="main-form-label main-form-labelDocument">Documento</label>
 							<input class="main-form-input main-form-inputDocument" type="text" name="document">
 							<label  class="main-form-label main-form-labelCurso">Curso</label>
-							<select class="main-form-select main-form-selectCurso name="course">
+							<select class="main-form-select main-form-selectCurso" name="course">
 							  <option value="english">Língua Inglesa</option>
 							  <option value="germany">Língua Alemã</option>
 							  <option value="libras">Libras</option>
@@ -34,11 +34,12 @@
 							<label  class="main-form-label main-form-labelTelefone">Telefone</label>
 							<input  class="main-form-input main-form-inputNumber" type="number" name="phone">
 							<label  class="main-form-label main-form-labelEmail">Email</label>
-							<input class="main-form-input main-form-inputMail" type="mail" name="mail">
-							<input class="main-form-input main-form-inputCheck" type="checkbox" class="checkbox" name="checkbox" value="
+							<input class="main-form-input main-form-inputMail" type="email" name="mail">
+							<input class="main-form-input main-form-inputCheck" type="radio" class="checkbox" name="checkbox" value="
 							intern">Interno
-							<input  class="main-form-input main-form-inputCheck" type="checkbox" class="checkbox" name="checkbox" value="
+							<input  class="main-form-input main-form-inputCheck" type="radio" class="checkbox" name="checkbox" value="
 							extern">Externo
+							<input type="submit" value="Enviar"> 
 						</form>
 					</div>
 				</div>
