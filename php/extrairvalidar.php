@@ -109,7 +109,7 @@
     validaremail($email);
     validarie($ie);
     
-    require_once 'alunopdao.php';
+    require_once 'candidatopdao.php';
     insert($nome, $documento, $telefone, $email, $ie, $curso);
     
  };
