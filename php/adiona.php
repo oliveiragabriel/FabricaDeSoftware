@@ -24,7 +24,7 @@ echo $idcurso;
 $erro_id = $erro_nome = $erro_documento = $erro_telefone = $erro_email = $erro_ie = $erro_idcurso = false;
 if($erro_nome == false && $erro_email== false && $erro_documento== false &&  $erro_telefone == false && $erro_email == false && $erro_ie == false && $erro_idcurso = false){
 
-  $query= mysqli_query($conexao,"INSERT INTO aluno(id,nome,documento,telefone, email, ie, idcurso) VALUES($id,'$nome', '$documento' ,  '$telefone', '$email', '$ie' , '$idcurso')") or die("Erro ao tentar cadastrar");
+  $query= mysqli_query($conexao,"INSERT INTO candidato(id,nome,documento,telefone, email, ie, idcurso) VALUES($id,'$nome', '$documento' ,  '$telefone', '$email', '$ie' , '$idcurso')") or die("Erro ao tentar cadastrar");
     echo "Cadastro realizado com sucesso";
 }
 else{
