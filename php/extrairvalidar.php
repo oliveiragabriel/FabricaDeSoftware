@@ -1,6 +1,4 @@
 <?php 
- 
-
    $nome=$_POST['name'];
    $documento=$_POST['document'];
    $curso= $_POST['course'];
@@ -94,12 +92,6 @@
    function validaremail($email){
        if( trim($email)=="" ){
            echo "ERRO vazio email";
-       }
-       else{
-           $arrayemail= str_split($email);
-           $lengthemail= strlen($email);
-           
-           
        }
    };
    
