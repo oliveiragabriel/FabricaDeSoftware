@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,44 +9,87 @@
 	<body>
 		<div class="content">
 			<header id="header">
-				<div class="container">
-					<div class="header-content">
-						<img class="header-img" src="#">
+				<div class="header-content">
+					<div class="header-logotipo">
+						<img class="header-logotipo-img" src="./midia/logo.png" alt="logotipo">
+					</div>
+					<div class="header-menu">
+						<nav class="header-nav">
+							<ul class="header-list">
+								<a class="header-menuItem" href="#">início</a>
+								<a class="header-menuItem" href="#">projetos</a>
+								<a class="header-menuItem" href="#">eventos</a>
+								<a class="header-menuItem" href="#">atividades</a>
+								<a class="header-menuItem" href="#">publicações</a>
+							</ul>
+						</nav>
 					</div>
 				</div>
 			</header>
-			<main id="main"> 
-				<div class="container">
-					<div class="main-content">
-						<h1 class="main-title">Inscrição</h1>
-						<form class="main-form"  action="./php/extrairvalidar.php" method="POST" >
-							<label class="main-form-label main-form-labelNome">Nome</label>
-							<input  class="main-form-input main-form-inputNome" type="text" name="name">
-							<label class="main-form-label main-form-labelDocument">Documento</label>
-							<input class="main-form-input main-form-inputDocument" type="text" name="document">
-							<label  class="main-form-label main-form-labelCurso">Curso</label>
-							<select class="main-form-select main-form-selectCurso" name="course">
-							  <option value="english">Língua Inglesa</option>
-							  <option value="germany">Língua Alemã</option>
-							  <option value="libras">Libras</option>
-							  <option value="portuguese">Língua Portuguesa para Surdos</option>
-							  <option value="spanish">Língua Espanhola</option>
-							</select>
-							<label  class="main-form-label main-form-labelTelefone">Telefone</label>
-							<input  class="main-form-input main-form-inputNumber" type="number" name="phone">
-							<label  class="main-form-label main-form-labelEmail">Email</label>
-							<input class="main-form-input main-form-inputMail" type="email" name="mail">
-							<input class="main-form-input main-form-inputCheck" type="radio" class="checkbox" name="checkbox" value="
-							intern">Interno
-							<input  class="main-form-input main-form-inputCheck" type="radio" class="checkbox" name="checkbox" value="
-							extern">Externo
-							<input type="submit" value="Enviar"> 
-						</form>
-					</div>
+			<main id="main">
+				<div class="main-content">
+					<h1 class="main-title">Inscrição no CELi</h1>
+					<form class="main-form" method="POST" action="./php/extrairvalidar.php">
+						<label class="main-form-label main-form-labelNome">Nome</label>
+						<input  class="main-form-input main-form-inputNome" type="text" name="name" placeholder="Nome">
+						<label class="main-form-label main-form-labelDocument">Documento</label>
+						<input class="main-form-input main-form-inputDocument" type="text" name="document" placeholder="Documento">
+						<label  class="main-form-label main-form-labelCurso">Curso</label>
+						<select class="main-form-input main-form-selectCurso" name="course">
+						  	<option value="english">Língua Inglesa</option>
+						  	<option value="germany">Língua Alemã</option>
+						  	<option value="libras">Libras</option>
+						  	<option value="portuguese">Língua Portuguesa para Surdos</option>
+						  	<option value="spanish">Língua Espanhola</option>
+						</select>
+						<label  class="main-form-label main-form-labelTelefone">Telefone</label>
+						<input  class="main-form-input main-form-inputNumber" type="text" name="phone" placeholder="Telefone">
+						<label  class="main-form-label main-form-labelEmail">Email</label>
+						<input class="main-form-input main-form-inputMail" type="email" name="email" placeholder="Email">
+						<div class="main-form-radiobutton radiobutton-interno">
+							<p class="main-form-labelRadio">Interno</p>
+							<input class="main-form-inputRadio" type="radio" name="radio" value="
+							intern">
+						</div>
+						<div class="main-form-radiobutton radiobutton-externo">
+							<input  class="main-form-inputRadio" type="radio" name="radio" value="
+							extern">
+							<p class="main-form-labelRadio">Externo</p>
+						</div>
+						<button class="main-form-inputButton" type="submit" >Inscrever-se</button>
+					</form>
 				</div>
 			</main>
-			<footer>
-				
+			<footer id="footer">
+				<div class="footer-content">
+					<div class="div-footer-contact">
+						<div class="div-footer-contact-content">
+							<h1 class="footer-h1Contact footer-title">Contato</h1>
+							<form class="footer-form-contact" method="POST" name="contato">
+								<input class="footer-form-inputNome" type="text" name="namecontato" placeholder="Nome">
+								<input class="footer-form-inputEmail" type="email" name="emailcontato" placeholder="Email">
+								<textarea class="footer-form-textarea" placeholder="Digite sua mensagem aqui..."></textarea>
+								<input class="footer-form-submitContact footer-form-submit" type="submit" name="submitcontact">
+							</form>
+						</div>
+					</div>
+					<div class="div-footer-logo">
+						<div class="div-footer-logo-content">
+							<img class="footer-logo logoceli" src="./midia/logo.png">
+							<img class="footer-logo logocefet" src="./midia/logocefet.png">
+						</div>
+					</div>
+					<div class="div-footer-admin">
+						<div class="div-footer-admin-content">
+							<h1 class="div-footer-h1Admin footer-title">Admin</h1>
+							<form class="footer-form-admin" method="POST" name="admin">
+								<input class="footer-form-inputUsuario" type="text" name="usuario" placeholder="Usuário">
+								<input class="footer-form-inputPassword" type="password" name="password" placeholder="Senha">
+								<input class="footer-form-submitAdmin footer-form-submit" type="submit" name="submitadmin">
+							</form>
+						</div>
+					</div>
+				</div>
 			</footer>
 		</div>
 	</body>

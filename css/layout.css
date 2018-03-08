@@ -1,0 +1,57 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+#main{
+	width: 100%;
+	height: auto;
+	position: relative;
+	display: flex;
+}
+.main-content{
+	margin: auto;
+	padding: 100px 0;
+}
+.main-title{
+	width: 100%;
+	text-align: center;
+}
+.main-form{
+	width: 500px;
+	margin: 0 auto;
+}
+.main-form-label{
+	display: block;
+	width: 100%;
+	margin-top: 30px;
+}
+.main-form-input{
+	display: block;
+	width: 100%;
+	margin-bottom: 30px;
+	padding: 10px;
+}
+.main-form-labelRadio,.main-form-inputRadio{
+	display: inline-block;
+
+}
+.radiobutton-interno{
+	float: left;
+	margin-left: 100px;
+}
+.radiobutton-externo{
+	float: right;
+	margin-right: 100px;
+}
+.main-form-radiobutton{
+	display: inline-block;
+	margin-top: 20px;
+}		
+.main-form-inputButton{
+	display: block;
+	margin: 0 auto;
+	margin-top: 120px;
+	clear: both;
+	width: 100px;
+	height: 25px;
+}
