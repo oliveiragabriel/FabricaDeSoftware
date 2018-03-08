@@ -4,7 +4,7 @@ create table curso(
 id int primary key auto_increment,
 nome varchar(50) not null
 );
- CREATE TABLE aluno( 
+ CREATE TABLE candidato( 
 id int PRIMARY KEY auto_increment , 
 nome varchar(50) not null, 
 documento varchar(50) not null, 
@@ -20,7 +20,7 @@ foreing key (idcurso) references curso(id)
 	('Inglês'),
 	('Libras'),
 	('Português para Surdos');
-insert into aluno (nome,documento,telefone,email,ie,idcurso) values
+insert into candidato (nome,documento,telefone,email,ie,idcurso) values
 	('Ana',1000000,44444444,'ana@gmail.com','i',4),
 	('Miguel',2000000,44444449,'mi@gmail.com','i',1),
 	('elizer',3300000,48444044,'zeze@gmail.com','e',5);
