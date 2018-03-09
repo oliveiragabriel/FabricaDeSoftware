@@ -52,7 +52,7 @@
            $erroespecial=0;
            for($i=0;$i<$lengthdocumento;$i++){
                $caracasciicode=ord($arraydocumento[$i]);
-               if($caracasciicode==32 || ($caracasciicode>=45 && $caracasciicode<=46) || ($caracasciicode>=65 && $caracasciicode<=90) || ($caracasciicode>=97 && $caracasciicode<=122) || ($caracasciicode>=128 && $caracasciicode<=155) || $caracasciicode>=157 || ($caracasciicode>=160 && $caracasciicode<=165)){
+               if($caracasciicode==32 || ($caracasciicode>=45 && $caracasciicode<=46) || ($caracasciicode>=48 && $caracasciicode<=57) || ($caracasciicode>=65 && $caracasciicode<=90) || ($caracasciicode>=97 && $caracasciicode<=122) || ($caracasciicode>=128 && $caracasciicode<=155) || $caracasciicode>=157 || ($caracasciicode>=160 && $caracasciicode<=165)){
                    
                }
                else{
