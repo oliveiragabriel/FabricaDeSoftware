@@ -93,6 +93,10 @@
        if( trim($email)=="" ){
            echo "ERRO vazio email";
        }
+      if(!(filter_var($email, FILTER_VALIDATE_EMAIL)))
+       {
+        echo 'Email incorreto';
+       }
    };
    
    function validarie ($ie){
