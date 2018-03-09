@@ -9,9 +9,6 @@ function conexao(&$conexao){
     }
 };
 
-function insert($nome, $documento, $telefone, $email, $ie, $idcurso){
-    conexao($conexao);
-    $query = mysqli_query($conexao, "INSERT INTO candidato(nome,documento,telefone, email, ie, idcurso) 
-  VALUES('$nome', '$documento' ,  '$telefone', '$email', '$ie' , '$idcurso')") or die("Erro ao tentar cadastrar");
-    
-}; 
+function insert ($nome, $documento, $telefone, $email, $ie, $idcurso){
+    $query = mysqli_query("INSERT INTO candidato (nome, documento, telefone, email, ie, idcurso) VALUES ( '$nome', '$documento' ,  '$telefone', '$email', '$ie' , '$idcurso');") or die("Erro ao tentar cadastrar");
+};

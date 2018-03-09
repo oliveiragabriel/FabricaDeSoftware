@@ -27,7 +27,7 @@ function validarnome(){
 			return false;
 		}
 	}
-	return true;	
+	return true;
 }
 
 function validardocumento (){
@@ -60,29 +60,25 @@ function validaremail(){
 		return false;
 	}
 	if ((usuario.length<1) ||
-	    (dominio.length < 3) || 
-	    (usuario.search("@")!=-1) || 
+	    (dominio.length < 3) ||
+	    (usuario.search("@")!=-1) ||
 	    (dominio.search("@")!=-1) ||
-	    (usuario.search(" ")!=-1) || 
+	    (usuario.search(" ")!=-1) ||
 	    (dominio.search(" ")!=-1) ||
-	    (dominio.search(".")==-1) ||      
+	    (dominio.search(".")==-1) ||
 	    (dominio.indexOf(".")<1 ) ||
 	    (dominio.lastIndexOf(".")==dominio.length-1)) {
-			return false;			
+			return false;
 	}
 	return true;
 }
 
 function validarsituacao(){
 	var situacao = document.getElementsByName('radio');
-	var marcado=0;
-    for (var i = 0; i < situacao.length; i++){
-        if ( situacao[i].checked ) {
-            marcado=marcado+1;
-        }
-    }
-    if(marcado!=1){
-    	return false;
-    }
-    return true;
+	if(situacao.length == 1){
+		return true;
+	}
+	else{
+		return false;
+	}
 }
