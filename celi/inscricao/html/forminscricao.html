@@ -30,29 +30,49 @@
 				<div class="main-content">
 					<h1 class="main-title">Inscrição no CELi</h1>
 					<form class="main-form" name="formulario" method="POST" action="../php/extrairvalidar.php">
-						<label class="main-form-label main-form-labelNome">Nome</label>
-						<input  class="main-form-input main-form-inputNome" type="text" name="name" placeholder="Nome">
-						<label class="main-form-label main-form-labelDocument">Documento</label>
-						<input class="main-form-input main-form-inputDocument" type="text" name="document" placeholder="Documento">
-						<label  class="main-form-label main-form-labelCurso">Curso</label>
-						<select class="main-form-input main-form-selectCurso" name="course">
-						  	<option value="english">Língua Inglesa</option>
-						  	<option value="germany">Língua Alemã</option>
-						  	<option value="libras">Libras</option>
-						  	<option value="portuguese">Língua Portuguesa para Surdos</option>
-						  	<option value="spanish">Língua Espanhola</option>
-						</select>
-						<label  class="main-form-label main-form-labelTelefone">Telefone</label>
-						<input  class="main-form-input main-form-inputNumber" type="text" name="phone" placeholder="Telefone">
-						<label  class="main-form-label main-form-labelEmail">Email</label>
-						<input class="main-form-input main-form-inputMail" type="email" name="email" placeholder="Email">
-						<div class="main-form-radiobutton radiobutton-interno">
-							<p class="main-form-labelRadio">Interno</p>
-							<input class="main-form-inputRadio" type="radio" name="radio" value="i">
+						<div class="main-form-informations">
+							<div class="main-form-informations-nome">
+								<label class="main-form-label main-form-labelNome">Nome</label>
+								<input  class="main-form-input main-form-inputNome" type="text" name="name" placeholder="Nome">
+							</div>
+							<div class="main-form-informations-documento">
+								<label class="main-form-label main-form-labelDocument">Documento</label>
+								<input class="main-form-input main-form-inputDocument" type="text" name="document" placeholder="Documento">
+							</div>
+							<div style="clear:both;"></div>
 						</div>
-						<div class="main-form-radiobutton radiobutton-externo">
-							<input  class="main-form-inputRadio" type="radio" name="radio" value="e">
-							<p class="main-form-labelRadio">Externo</p>
+						<div class="main-form-contact">
+							<div class="main-form-contact-telefone">
+								<label  class="main-form-label main-form-labelTelefone">Telefone</label>
+								<input  class="main-form-input main-form-inputNumber" type="text" name="phone" placeholder="Telefone">
+							</div>
+							<div class="main-form-contact-email">
+								<label  class="main-form-label main-form-labelEmail">Email</label>
+								<input class="main-form-input main-form-inputMail" type="email" name="email" placeholder="Email">
+							</div>
+							<div style="clear:both;"></div>
+						</div>
+						<div class="main-form-situation">
+							<label class="main-form-label main-form-situation-label">Situação</label>
+							<div class="main-form-radiobutton-interno">
+								<p class="main-form-labelRadio">Interno</p>
+								<input class="main-form-inputRadio" type="radio" name="radio" value="i">
+							</div>
+							<div class="main-form-radiobutton-externo">
+								<input  class="main-form-inputRadio" type="radio" name="radio" value="e">
+								<p class="main-form-labelRadio">Externo</p>
+							</div>
+							<div style="clear:both;"></div>
+						</div>
+						<div class="main-form-course">
+							<label  class="main-form-label main-form-labelCurso">Cursos</label>
+							<select class="main-form-input main-form-selectCurso" name="course">
+								<option value="1">Língua Alemã</option>
+								<option value="2">Língua Espanhola</option>
+								<option value="3">Língua Inglesa</option>
+								<option value="4">Libras</option>
+								<option value="5">Língua Portuguesa para Surdos</option>
+							</select>
 						</div>
 						<button class="main-form-inputButton" type="submit" >Inscrever-se</button>
 					</form>

@@ -2,6 +2,7 @@
 	margin: 0px;
 	padding: 0px;
 }
+
 #main{
 	width: 100%;
 	height: auto;
@@ -9,44 +10,89 @@
 	display: flex;
 }
 .main-content{
-	margin: auto;
+	width: 100%;
+	margin: auto 0;
 	padding: 100px 0;
 }
 .main-title{
-	width: 100%;
+	display: block;
+	width: 1100px;
+	margin: 0 auto;
 	text-align: center;
 }
 .main-form{
-	width: 500px;
+	width: auto;
 	margin: 0 auto;
 }
-.main-form-label{
-	display: block;
-	width: 100%;
-	margin-top: 30px;
+.main-form-informations, .main-form-contact{
+	width: 1100px;
+	height: auto;
+	margin: 0 auto;
 }
-.main-form-input{
+.main-form-informations-nome, .main-form-informations-documento, .main-form-contact-telefone, .main-form-contact-email{
+	float: left;
+	width: 50%;
+}
+.main-form-situation{
+	width: 300px;
+	height: auto;
+	margin: 0 auto;
+}
+.main-form-situation-label{
 	display: block;
 	width: 100%;
-	margin-bottom: 30px;
+	margin: 0 auto;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+.main-form-radiobutton-interno{
+	float: left;
+	width: auto;
+}
+.main-form-radiobutton-externo{
+	float: right;
+	width: auto;
+}
+.main-form-labelRadio, .main-form-inputRadio{
+	display: inline-block;
+}
+.main-form-course{
+	width: 1100px;
+	height: auto;
+	margin: 0 auto;
+}
+.main-form-labelCurso{
+	display: block;
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 15px;
+	text-align: left;
 	padding: 10px;
 }
-.main-form-labelRadio,.main-form-inputRadio{
-	display: inline-block;
+.main-form-selectCurso{
+	display: block;
+	width: 92%;
+	margin: 0 auto;
+	padding: 10px;
+}
 
+.main-form-label:not(.main-form-situation-label):not(.main-form-labelCurso){
+	clear: both;
+	display: block;
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 15px;
+	text-align: left;
+	padding: 10px;
 }
-.radiobutton-interno{
-	float: left;
-	margin-left: 100px;
+.main-form-input:not(.main-form-selectCurso){
+	display: block;
+	width: 80%;
+	margin: 0 auto;
+	padding: 10px;
 }
-.radiobutton-externo{
-	float: right;
-	margin-right: 100px;
-}
-.main-form-radiobutton{
-	display: inline-block;
-	margin-top: 20px;
-}		
+
 .main-form-inputButton{
 	display: block;
 	margin: 0 auto;
