@@ -1,5 +1,5 @@
 <?php
-$conexao = mysqli_connect("localhost", "celi", "celi","projetoceli");
+$conexao = mysqli_connect("localhost", "celi", "celi","dbceli");
 
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
