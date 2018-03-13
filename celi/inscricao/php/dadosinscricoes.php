@@ -33,7 +33,7 @@ $consulta = mysqli_query($conexao,"SELECT * FROM candidato") or die("Erro ao lis
 				<th>Nome </th>
 				<th>Documento </th>
 				<th>Telefone </th>
-				<th>E-mail </th>
+				<th>E-meil </th>
 				<th>Interno/externo </th>
 				<th>Idcurso </th>
 			</tr>
