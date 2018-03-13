@@ -1,4 +1,4 @@
-create database dbceli char set 'utf8';
+﻿create database dbceli char set 'utf8';
 
 use dbceli;
 
@@ -33,3 +33,11 @@ insert into candidato (nome,documento,telefone,email,ie,idcurso) values
 create user celi identified by 'celi';
 
 grant select, insert, delete, update on dbceli.* to 'celi' identified by 'celi';
+
+CREATE TABLE admin(
+    idAdmin int PRIMARY KEY auto_increment,
+    usuario varchar(45) not null,
+    senha varchar(200) not null
+);
+INSERT INTO admin(usuario,senha) VALUES
+	('professoraceli','testeceli');
