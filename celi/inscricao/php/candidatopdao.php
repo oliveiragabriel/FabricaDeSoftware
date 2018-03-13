@@ -31,5 +31,12 @@
 		$qtdelinha = mysqli_fetch_row($query);
 		   
 		return $qtdelinha;
+	};
+	function procurarWhile (){
+		$conexao = conexao();
+		$sql = "SELECT * FROM candidato;";
+		$query = mysqli_query($conexao, $sql);
+		   
+		return $query;
 	}
 ?>
