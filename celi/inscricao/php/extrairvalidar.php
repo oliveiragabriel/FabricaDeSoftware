@@ -135,8 +135,7 @@
 
               if($validnome == 0 && $validdocumento == 0 && $validtelefone == 0 && $validemail == 0 && $validsituacao == 0){
 
-                     $conexao = conexao();
-                     insert($conexao, $nome, $documento, $telefone, $email, $ie, $curso);
+                     insert($nome, $documento, $telefone, $email, $ie, $curso);
 
               }
 
