@@ -10,7 +10,7 @@ $conexao= mysqli_connect( $hostname, $user, $password ) or die( ' Erro na conexã
 mysqli_select_db( $conexao, $database ) or die( 'Erro na seleção do banco' );
 
 # Executa a query desejada 
-$result_query = mysqli_query( $conexao,'SELECT * FROM candidato' );
+$result_query = mysqli_query( $conexao,'SELECT * FROM candidato ca join curso c on ca.idcurso= c.id' );
 
 
 
@@ -35,7 +35,7 @@ $consulta = mysqli_query($conexao,"SELECT * FROM candidato") or die("Erro ao lis
 				<th>Telefone </th>
 				<th>E-mail </th>
 				<th>Interno/externo </th>
-				<th>Idcurso </th>
+				<th>Nome curso </th>
 			</tr>
 			<?php
 				while($array = mysqli_fetch_array($result_query)){
@@ -45,7 +45,7 @@ $consulta = mysqli_query($conexao,"SELECT * FROM candidato") or die("Erro ao lis
 					<td><?php echo $array['telefone'];?></td>
 					<td><?php echo $array['email'];?></td>
 					<td><?php echo $array['ie'];?></td>
-					<td><?php echo $array['idcurso'];?></td>
+					<td><?php echo $array['curso'];?></td>
 					</tr>
 			<?php
 				}
