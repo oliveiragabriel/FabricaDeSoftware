@@ -8,7 +8,7 @@ create table curso(
 );
 
  create table candidato(
-	id int PRIMARY KEY auto_increment ,
+	idcandidato int PRIMARY KEY auto_increment ,
 	nome varchar(50) not null,
 	documento varchar(50) not null,
 	telefone varchar(11) not null,
