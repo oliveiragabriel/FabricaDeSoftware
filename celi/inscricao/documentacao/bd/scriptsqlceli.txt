@@ -4,11 +4,11 @@ use dbceli;
 
 create table curso(
 	id int primary key auto_increment,
-	nome varchar(50) not null
+	curso varchar(50) not null
 );
 
  create table candidato(
-	id int PRIMARY KEY auto_increment ,
+	idcandidato int PRIMARY KEY auto_increment ,
 	nome varchar(50) not null,
 	documento varchar(50) not null,
 	telefone varchar(11) not null,
@@ -18,7 +18,7 @@ create table curso(
 	foreign key (idcurso) references curso(id)
 );
 
-insert curso (nome) values
+insert curso (curso) values
 	('Alemão'),
 	('Espanhol'),
 	('Inglês'),
