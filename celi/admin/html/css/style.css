@@ -134,9 +134,19 @@ th{
 	 margin: auto;
 }
 
-#divnovoarquivo{
-	border:1px solid black;
-	width: 100px;
+#adionaarquivos{
+	display: flex;
+}
+
+#adicionarbox{
+	border: 1px solid black;
+	width: 400px;
+	height: 100px;
+	margin: auto;
+}
+
+#inputadicionar{
+	display: flex;
 }
 #tituloarquivos{
 	text-align: center;
@@ -144,6 +154,46 @@ th{
 	font-family: arial;
 }
 
+.arquivoimagem{
+	margin: auto;
+	width: 80%;
+}
+#arquivosconteudo{
+	
+	width: 200px;
+	height: auto;
+	float: left;
+	margin-right: 60px;
+	margin-left: 30px;
+}
+#arquivosadicionados{
+	display: flex;
+	margin-top: 100px;
+}
+#arquivosadicionados_content{
+	margin: auto;
+	width: 90vw;
+}
+#arquivosadicionados_content_boxes{
+	display: flex;	
+}
+#arquivosadicionados_content_boxes_container{
+	margin: auto;
+}
+#quempostou{
+	text-align: center;
+}
+#datadepublicacao{
+	text-align: center;
+}
+#tituloarq{
+	text-align: center;
+}
+#imagemarquivo{
+	border: 1px solid black;
+	height: 100px;
+	display: flex;
+}
 #infoalunos{
 	 height: 100vh;
 	 border-bottom: 5px solid black;
