@@ -1,4 +1,4 @@
-<?php
+ <?php
    
     $usuarioDigitado=$_POST['nameUsuario'];
     $senhaDigitado=$_POST['nameSenha'];
