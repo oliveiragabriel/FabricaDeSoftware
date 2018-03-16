@@ -29,6 +29,6 @@ while ($candidato = mysqli_fetch_array($candidatos)) {
 }
 
 for ($i = 1; $i < $numPaginas + 1; $i ++) {
-    echo "<a href='paginacao.php?pagina=$i'>" . $i . "</a> ";
+    echo "<a href='paginacao.php?pagina=$i'>" . $i . "</a>  ";
 }
 ?>
