@@ -67,17 +67,12 @@
 #tabelainscricao{
 	 height: 100vh;
 	 border-top: 5px solid black;
-	
-
 }
 
-#tabela {
+.tabela {
 	width: 100vw;
-      height: 10vh;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center
+    height: 10vh;
+    display: flex;
 
  }
 
@@ -90,9 +85,13 @@
 
 #tabelacanditados{
 	border: 1px solid black;
-	position: absolute;
-	top: 250PX;
+	margin: auto;
 }
+#tabelaalunos{
+	border: 1px solid black;
+	margin: auto;
+}
+
 
 th{
 	border: 1px solid black;
@@ -128,11 +127,11 @@ th{
 	padding-right: 75px;
 }
 
-
 #arquivos{
 	 height: 100vh;
 	 border-bottom: 5px solid black;
 	 border-top: 5px solid black;
+	 margin: auto;
 }
 
 #divnovoarquivo{
@@ -153,5 +152,8 @@ th{
 	text-align: center;
 	font-size: 50px;
 	font-family: arial;
+}
+#tabelaalunos{
+	margin: auto;
 }
 
