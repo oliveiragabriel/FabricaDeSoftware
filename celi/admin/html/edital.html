@@ -3,129 +3,114 @@
 <head>
 	<meta charset="utf-8">
 	<title>Registrar edital</title>
-	<link rel="stylesheet" type="text/css" href="../../css/footer/footerstyle.css">
-	<link rel="stylesheet" type="text/css" href="../../css/header/headerstyle.css">
+	<link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/header/style.css">
+	<link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/footer/style.css">
 	<link rel="stylesheet" type="text/css" href="./css/edital.css">
+	<script src="../../arquivosfixos/js/jquery.min.js"></script>
 </head>
-<body>
-			<header id="header">
-				<div class="header-content">
-					<div class="header-logotipo">
-						<img class="header-logotipo-img" src="./midia/logo.png" alt="logotipo">
-					</div>
-					<div class="header-menu">
-						<nav class="header-nav">
-							<ul class="header-list">
-								<a class="header-menuItem" href="#">início</a>
-								<a class="header-menuItem" href="#">projetos</a>
-								<a class="header-menuItem" href="#">eventos</a>
-								<a class="header-menuItem" href="#">atividades</a>
-								<a class="header-menuItem" href="#">publicações</a>
-							</ul>
-						</nav>
-					</div>
+<body class="fadeIn">
+	<div class="content">
+		<header id="header">
+			<div class="header-content">
+				<div class="header-logotipo">
+					<img class="header-logotipo-img" src="../../arquivosfixos/midia/logo.png" alt="logotipo">
 				</div>
-			</header>
-	<main id="main">
-	<div class="main-content">
-	<h1 class="main-title">Informações de edital</h1>
-	<form class="main-form" name="formulario">
-	<div class="main-form-inscricao">
-		<div class="main-form-inscricao-abertura">
-			<label>Data de abertura</label><br>
-			<input type="date" name="dataabertura"><br>
-			<label>Hora de abertura</label><br>
-			<input type="time" name="horaabertura">
-		</div>
-		<div class="main-form-inscricao-encerramento">
-			<label>Data de encerramento</label><br>
-			<input type="date" name="dataencerramento"><br>
-			<label>Hora de encerramento</label><br>
-			<input type="time" name="horaencerramento">
-		</div>
-	</div>
-		<div id="selecionar">
-			<h3>Selecionar cursos</h3>
-			<div id="tabela">
-				<div>
-				<h4>Curso</h4>
-				<div>
-					<label>
-						<input type="checkbox" name="curso">Língua Alemã
-						<input type="number" name="vagainterno" min="0" placeholder="interno">
-						<input type="number" name="vagaexterno" placeholder="externo">
-					</label>
-				</div>
-				<div>
-					<label>
-						<input type="checkbox" name="curso">Língua Espanhola
-						<input type="number" name="vagainterno" min="0" placeholder="interno">
-						<input type="number" name="vagaexterno" min="0" placeholder="externo">
-					</label>
-				</div>
-				<div>
-					<label>
-						<input type="checkbox" name="curso">Língua Inglesa
-						<input type="number" name="vagainterno" min="0" placeholder="interno">
-						<input type="number" name="vagaexterno" min="0" placeholder="externo">
-					</label>
-				</div>
-				<div>
-					<label>
-						<input type="checkbox" name="curso">Libras
-						<input type="number" name="vagainterno" min="0" placeholder="interno">
-						<input type="number" name="vagaexterno" min="0" placeholder="externo">
-					</label>
-				</div>
-				<div>
-					<label>
-						<input type="checkbox" name="curso">Língua Portuguesa Para Surdos
-						<input type="number" nome=vagas placeholder="interno">
-						<input type="number" nome=vagas placeholder="externo">
-					</label>
-				</div>
+				<div class="header-menu">
+					<nav class="header-nav">
+						<ul class="header-list">
+							<a class="header-menuItem" href="#">início</a>
+							<a class="header-menuItem" href="#">projetos</a>
+							<a class="header-menuItem" href="#">eventos</a>
+							<a class="header-menuItem" href="#">atividades</a>
+							<a class="header-menuItem" href="#">publicações</a>
+						</ul>
+					</nav>
 				</div>
 			</div>
-		<div id="condicaoparticipação">
-			<h3>Condições de participação</h3>
-			<textarea id="texto" name="condicao" rows="5" size="500"></textarea>
-		</div>
-		<input type="submit" name="enviar" value="Inserir">
-	</div>
-	</form>
-	
-	</main>
-				<footer id="footer">
-				<div class="footer-content">
-					<div class="div-footer-contact">
-						<div class="div-footer-contact-content">
-							<h1 class="footer-h1Contact footer-title">Contato</h1>
-							<form class="footer-form-contact" method="POST" name="contato">
-								<input class="footer-form-inputNome" type="text" name="namecontato" placeholder="Nome">
-								<input class="footer-form-inputEmail" type="email" name="emailcontato" placeholder="Email">
-								<textarea class="footer-form-textarea" placeholder="Digite sua mensagem aqui..."></textarea>
-								<input class="footer-form-submitContact footer-form-submit" type="submit" name="submitcontact">
-							</form>
-						</div>
-					</div>
-					<div class="div-footer-logo">
-						<div class="div-footer-logo-content">
-							<img class="footer-logo logoceli" src="./midia/logo.png">
-							<img class="footer-logo logocefet" src="./midia/logocefet.png">
-						</div>
-					</div>
-					<div class="div-footer-admin">
-						<div class="div-footer-admin-content">
-							<h1 class="div-footer-h1Admin footer-title">Admin</h1>
-							<form class="footer-form-admin" method="POST" name="admin">
-								<input class="footer-form-inputUsuario" type="text" name="usuario" placeholder="Usuário">
-								<input class="footer-form-inputPassword" type="password" name="password" placeholder="Senha">
-								<input class="footer-form-submitAdmin footer-form-submit" type="submit" name="submitadmin">
-							</form>
-						</div>
-					</div>
+		</header>
+		<main id="main">
+		<div class="main-content">
+			<h1 class="main-title">Informações de edital</h1>
+			<form class="main-form" name="formulario">
+			<div class="main-form-inscricao">
+				<div class="main-form-inscricao-abertura">
+					<label>Data de abertura</label><br>
+					<input type="date" name="dataabertura"><br>
+					<label>Hora de abertura</label><br>
+					<input type="time" name="horaabertura">
 				</div>
-			</footer>
+				<div class="main-form-inscricao-encerramento">
+					<label>Data de encerramento</label><br>
+					<input type="date" name="dataencerramento"><br>
+					<label>Hora de encerramento</label><br>
+					<input type="time" name="horaencerramento">
+				</div>
+			</div>
+				<div id="selecionar">
+					<h3>Selecionar cursos</h3>
+					<div id="tabela">
+						<div>
+							<h4>Curso</h4>
+							<div>
+								<label>
+									<input type="checkbox" name="curso">Língua Alemã
+									<input type="number" name="vagainterno" min="0" placeholder="interno">
+									<input type="number" name="vagaexterno" placeholder="externo">
+								</label>
+							</div>
+							<div>
+								<label>
+									<input type="checkbox" name="curso">Língua Espanhola
+									<input type="number" name="vagainterno" min="0" placeholder="interno">
+									<input type="number" name="vagaexterno" min="0" placeholder="externo">
+								</label>
+							</div>
+							<div>
+								<label>
+									<input type="checkbox" name="curso">Língua Inglesa
+									<input type="number" name="vagainterno" min="0" placeholder="interno">
+									<input type="number" name="vagaexterno" min="0" placeholder="externo">
+								</label>
+							</div>
+							<div>
+								<label>
+									<input type="checkbox" name="curso">Libras
+									<input type="number" name="vagainterno" min="0" placeholder="interno">
+									<input type="number" name="vagaexterno" min="0" placeholder="externo">
+								</label>
+							</div>
+							<div>
+								<label>
+									<input type="checkbox" name="curso">Língua Portuguesa Para Surdos
+									<input type="number" nome=vagas placeholder="interno">
+									<input type="number" nome=vagas placeholder="externo">
+								</label>
+							</div>
+						</div>
+					</div>
+					<div id="condicaoparticipação">
+						<h3>Condições de participação</h3>
+						<textarea id="texto" name="condicao" rows="5" size="500"></textarea>
+					</div>
+					<input type="submit" name="enviar" value="Inserir">
+				</div>
+			</form>
+		
+		</main>
+	<footer id="footer">
+		<div class="footer-content">
+			<div class="footer-content-logotipo footer-content-cefet">
+				<img class="footer-content-cefet-img" src="#" alt="CEFET/RJ">	
+			</div>
+			<div class="footer-content-logotipo  footer-content-fabricadesoftware">
+				<img class="footer-content-fabricadesoftware-img" src="#" alt="CEFET/RJ">	
+			</div>
+			<div class="footer-content-logotipo footer-content-wordpress">
+				<img class="footer-content-wordpress-img" src="#" alt="CEFET/RJ">	
+			</div>
+		</div>
+	</footer>
 		
 </body>
 </html>
