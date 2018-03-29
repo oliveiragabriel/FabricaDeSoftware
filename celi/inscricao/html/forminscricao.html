@@ -4,6 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Inscrição</title>
+		<script src="./js/script.js"></script>
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
 	</head>
 	<body>
@@ -37,7 +38,7 @@
 							</div>
 							<div class="main-form-contact-email">
 								<label  class="main-form-label main-form-labelTelefone2">E-mail</label>
-								<input  class="main-form-input main-form-inputTelefone2" type="text" name="phone2" placeholder="Telefone (opcional)">
+								<input  class="main-form-input main-form-inputTelefone2" type="text" name="email" placeholder="Telefone (opcional)">
 							</div>
 							<div style="clear:both;"></div>
 						</div>
@@ -113,8 +114,8 @@
 								<input  class="main-form-input main-form-inputBairro" type="text" name="bairro" placeholder="Bairro">
 							</div>
 							<div class="main-form-endereco-rua">
-								<label  class="main-form-label main-form-labelRua">Rua</label>
-								<input  class="main-form-input main-form-inputRua" type="text" name="Rua" placeholder="Rua">
+								<label  class="main-form-label main-form-labelRua">Nome do logradouro</label>
+								<input  class="main-form-input main-form-inputRua" type="text" name="logradouro" placeholder="Rua">
 							</div>
 							<div class="main-form-endereco-complemento">
 								<label  class="main-form-label main-form-labelComplemento">Complemento</label>
@@ -126,10 +127,10 @@
 							<label class="main-form-label main-form-situation-label">Situação</label>
 							<div class="main-form-radiobutton-interno">
 								<p class="main-form-labelRadio">Interno</p>
-								<input class="main-form-inputRadio" type="radio" name="radio" value="i">
+								<input class="main-form-inputRadio inputButtonInterno" type="radio" name="radio" value="i">
 							</div>
 							<div class="main-form-radiobutton-externo">
-								<input  class="main-form-inputRadio" type="radio" name="radio" value="e">
+								<input  class="main-form-inputRadio inputButtonExterno" type="radio" name="radio" value="e">
 								<p class="main-form-labelRadio">Externo</p>
 							</div>
 							<div style="clear:both;"></div>
@@ -137,11 +138,11 @@
 						<div class="main-form-course">
 							<label  class="main-form-label main-form-labelCurso">Cursos</label>
 							<select class="main-form-input main-form-selectCurso" name="course">
-								<option value="1">Língua Alemã</option>
-								<option value="2">Língua Espanhola</option>
-								<option value="3">Língua Inglesa</option>
-								<option value="4">Libras</option>
-								<option value="5">Língua Portuguesa para Surdos</option>
+								<option class="selectCurso-option" value="1">Língua Alemã</option>
+								<option class="selectCurso-option" value="2">Língua Espanhola</option>
+								<option class="selectCurso-option" value="3">Língua Inglesa</option>
+								<option class="selectCurso-option" value="4">Libras</option>
+								<option class="selectCurso-option" value="5">Língua Portuguesa para Surdos</option>
 							</select>
 						</div>
 						<button class="main-form-inputButton" type="submit" >Inscrever-se</button>

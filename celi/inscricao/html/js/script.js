@@ -1,20 +1,27 @@
 $(function(){
 	$(".main-form").on("submit", function(){
-		var vldnome = validarnome();
-		var vlddoc = validardocumento();
-		var vldtel = validartelefone();
-		var vldemail = validaremail();
-		var vldsituacao = validarsituacao();
-		if(!vldnome||!vlddoc||!vldtel||!vldemail||!vldsituacao){
+		var vldNome = validarNome();
+		//var vldCpf = validarCpf();
+		//var vldCpfEmissor = validarCpfEmissor();
+		var vldRg = validaRg();
+		var vldRgEmissor= validarRGEmissor();
+		var vldTel1 = validarTelefone1();
+		var vldTel2 = validarTelefone2();
+		var vldEmail = validarEmail();
+		var vldCidade = validarCidade();
+		var vldBairro = validarBairro();
+		var vldLogradouro =validarLogradouro();
+		var vldComplemento = validarComplemento();
+		var vldSituacao = validarSituacao();
+		if(!vldNome||!vldCpf||!vldTel1 || !vldeTel2 ||!vldEmail||!vldsituacao || ){
 			return false;
 		}
 		else{
 			return true;
 		}
-	});
 });
 
-function validarnome(){
+function validarNome(){
 	var nome=formulario.name.value ;
 	nome= nome.trim();
 	var i=0;
@@ -28,31 +35,88 @@ function validarnome(){
 		}
 	}
 	return true;
-}
+};
 
-function validardocumento (){
-	var documento = formulario.document.value;
-	if(documento == ""){
+function validarRg (){
+	var Rg = formulario.document1.value;
+	if(Rg == ""){
 		return false;
 	}
 	return true;
-}
+};
 
-function validartelefone (){
-	var telefone = formulario.phone.value;
-	if(telefone == ""){
+function validarRGEmissor(){
+	var RGEmissor = formulario.RGEmissor.value ;
+	RGEmissor= RGEmissor.trim();
+	var i=0;
+	if (RGEmissor == ""){
 		return false;
 	}
-	for (i=0; i<telefone.length; i++) {
-		var c = telefone.charAt(i);
+	for (i=0; i<RGEmissor.length; i++) {
+		var c = RGEmissor.charCodeAt(i);
+		if((c<65 || c>90 && c<97 || c<128 && c>154 || c<160 && c>165 || c<181 && c>183 || c<198 && c>199 || c<224 || c<226 && c>229 || c<233 && c>235 || c>122) && c!=240){
+			return false;
+		}
+	}
+	return true;
+};
+
+function validarCpfEmissor(){
+	var CpfEmissor = formulario.CpfEmissor.value ;
+	CpfEmissor= CpfEmissor.trim();
+	var i=0;
+	if (CpfEmissor == ""){
+		return false;
+	}
+	for (i=0; i<CpfEmissor.length; i++) {
+		var c = CpfEmissor.charCodeAt(i);
+		if((c<65 || c>90 && c<97 || c<128 && c>154 || c<160 && c>165 || c<181 && c>183 || c<198 && c>199 || c<224 || c<226 && c>229 || c<233 && c>235 || c>122) && c!=240){
+			return false;
+		}
+	}
+	return true;
+};
+
+function validarTelefone1 (){
+	var telefone1 = formulario.phone1.value;
+	if(telefone1 == ""){
+		return false;
+	}
+	for (i=0; i<telefone1.length; i++) {
+		var c = telefone1.charAt(i);
 		if(isNaN(c)){
 			return false;
 		}
 	}
 	return true;
-}
+};
 
-function validaremail(){
+function validarTelefone2 (){
+	var telefone2 = formulario.phone2.value;
+	if(telefone2 == ""){
+		return false;
+	}
+	for (i=0; i<telefone2.length; i++) {
+		var c = telefone2.charAt(i);
+		if(isNaN(c)){
+			return false;
+		}
+	}
+	return true;
+};
+function validarUf(){
+	var Uf = formulario.email.value;
+	var usuario= email.substring(0, email.indexOf("@"));
+	var dominio= email.substring(email.indexOf("@")+1, email.length);
+	if(email == ""){
+		return false;
+	}
+	else{
+		return true;
+		}
+};
+
+function validarEmail(){
 	var email = formulario.email.value;
 	var usuario= email.substring(0, email.indexOf("@"));
 	var dominio= email.substring(email.indexOf("@")+1, email.length);
@@ -71,14 +135,116 @@ function validaremail(){
 			return false;
 	}
 	return true;
-}
+};
 
-function validarsituacao(){
-	var situacao = document.getElementsByName('radio');
-	if(situacao.length == 1){
+function validarUf(){
+	var Uf =  ($('.main-form-Uf').val()).trim();
+	if( Uf ==""){ 
+		return false;
+		}
+	else{
+		var arrayUf = jQuery.makeArray( Uf );
+		var contaArray = arayUf.length;
+			if(contaArray>1){
+				return false;
+			}
+			else{
+				return true;
+			}
+		}	
+};	
+
+function validarCidade(){
+	var cidade = formulario.cidade.value ;
+	cidade= cidade.trim();
+	var i=0;
+	if (cidade == ""){
+		return false;
+	}
+	for (i=0; i<cidade.length; i++) {
+		var c = cidade.charCodeAt(i);
+		if((c<65 || c>90 && c<97 || c<128 && c>154 || c<160 && c>165 || c<181 && c>183 || c<198 && c>199 || c<224 || c<226 && c>229 || c<233 && c>235 || c>122) && c!=240){
+			return false;
+		}
+	}
+	return true;
+};
+
+function validarBairro(){
+	var bairro = formulario.bairro.value ;
+	bairro = bairro.trim();
+	var i=0;
+	
+	if (bairro == ""){
+		return false;
+	}
+	for (i=0; i<bairro.length; i++) {
+		var c = bairro.charCodeAt(i);
+		if((c<65 || c>90 && c<97 || c<128 && c>154 || c<160 && c>165 || c<181 && c>183 || c<198 && c>199 || c<224 || c<226 && c>229 || c<233 && c>235 || c>122) && c!=240){
+			return false;
+		}
+	}
+	return true;
+	};
+
+function validarLogradouro(){
+	var logradouro = formulario.logradouro.value ;
+	logradouro = logradouro.trim();
+	var i=0;
+	
+	if (logradouro == ""){
+		return false;
+	}
+	for (i=0; i<logradouro.length; i++) {
+		var c = logradouro.charCodeAt(i);
+		if(( c>48 && c<57 || c<65 || c>90 && c<97 || c<128 && c>154 || c<160 && c>165 || c<181 && c>183 || c<198 && c>199 || c<224 || c<226 && c>229 || c<233 && c>235 || c>122) && c!=240){
+			return false;
+		}
+	};
+	
+	function validarComplemento(){
+		var complemento = formulario.complemento.value ;
+		complemento = complemento.trim();
+		var i=0;
+		
+		if (complemento == ""){
+			return false;
+		}
+		for (i=0; i<complemento.length; i++) {
+			var c = complemento.charCodeAt(i);
+			if(( c>48 && c<57 || c<65 || c>90 && c<97 || c<128 && c>154 || c<160 && c>165 || c<181 && c>183 || c<198 && c>199 || c<224 || c<226 && c>229 || c<233 && c>235 || c>122) && c!=240){
+				return false;
+			}
+			else{
+				return true;
+			}
+		};
+
+function validarSituacao(){
+	var situacaoInterno = ($('.inputButtonInterno').val()).trim();
+	var situacaoExterno = ($('.inputButtonExterno').val()).trim();
+	
+	if((situacaoInterno != "" && situacaoExterno == "") || (situacaoInterno == "" && situacaoExterno != "")){
 		return true;
 	}
 	else{
 		return false;
 	}
-}
+};
+
+function validarCurso(){
+	var Curso =  ($('.main-form-selectCurso').val()).trim();
+	if( curso ==""){ 
+		return false;
+		}
+	else{
+		var arrayCurso = jQuery.makeArray( Curso );
+		var contaArray = arayCurso.length;
+			if(contaArray>1){
+				return false;
+			}
+			else{
+				return true;
+			}
+		}	
+};	
