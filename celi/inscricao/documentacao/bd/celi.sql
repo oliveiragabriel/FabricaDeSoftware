@@ -49,7 +49,7 @@ CREATE TABLE `candidato` (
 --
 
 CREATE TABLE `candidatocurso` (
-  `idcandiatocurso` int(11) NOT NULL,
+  `idcandidatocurso` int(11) NOT NULL,
   `idcandidato` int(11) NOT NULL,
   `ideditalcurso` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -120,7 +120,7 @@ ALTER TABLE `candidato`
 -- Índices de tabela `candidatocurso`
 --
 ALTER TABLE `candidatocurso`
-  ADD PRIMARY KEY (`idcandiatocurso`);
+  ADD PRIMARY KEY (`idcandidatocurso`);
 
 --
 -- Índices de tabela `curso`
@@ -159,7 +159,7 @@ ALTER TABLE `candidato`
 -- AUTO_INCREMENT de tabela `candidatocurso`
 --
 ALTER TABLE `candidatocurso`
-  MODIFY `idcandiatocurso` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcandidatocurso` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de tabela `curso`
 --
