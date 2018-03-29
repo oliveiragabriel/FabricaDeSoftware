@@ -25,7 +25,8 @@ SET time_zone = "+00:00";
 --
 -- Estrutura para tabela `candidato`
 --
-
+CREATE DATABASE dbceli;
+USE dbceli;
 CREATE TABLE `candidato` (
   `idcandidato` int(11) NOT NULL,
   `nome` varchar(75) NOT NULL,
