@@ -1,9 +1,9 @@
 $(function(){
 	$(".main-form").on("submit", function(){
 		var vldNome = validarNome();
-		//var vldCpf = validarCpf();
-		//var vldCpfEmissor = validarCpfEmissor();
-		var vldRg = validaRg();
+		var vldCpf = validarCpf();
+		var vldCpfEmissor = validarCpfEmissor();
+		var vldRg = validarRg();
 		var vldRgEmissor= validarRGEmissor();
 		var vldTel1 = validarTelefone1();
 		var vldTel2 = validarTelefone2();
@@ -13,12 +13,14 @@ $(function(){
 		var vldLogradouro =validarLogradouro();
 		var vldComplemento = validarComplemento();
 		var vldSituacao = validarSituacao();
-		if(!vldNome||!vldCpf||!vldTel1 || !vldeTel2 ||!vldEmail||!vldsituacao || ){
+		var vldCurso = validarCurso();
+		if(!vldNome|| !vldCpf|| !vldCpfEmissor|| !vldRg|| !vldRgEmissor||  !vldTel1 || !vldTel2 ||!vldEmail|| !vldCidade || !vldCidade || !vldCidade || !vldBairro || !vldLogradouro || !vldComplemento || !vldCurso || !vldSituacao ){
 			return false;
 		}
 		else{
 			return true;
 		}
+	});
 });
 
 function validarNome(){
@@ -42,6 +44,16 @@ function validarRg (){
 	if(Rg == ""){
 		return false;
 	}
+	else{
+		function Rg(document1){
+		    v=v.replace(/\D/g,""); //Substituí o que não é dígito por "", /g é [Global][1]
+		    v=v.replace(/(\d{1,2})(\d{3})(\d{3})(\d{1})$/,"$1.$2.$3-$4"); 
+		    // \d{1,2} = Separa 1 grupo de 1 ou 2 carac. (\d{3}) = Separa 1 grupo de 3 carac. (\d{1}) = Separa o grupo de 1 carac.
+		    // "$1.$2.$3-$4" = recupera os grupos e adiciona "." após cada.
+
+		        return true;
+		    }
+	}
 	return true;
 };
 
@@ -52,10 +64,13 @@ function validarRGEmissor(){
 	if (RGEmissor == ""){
 		return false;
 	}
-	for (i=0; i<RGEmissor.length; i++) {
-		var c = RGEmissor.charCodeAt(i);
-		if((c<65 || c>90 && c<97 || c<128 && c>154 || c<160 && c>165 || c<181 && c>183 || c<198 && c>199 || c<224 || c<226 && c>229 || c<233 && c>235 || c>122) && c!=240){
-			return false;
+	else{
+		for (i=0; i<RGEmissor.length; i++) {
+			var c = RGEmissor.charCodeAt(i);
+			if((c<65 || c>90 && c<97 || c<128 && c>154 || c<160 && c>165 || c<181 && c>183 || c<198 && c>199 || c<224 || c<226 && c>229 || c<233 && c>235 || c>122) && c!=240){
+				return false;
+			}
+		
 		}
 	}
 	return true;
@@ -103,17 +118,6 @@ function validarTelefone2 (){
 		}
 	}
 	return true;
-};
-function validarUf(){
-	var Uf = formulario.email.value;
-	var usuario= email.substring(0, email.indexOf("@"));
-	var dominio= email.substring(email.indexOf("@")+1, email.length);
-	if(email == ""){
-		return false;
-	}
-	else{
-		return true;
-		}
 };
 
 function validarEmail(){
@@ -200,7 +204,8 @@ function validarLogradouro(){
 		if(( c>48 && c<57 || c<65 || c>90 && c<97 || c<128 && c>154 || c<160 && c>165 || c<181 && c>183 || c<198 && c>199 || c<224 || c<226 && c>229 || c<233 && c>235 || c>122) && c!=240){
 			return false;
 		}
-	};
+	}
+};
 	
 	function validarComplemento(){
 		var complemento = formulario.complemento.value ;
@@ -218,7 +223,8 @@ function validarLogradouro(){
 			else{
 				return true;
 			}
-		};
+		}
+	};
 
 function validarSituacao(){
 	var situacaoInterno = ($('.inputButtonInterno').val()).trim();

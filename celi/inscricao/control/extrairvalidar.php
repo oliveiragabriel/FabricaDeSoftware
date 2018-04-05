@@ -1,17 +1,27 @@
 <?php
        // Chamando o arquivo .php pdao
-       require_once 'candidatopdao.php';
+       require_once 'inscricao.html';
 
        // Pegando os dados do form
        $nome=$_POST['name'];
-       $documento=$_POST['document'];
+       $RG=$_POST['document1'];
+       $OrgRG=$_POST['OrgEmiRg'];
+       $CPF=$_POST['document2'];
+       $OrgCPF=$_POST['OrgEmiCPF'];
        $curso= $_POST['course'];
-       $telefone=$_POST['phone'];
+       $telefone1=$_POST['phone1'];
+       $telefone2=$_POST['phone2'];
+       $UF=$_POST['uf'];
+       $cidade=$_POST['cidade'];
+       $bairro=$_POST['bairro'];
+       $logradouro=$_POST['logradouro'];
+       $complemento=$_POST['complemento'];
        $email=$_POST['email'];
        $ie=$_POST['radio'];
+       $curso= $_POST['course'];
 
        // Chamando a função que validar (ela chama todas as outras funções validadoras)
-       validar($nome, $documento, $curso, $telefone, $email, $ie);
+       validar($nome, $documento, $curso, $telefone1, $telefone2, $email, $ie);
 
        // Função para validar o nome
        function validarnome($nome){
@@ -76,30 +86,55 @@
        };
 
        // Função para validar o telefone
-       function validartelefone($telefone){
-              $errotelefone = 0;
-              if( trim($telefone)=="" ){
-                     $errotelefone = 1;
+       function validartelefone1($telefone1){
+              $errotelefone1 = 0;
+              if( trim($telefone1)=="" ){
+                     $errotelefone1 = 1;
                      echo "ERRO: campo 'telefone' está vazio<br/>";
               }
               else{
-                     $arraytelefone= str_split($telefone);
-                     $lengthtelefone= strlen($telefone);
+                     $arraytelefone1= str_split($telefone1);
+                     $lengthtelefone1= strlen($telefone1);
                      $erroespecial=0;
-                     for($i=0;$i<$lengthtelefone;$i++){
-                            $caracasciicode=ord($arraytelefone[$i]);
+                     for($i=0;$i<$lengthtelefone1;$i++){
+                            $caracasciicode=ord($arraytelefone1[$i]);
                             if($caracasciicode==45 || $caracasciicode==32 || $caracasciicode>=40 && $caracasciicode<=41 ||$caracasciicode>=48 && $caracasciicode<=57){}
                             else{
                                    $erroespecial=1;
                             }
                      }
                      if($erroespecial==1){
-                            $errotelefone = 1;
+                            $errotelefone1 = 1;
                             echo "ERRO: contém caractere especias no campo 'telefone'<br/>";
                      }
               }
-              return $errotelefone;
+              return $errotelefone1;
        };
+       function validartelefone2($telefone2){
+           $errotelefone2 = 0;
+           if( trim($telefone2)=="" ){
+               $errotelefone2 = 1;
+               echo "ERRO: campo 'telefone' está vazio<br/>";
+           }
+           else{
+               $arraytelefone2= str_split($telefone2);
+               $lengthtelefone2= strlen($telefone2);
+               $erroespecial=0;
+               for($i=0;$i<$lengthtelefone2;$i++){
+                   $caracasciicode=ord($arraytelefone2[$i]);
+                   if($caracasciicode==45 || $caracasciicode==32 || $caracasciicode>=40 && $caracasciicode<=41 ||$caracasciicode>=48 && $caracasciicode<=57){}
+                   else{
+                       $erroespecial=1;
+                   }
+               }
+               if($erroespecial==1){
+                   $errotelefone2 = 1;
+                   echo "ERRO: contém caractere especias no campo 'telefone'<br/>";
+               }
+           }
+           return $errotelefone2;
+       };
+       
 
        // Função para validar o email
        function validaremail($email){
@@ -115,7 +150,7 @@
               return $erroemail;
        };
 
-       // Função para validar a situação
+       // Fun��o para validar a situa��o
        function validarie ($ie){
               $errosituacao = 0;
               if(!isset($ie)){
@@ -124,16 +159,41 @@
               }
               return $errosituacao;
        };
+       function validarCpf($CPF)
+       {
+           $CPF = preg_replace('/[^0-9]/', '', (string) $CPF);
+           // Valida tamanho
+           if (strlen($CPF) != 11)
+               return false;
+               // Calcula e confere primeiro d�gito verificador
+               for ($i = 0, $j = 10, $soma = 0; $i < 9; $i++, $j--)
+                   $soma += $CPF{$i} * $j;
+                   $resto = $soma % 11;
+                   if ($CPF{9} != ($resto < 2 ? 0 : 11 - $resto))
+                       return false;
+                       // Calcula e confere segundo d�gito verificador
+                       for ($i = 0, $j = 11, $soma = 0; $i < 10; $i++, $j--)
+                           $soma += $CPF{$i} * $j;
+                           $resto = $soma % 11;
+                           return $CPF{10} == ($resto < 2 ? 0 : 11 - $resto);
+       };
+       
+       function validarOrgCPF($orgCPF){
+           $orgCPF= 
+       };
+       
 
        // Função que dispara todas as outras funções e, estando tudo certo, inseri no BD
-       function validar($nome, $documento, $curso, $telefone, $email, $ie) {
+       function validar($nome, $documento, $curso, $telefone1, $telefone2, $email, $ie) {
               $validnome = validarnome($nome);
               $validdocumento = validardocumento($documento);
-              $validtelefone = validartelefone($telefone);
+              $validtelefone1 = validartelefone1($telefone1);
+              $validtelefone2 = validartelefone2($telefone2);
               $validemail = validaremail($email);
               $validsituacao = validarie($ie);
+              
 
-              if($validnome == 0 && $validdocumento == 0 && $validtelefone == 0 && $validemail == 0 && $validsituacao == 0){
+              if($validnome == 0 && $validdocumento == 0 && $validtelefone1 == 0 && $validtelefone2 == 0 && $validemail == 0 && $validsituacao == 0){
 
                      insert($nome, $documento, $telefone, $email, $ie, $curso);
 

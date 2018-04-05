@@ -5,6 +5,7 @@
 		<meta charset="utf-8">
 		<title>Inscrição</title>
 		<script src="./js/script.js"></script>
+		<script src="./js/validaCpf.js"></script>
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
 		<link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/header/style.css">
 		<link rel="stylesheet" type="text/css" href="../../arquivosfixos/css/footer/style.css">
@@ -41,8 +42,8 @@
 								<input  class="main-form-input main-form-inputNome" type="text" name="name" placeholder="Nome">
 							</div>
 							<div class="main-form-contact-email">
-								<label  class="main-form-label main-form-labelTelefone2">E-mail</label>
-								<input  class="main-form-input main-form-inputTelefone2" type="text" name="email" placeholder="Telefone (opcional)">
+								<label  class="main-form-label main-form-labelEmail">E-mail</label>
+								<input  class="main-form-input main-form-inputEmail" type="text" name="email" placeholder="Telefone (opcional)">
 							</div>
 							<div style="clear:both;"></div>
 						</div>
@@ -53,7 +54,7 @@
 							</div>
 							<div class="main-form-informations-documento">
 								<label  class="main-form-label main-form-labelOrgEmiRg">Órgão Emissor do RG</label>
-								<input  class="main-form-input main-form-inputCPF" type="text" name="OrgEmiRg" placeholder="Órgão Emissor do RG">
+								<input  class="main-form-input main-form-inputOrgRG" type="text" name="OrgEmiRg" placeholder="Órgão Emissor do RG">
 							</div>
 							<div class="main-form-informations-documento">
 								<label  class="main-form-label main-form-labelCPF">CPF</label>
@@ -61,7 +62,7 @@
 							</div>
 							<div class="main-form-informations-documento">
 								<label  class="main-form-label main-form-labelOrgEmiCPF">Órgão Emissor do CPF</label>
-								<input  class="main-form-input main-form-inputCPF" type="text" name="OrgEmiCPF" placeholder="Órgão Emissor do CPF">
+								<input  class="main-form-input main-form-inputOrgCPF" type="text" name="OrgEmiCPF" placeholder="Órgão Emissor do CPF">
 							</div>
 							<div style="clear:both;"></div>
 						</div>
@@ -79,7 +80,7 @@
 						<div class="main-form-endereco">
 							<div class="main-form-endereco-uf">
 								<label  class="main-form-label main-form-labelUf">UF</label>
-								<select class="main-form-input main-form-Uf" name="uf">
+								<select class="main-form-input main-form-inputUf" name="uf">
 									<option value="1">AC</option>
 									<option value="2">AL</option>
 									<option value="3">AM</option>
@@ -118,8 +119,8 @@
 								<input  class="main-form-input main-form-inputBairro" type="text" name="bairro" placeholder="Bairro">
 							</div>
 							<div class="main-form-endereco-rua">
-								<label  class="main-form-label main-form-labelRua">Nome do logradouro</label>
-								<input  class="main-form-input main-form-inputRua" type="text" name="logradouro" placeholder="Rua">
+								<label  class="main-form-label main-form-labelLogradouro">Nome do logradouro</label>
+								<input  class="main-form-input main-form-inputLogradouro" type="text" name="logradouro" placeholder="Rua">
 							</div>
 							<div class="main-form-endereco-complemento">
 								<label  class="main-form-label main-form-labelComplemento">Complemento</label>
