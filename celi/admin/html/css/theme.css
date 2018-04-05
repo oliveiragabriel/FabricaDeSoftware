@@ -1,0 +1,18 @@
+.main-title{
+	font-family: 'arial';
+	font-size: 50px;
+	text-transform: uppercase;
+	font-weight: normal;
+	word-spacing: 10px;
+	color: rgb(20,20,20);
+	margin-bottom: 75px;
+}
+.main-form-label{
+	font-family: arial;
+	font-size: 15px;
+	color: #444;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	/* margin-left: 5px; */
+	/* margin-bottom: 5px; */
+}
