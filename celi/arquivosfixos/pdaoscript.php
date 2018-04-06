@@ -7,31 +7,54 @@
 			echo "ERROR! failure to connect to the database.";
 			echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
 			echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-			exit();
 		}
 		return $conexao;
 	};
 
-	// Procurar no Banco De Dados
-	function procurarbd ($tabela, $condicao){
+	// Verificação a existencia de determinado elemento no Banco De Dados
+	function verificarbd ($tabela, $condicao){
 		$conexao = conexaobd();
-		$sql = "SELECT * FROM ".$tabela" WHERE ".$condicao.";";
-		$query = mysqli_query($conexao, $sql);
-		$qtdelinha = mysqli_fetch_row($query);
-		   
-		return $qtdelinha;
+		if($conexao){
+			$sql = "SELECT nome FROM ".$tabela." WHERE ".$condicao.";";
+			$query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+			$qtdelinha = mysqli_num_rows($query);
+
+			return $qtdelinha;
+		}
+		else{
+			echo "Conexão com o BD não estabelecida!";
+			return FALSE;
+		}
+
 	}
 
 	// Inserir no Banco De Dados
-	function inserirbd ($tabela, $elementos, $conteudo){
+	function inserirbd ($tabela, $elementos, $conteudo, $condicao){
 		$conexao = conexaobd();
-		$qtd = procurarbd("candidato","documento = ".");
-		if($qtd==0){
-			$sql = "INSERT INTO candidato (nome, documento, telefone, email, ie, idcurso) VALUES ( '$nome', '$documento' ,  '$telefone', '$email', '$ie' , '$idcurso');";
-			$query = mysqli_query($conexao, $sql) or die("ERRO: Insert nÃ£o concluido (".mysqli_error($conexao).")");
+		if($conexao){
+			if($condicao == NULL){
+				$sql = "INSERT INTO $tabela ($elementos) VALUES ($conteudo);";
+				$query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+
+				return TRUE;
+			}
+			else{
+				$verificacao = verificarbd($tabela, $condicao);
+				if($verificacao == 0){
+					$sql = "INSERT INTO $tabela ($elementos) VALUES ($conteudo);";
+					$query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+
+					return TRUE;
+				}
+				else{
+					echo "Dado igual a este já inserido!";
+					return FALSE;
+				}
+			}
 		}
 		else{
-			echo "Já existe este documento";
+			echo "Conexão com o BD não estabelecida!";
+			return FALSE;
 		}
 	}
 ?>

@@ -1,14 +1,4 @@
 <?php
-
-	$curso = $_GET['nomecurso'];
-	$validacaocurso = validarnomecurso($curso);
-	if($validacaocurso == 0){
-		echo "Nome do curso válido!";
-	}
-	else{
-		echo "Nome do curso inválido!";	
-	}
-
 	function validarnomecurso ($curso){
 		$curso = trim($curso);
 		$arraycurso = str_split($curso, 1);
