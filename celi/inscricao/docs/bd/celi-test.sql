@@ -147,6 +147,7 @@ CREATE TABLE `edital` (
   `hora_ini` time NOT NULL,
   `data_fim` date NOT NULL,
   `hora_fim` time NOT NULL
+  `condicao` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
