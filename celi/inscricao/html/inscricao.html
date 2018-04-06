@@ -35,7 +35,7 @@
 			<main id="main">
 				<div class="main-content">
 					<h1 class="main-title">Inscrição no CELi</h1>
-					<form class="main-form" name="formulario" method="POST" action="../php/extrairvalidar.php">
+					<form class="main-form" name="formulario" method="POST" action="../control/extrairvalidar.php">
 						<div class="main-form-informations">
 							<div class="main-form-informations-nome">
 								<label class="main-form-label main-form-labelNome">Nome</label>
@@ -60,9 +60,12 @@
 								<label  class="main-form-label main-form-labelCPF">CPF</label>
 								<input  class="main-form-input main-form-inputCPF" type="text" name="document2" placeholder="CPF">
 							</div>
-							<div class="main-form-informations-documento">
-								<label  class="main-form-label main-form-labelOrgEmiCPF">Órgão Emissor do CPF</label>
-								<input  class="main-form-input main-form-inputOrgCPF" type="text" name="OrgEmiCPF" placeholder="Órgão Emissor do CPF">
+							<div style="clear:both;"></div>
+						</div>
+						<div class="main-form-nascimento">
+							<div class="main-form-nascimento-data">
+								<label  class="main-form-label main-form-labelNacimento">Nascimento</label>
+								<input  class="main-form-input main-form-inputNascimento" type="text" name="nascimento" placeholder="Data de Nascimento">
 							</div>
 							<div style="clear:both;"></div>
 						</div>

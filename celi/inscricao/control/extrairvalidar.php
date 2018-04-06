@@ -1,24 +1,60 @@
 <?php
        // Chamando o arquivo .php pdao
-       require_once 'inscricao.html';
+       require_once '../../arquivosfixos/pdaoscript.php';
 
        // Pegando os dados do form
-       $nome=$_POST['name'];
-       $RG=$_POST['document1'];
-       $OrgRG=$_POST['OrgEmiRg'];
-       $CPF=$_POST['document2'];
-       $OrgCPF=$_POST['OrgEmiCPF'];
-       $curso= $_POST['course'];
-       $telefone1=$_POST['phone1'];
-       $telefone2=$_POST['phone2'];
-       $UF=$_POST['uf'];
-       $cidade=$_POST['cidade'];
-       $bairro=$_POST['bairro'];
-       $logradouro=$_POST['logradouro'];
-       $complemento=$_POST['complemento'];
-       $email=$_POST['email'];
-       $ie=$_POST['radio'];
-       $curso= $_POST['course'];
+       if(isset($_POST['name']) && isset($_POST['course']) && isset($_POST['phone1']) && isset($_POST['nascimento']) && isset($_POST['phone2']) && isset($_POST['uf']) && isset($_POST['cidade']) && isset($_POST['bairro']) && isset($_POST['logradouro']) && isset($_POST['complemento']) && isset($_POST['radio'])){
+         $nome=$_POST['name'];
+         $RG=$_POST['document1'];
+         $OrgRG=$_POST['OrgEmiRg'];
+         $CPF=$_POST['document2'];
+         $nasc=$_POST['nascimento'];
+         $curso= $_POST['course'];
+         $telefone1=$_POST['phone1'];
+         $telefone2=$_POST['phone2'];
+         $UF=$_POST['uf'];
+         $cidade=$_POST['cidade'];
+         $bairro=$_POST['bairro'];
+         $logradouro=$_POST['logradouro'];
+         $complemento=$_POST['complemento'];
+         $email=$_POST['email'];
+         $ie=$_POST['radio'];
+
+         // Função que dispara todas as outras funções e, estando tudo certo, inseri no BD
+         function validar($nome, $telefone1, $telefone2, $email, $ie, $CPF, $orgCPF, $RG, $orgRG, $uf, $cidade, $bairro, $logradouro, $complemento, $curso) {
+                $validnome = validarnome($nome);
+                $validtelefone1 = validartelefone1($telefone1);
+                $validtelefone2 = validartelefone2($telefone2);
+                $validemail = validaremail($email);
+                $validsituacao = validarie($ie);
+                $validCPF = validarCPF($CPF);
+                $validOrgCPF = validarOrgCPF($orgCPF);
+                $validRG = validarRg($RG);
+                $validOrgRG =  validarOrgRG($orgRG);
+                $validUf = validarUF($UF);
+                $validCidade =  validarCidade($cidade);
+                $validBairro =  validarBairro($bairro);
+                $validLogradouro = validarLogradouro($logradouro);
+                $validComplemento = validarComplemento($complemento);
+                $validCurso = validarCurso($curso);
+                if($validnome == 0 && $validdocumento == 0 && $validtelefone1 == 0 && $validtelefone2 == 0 && $validemail == 0 && $validsituacao == 0){
+                        // Instanciando as variáveis que será utilizadas no inserta na tabela candidato
+                        $tabela = "candidato";
+                        $elementos = "nome, rg, cpf, nascimento, logradouro, bairro, cep, cidade, uf, email, telefone1, telefone2";
+                        $conteudo = "'$nomecurso'";
+                        $condicao = NULL;
+                        // Chamando a função de insert no BD
+                        $insert = inserirbd($tabela, $elementos, $conteudo, $condicao);
+                        // Feedback do insert
+                        if($insert){
+                          echo "Inseriu!";
+                        }
+                        else{
+                          echo "Não inseriu!";
+                        }
+                }
+         };
+       }
 
        // Função para validar o nome
        function validarnome($nome){
@@ -81,6 +117,8 @@
               }
               return $errotelefone1;
        };
+
+       // Função para validar o telefone
        function validartelefone2($telefone2){
            $errotelefone2 = 0;
            if( trim($telefone2)=="" ){
@@ -121,8 +159,8 @@
               return $erroemail;
        };
 
-       // Fun��o para validar a situa��o
-       function validarie ($ie){
+       // Função para validar a situação
+       function validarie($ie){
               $errosituacao = 0;
               if(!isset($ie)){
                      $errosituacao = 1;
@@ -130,40 +168,23 @@
               }
               return $errosituacao;
        };
-       function validarCpf($CPF)
-       {
+
+       // Função para validar o CPF
+       function validarCpf($CPF){
            $erroCpf = 0;
            if( trim($CPF)=="" ){
                $erroCpf = 1;
                echo "ERRO: campo 'CPF' está vazio<br/>";
+           };
        };
        
+       // Função para validar a data de nascimento
        function validarOrgCPF($orgCPF){
-           $orgCPF= 0;
-           if( trim($orgCPF)=="" ){
-               $errodoOrgCPF = 1;
-               echo "ERRO: campo 'Orgão emissor do CPF' está vazio<br/>";
-           }
-           else{
-               $arraydoOrgCPF= str_split($orgCPF);
-               $lengthOrgCPF= strlen($orgCPF);
-               $erroespecial=0;
-               for($i=0;$i<$lengthOrgCPF;$i++){
-                   $caracasciicode=ord($arrayOrgCPF[$i]);
-                   if($caracasciicode==32 || ($caracasciicode>=45 && $caracasciicode<=46) ||  ($caracasciicode>=65 && $caracasciicode<=90) || ($caracasciicode>=97 && $caracasciicode<=122) || ($caracasciicode>=128 && $caracasciicode<=155) || $caracasciicode>=157 || ($caracasciicode>=160 && $caracasciicode<=165)){}
-                   else{
-                       $erroespecial=1;
-                   }
-               }
-               if($erroespecial==1){
-                   $erroOrgCPF = 1;
-                   echo "ERRO: contém caractere especial no campo 'Orgão emissor do CPF'<br/>";
-               }
-           }
-           return $erroOrgCPF;
+           
        };
-       function validarRg($RG)
-       {
+
+       // Função para validar o RG
+       function validarRg($RG){
            $RG = preg_replace('/[^0-9]/', '', (string) $RG);
            // Valida tamanho
            if (strlen($RG) != 9)
@@ -181,6 +202,7 @@
                            return $RG{10} == ($resto < 2 ? 0 : 11 - $resto);
        };
        
+       // Função para validar o orgão emissor do RG
        function validarOrgRG($orgRG){
            $orgRG= 0;
            if( trim($orgRG)=="" ){
@@ -206,6 +228,7 @@
            return $erroOrgRG;
        };
        
+       // Função para validar o UF
        function validarUF($UF){
         $erroUF=0;
         if( trim($UF)=="" ){
@@ -220,11 +243,9 @@
                 echo "ERRO: campo 'UF' está como mais de um campo preenchido<br/>";
                 }
             }
-       }
-        
-        
-       }
-       
+       };
+
+       // Função para validar a Cidade
        function validarCidade($cidade){
            $erroCidade = 0;
            if( trim($cidade)=="" ){
@@ -259,6 +280,8 @@
            }
            return $erroCidade;
        };
+
+       // Função para validar o Bairro
        function validarBairro($bairro){
            $erroBairro = 0;
            if( trim($nome)=="" ){
@@ -292,7 +315,9 @@
                }
            }
            return $erroBairro;
-       };//verrifica se esta vazio, e se nao tem nenhum caracter especial 
+       };
+
+       // Função para validar o Logradouro
        function validarLogradouro($logradouro){
            $erroLogradouro = 0;
            if( trim($logradouro)=="" ){
@@ -327,6 +352,8 @@
            }
            return $erroLogradoro;
        };
+
+       // Função para validar o Complemento
        function validarComplemento($complemento){
            $erroComplemento = 0;
            if( trim($complemento)=="" ){
@@ -362,6 +389,7 @@
            return $erroComplemento;
        };
        
+       // Função para validar o Curso
        function validarCurso($curso){
            $erroCursoF=0;
            if( trim($curso)=="" ){
@@ -377,33 +405,5 @@
                }
            }
        }
-
-       // Função que dispara todas as outras funções e, estando tudo certo, inseri no BD
-       function validar($nome, $telefone1, $telefone2, $email, $ie, $CPF, $orgCPF, $RG, $orgRG, $uf, $cidade, $bairro, $logradouro, $complemento, $curso) {
-              $validnome = validarnome($nome);
-              $validtelefone1 = validartelefone1($telefone1);
-              $validtelefone2 = validartelefone2($telefone2);
-              $validemail = validaremail($email);
-              $validsituacao = validarie($ie);
-              $validCPF = validarCPF($CPF);
-              $validOrgCPF = validarOrgCPF($orgCPF);
-              $validRG = validarRg($RG);
-              $validOrgRG =  validarOrgRG($orgRG);
-              $validUf = validarUF($UF);
-              $validCidade =  validarCidade($cidade);
-              $validBairro =  validarBairro($bairro);
-              $validLogradouro = validarLogradouro($logradouro);
-              $validComplemento = validarComplemento($complemento);
-              $validCurso = validarCurso($curso);
-              
-              
-              
-              if($validnome == 0 && $validdocumento == 0 && $validtelefone1 == 0 && $validtelefone2 == 0 && $validemail == 0 && $validsituacao == 0){
-
-                     insert($nome, $documento, $telefone, $email, $ie, $curso);
-
-              }
-
-       };
 
 ?>
