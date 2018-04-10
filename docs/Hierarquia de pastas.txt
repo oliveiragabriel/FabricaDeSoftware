@@ -12,7 +12,7 @@ Pasta Raiz Dos Clientes -----------------------------------------------------> "
 
 
 __________________________________________________________________________________________________________________________________
-FabricaDeSoftware	/	celi	/	inscicao	/	docs	/	bd		/ 	bdscript.sql
+FabricaDeSoftware	/	celi	/	inscricao	/	docs	/	bd		/ 	bdscript.sql
 |			|		|			|	    	|	  		/ 	bdestrutura.mwb
 |			|		|			|	    	|	    		/ 	bddiagrama.png
 |			|      		|          	 	|      		--------------------------------------------------
