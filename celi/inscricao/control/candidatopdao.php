@@ -13,7 +13,7 @@
 	};
 
 	// FunÃ§Ã£o para adicionar candidato no BD
-	function insert ($nome, $documento, $telefone, $email, $ie, $idcurso){
+	function insert ($nome, $CPF,$CPFemissor, $telefone1,$telefone2, $email, $ie, $idcurso){
 		$conexao = conexao();
 		$qtd = procurar("documento",$documento);
 		if($qtd==0){

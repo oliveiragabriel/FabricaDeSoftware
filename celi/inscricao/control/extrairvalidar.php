@@ -21,14 +21,14 @@
          $ie=$_POST['radio'];
 
          // Função que dispara todas as outras funções e, estando tudo certo, inseri no BD
-         function validar($nome, $telefone1, $telefone2, $email, $ie, $CPF, $orgCPF, $RG, $orgRG, $uf, $cidade, $bairro, $logradouro, $complemento, $curso) {
+         function validar($nome, $telefone1, $telefone2, $email, $ie, $CPF, $nascimento, $RG, $orgRG, $uf, $cidade, $bairro, $logradouro, $complemento, $curso) {
                 $validnome = validarnome($nome);
                 $validtelefone1 = validartelefone1($telefone1);
                 $validtelefone2 = validartelefone2($telefone2);
                 $validemail = validaremail($email);
                 $validsituacao = validarie($ie);
                 $validCPF = validarCPF($CPF);
-                $validOrgCPF = validarOrgCPF($orgCPF);
+                $validNascimento = validarNascimento($nascimento);
                 $validRG = validarRg($RG);
                 $validOrgRG =  validarOrgRG($orgRG);
                 $validUf = validarUF($UF);
@@ -179,8 +179,23 @@
        };
        
        // Função para validar a data de nascimento
-       function validarOrgCPF($orgCPF){
+       function validarNascimento($nascimento){
+           $nascimento = explode("/","$dat"); // fatia a string $dat em pedados, usando / como referência
+           $d = $nascimento[0];
+           $m = $nascimento[1];
+           $y = $nascimento[2];
            
+           // 1 = true (válida)
+           // 0 = false (inválida)
+           $res = checkdate($m,$d,$y);
+           if ($res == 1){
+               echo "data ok!";
+           } else {
+               echo "data inválida!";
+           }
+       
+       //Exemplo de chamada a função
+      // ValidarNascimento("31/02/2002");
        };
 
        // Função para validar o RG
