@@ -2,7 +2,7 @@
 	
 	// Conexao com o Banco De Dados
 	function conexaobd (){
-		$conexao = mysqli_connect("localhost", "root", "", "dbceli");
+		$conexao = mysqli_connect("localhost", "root", "", "celi");
 		if (!$conexao){
 			echo "ERROR! failure to connect to the database.";
 			echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;

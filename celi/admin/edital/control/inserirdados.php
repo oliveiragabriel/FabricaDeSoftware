@@ -13,3 +13,7 @@ $dataabertura = $_POST['dataabertura'];
 $horaabertura = $_POST['horaabertura'];
 $dataencerramento = $_POST['dataencerramento'];
 $horaencerramento = $_POST['horaencerramento'];
+
+echo "$dataabertura | $horaabertura | $dataencerramento | $horaencerramento | $curso";
+
+?>
