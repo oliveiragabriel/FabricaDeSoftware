@@ -1,6 +1,6 @@
 <?php
        // Chamando o arquivo .php pdao
-       require_once '../../arquivosfixos/pdaoscript.php';
+       require_once '../../arquivosfixos/pdao/pdaoscript.php';
 
        // Pegando os dados do form
        if(isset($_POST['name']) && isset($_POST['course']) && isset($_POST['phone1']) && isset($_POST['nascimento']) && isset($_POST['phone2']) && isset($_POST['uf']) && isset($_POST['cidade']) && isset($_POST['bairro']) && isset($_POST['logradouro']) && isset($_POST['complemento']) && isset($_POST['radio'])){
@@ -143,7 +143,7 @@
            }
            return $errotelefone2;
        };
-       
+
 
        // Função para validar o email
        function validaremail($email){
@@ -177,14 +177,14 @@
                echo "ERRO: campo 'CPF' está vazio<br/>";
            };
        };
-       
+
        // Função para validar a data de nascimento
        function validarNascimento($nascimento){
            $nascimento = explode("/","$dat"); // fatia a string $dat em pedados, usando / como referência
            $d = $nascimento[0];
            $m = $nascimento[1];
            $y = $nascimento[2];
-           
+
            // 1 = true (válida)
            // 0 = false (inválida)
            $res = checkdate($m,$d,$y);
@@ -193,7 +193,7 @@
            } else {
                echo "data inválida!";
            }
-       
+
        //Exemplo de chamada a função
       // ValidarNascimento("31/02/2002");
        };
@@ -216,7 +216,7 @@
                            $resto = $soma % 11;
                            return $RG{10} == ($resto < 2 ? 0 : 11 - $resto);
        };
-       
+
        // Função para validar o orgão emissor do RG
        function validarOrgRG($orgRG){
            $orgRG= 0;
@@ -242,7 +242,7 @@
            }
            return $erroOrgRG;
        };
-       
+
        // Função para validar o UF
        function validarUF($UF){
         $erroUF=0;
@@ -403,7 +403,7 @@
            }
            return $erroComplemento;
        };
-       
+
        // Função para validar o Curso
        function validarCurso($curso){
            $erroCursoF=0;

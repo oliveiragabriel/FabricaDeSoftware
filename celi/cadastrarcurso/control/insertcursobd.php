@@ -1,6 +1,6 @@
-<?php 
+<?php
 	include "./validacaocurso.php";
-	include "../../arquivosfixos/pdaoscript.php";
+	include "../../arquivosfixos/pdao/pdaoscript.php";
 
 	// Pegando os dados do formulário e validando
 	$nomecurso = $_GET['nomecurso'];
@@ -25,7 +25,7 @@
 		echo "nome inválido!";
 	}
 
-	
+
 
 
 ?>
