@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -40,35 +41,47 @@
 								<label class="main-form-label main-form-labelNome">Nome</label>
 								<input  class="main-form-input main-form-inputNome" type="text" name="name" placeholder="Nome">
 							</div>
-							<div class="main-form-informations-nascimento">
-								<label  class="main-form-label main-form-labelNacimento">Nascimento</label>
-								<input  class="main-form-input main-form-inputNascimento" type="date" name="nascimento" >
-							</div>
-							<div class="main-form-informations-rg">
-								<label class="main-form-label main-form-labelRG">RG</label>
-								<input class="main-form-input main-form-inputRG" type="text" name="document1" placeholder="RG">
-							</div>
-							<div class="main-form-informations-emiEg">
-								<label  class="main-form-label main-form-labelOrgEmiRg">Órgão Emissor do RG</label>
-								<input  class="main-form-input main-form-inputOrgRG" type="text" name="OrgEmiRg" placeholder="Órgão Emissor do RG">
-							</div>
-							<div class="main-form-informations-cpf">
-								<label  class="main-form-label main-form-labelCPF">CPF</label>
-								<input  class="main-form-input main-form-inputCPF" type="text" name="document2" placeholder="CPF">
-							</div>
-							<div class="main-form-informations-telefone1">
-								<label class="main-form-label main-form-labelTelefone1">Telefone 1</label>
-								<input class="main-form-input main-form-inputTelefone1" type="text" name="phone1" placeholder="Telefone 1">
-							</div>
-							<div class="main-form-informations-telefone2">
-								<label class="main-form-label main-form-labelTelefone2">Telefone 2</label>
-								<input class="main-form-input main-form-inputTelefone2" type="text" name="phone2" placeholder="Telefone 2">
-							</div>
-							<div class="main-form-informations-email">
+							<div class="main-form-contact-email">
 								<label  class="main-form-label main-form-labelEmail">E-mail</label>
 								<input  class="main-form-input main-form-inputEmail" type="text" name="email" placeholder="Telefone (opcional)">
 							</div>
-							<div class="main-form-informations-uf">
+							<div style="clear:both;"></div>
+						</div>
+						<div class="main-form-contact">
+							<div class="main-form-informations-documento">
+								<label class="main-form-label main-form-labelRG">RG</label>
+								<input class="main-form-input main-form-inputRG" type="text" name="document1" placeholder="RG">
+							</div>
+							<div class="main-form-informations-documento">
+								<label  class="main-form-label main-form-labelOrgEmiRg">Órgão Emissor do RG</label>
+								<input  class="main-form-input main-form-inputOrgRG" type="text" name="OrgEmiRg" placeholder="Órgão Emissor do RG">
+							</div>
+							<div class="main-form-informations-documento">
+								<label  class="main-form-label main-form-labelCPF">CPF</label>
+								<input  class="main-form-input main-form-inputCPF" type="text" name="document2" placeholder="CPF">
+							</div>
+							<div style="clear:both;"></div>
+						</div>
+						<div class="main-form-nascimento">
+							<div class="main-form-nascimento-data">
+								<label  class="main-form-label main-form-labelNacimento">Nascimento</label>
+								<input  class="main-form-input main-form-inputNascimento" type="text" name="nascimento" placeholder="Data de Nascimento">
+							</div>
+							<div style="clear:both;"></div>
+						</div>
+						<div class="main-form-contact">
+							<div class="main-form-contact-telefone1">
+								<label class="main-form-label main-form-labelTelefone1">Telefone 1</label>
+								<input class="main-form-input main-form-inputTelefone1" type="text" name="phone1" placeholder="Telefone">
+							</div>
+							<div class="main-form-contact-telefone2">
+								<label  class="main-form-label main-form-labelTelefone2">Telefone 2</label>
+								<input  class="main-form-input main-form-inputTelefone2" type="text" name="phone2" placeholder="Telefone (opcional)">
+							</div>
+							<div style="clear:both;"></div>
+						</div>
+						<div class="main-form-endereco">
+							<div class="main-form-endereco-uf">
 								<label  class="main-form-label main-form-labelUf">UF</label>
 								<select class="main-form-input main-form-inputUf" name="uf">
 									<option value="1">AC</option>
@@ -100,48 +113,36 @@
 									<option value="27">TO</option>
 								</select>
 							</div>
-							<div class="main-form-informations-cidade">
+							<div class="main-form-endereco-cidade">
 								<label  class="main-form-label main-form-labelCidade">Cidade</label>
 								<input  class="main-form-input main-form-inputCidade" type="text" name="cidade" placeholder="Cidade">
 							</div>
-							<div class="main-form-informations-bairro">
+							<div class="main-form-endereco-bairro">
 								<label  class="main-form-label main-form-labelBairro">Bairro</label>
 								<input  class="main-form-input main-form-inputBairro" type="text" name="bairro" placeholder="Bairro">
 							</div>
-							<div class="main-form-informations-rua">
+							<div class="main-form-endereco-rua">
 								<label  class="main-form-label main-form-labelLogradouro">Nome do logradouro</label>
 								<input  class="main-form-input main-form-inputLogradouro" type="text" name="logradouro" placeholder="Rua">
 							</div>
-							<div class="main-form-informations-complemento">
+							<div class="main-form-endereco-complemento">
 								<label  class="main-form-label main-form-labelComplemento">Complemento</label>
 								<input  class="main-form-input main-form-inputComplemento" type="text" name="complemento" placeholder="Complemento">
 							</div>
-							<div class="main-form-informations-situation">
-								<label class="main-form-label main-form-labelSituation">Situação</label>
-								<div class="main-form-radiobutton-interno">
-									<p class="main-form-labelRadio">Interno</p>
-									<input class="main-form-inputRadio inputButtonInterno" type="radio" name="radio" value="i">
-								</div>
-								<div class="main-form-radiobutton-externo">
-									<input  class="main-form-inputRadio inputButtonExterno" type="radio" name="radio" value="e">
-									<p class="main-form-labelRadio">Externo</p>
-								</div>
+							<div style="clear:both;"></div>
+						</div>
+						<div class="main-form-situation">
+							<label class="main-form-label main-form-situation-label">Situação</label>
+							<div class="main-form-radiobutton-interno">
+								<p class="main-form-labelRadio">Interno</p>
+								<input class="main-form-inputRadio inputButtonInterno" type="radio" name="radio" value="i">
+							</div>
+							<div class="main-form-radiobutton-externo">
+								<input  class="main-form-inputRadio inputButtonExterno" type="radio" name="radio" value="e">
+								<p class="main-form-labelRadio">Externo</p>
 							</div>
 							<div style="clear:both;"></div>
 						</div>
-						<div class="main-form-informations-situation">
-								<label class="main-form-label main-form-labelDeficiencia">Deficiência</label>
-								<div class="main-form-radiobutton-sim">
-									<p class="main-form-labelRadio">Sim</p>
-									<input class="main-form-inputRadio inputButtonSim" type="radio" name="radio" value="s">
-								</div>
-								<div class="main-form-radiobutton-nao">
-									<input  class="main-form-inputRadio inputButtonNao" type="radio" name="radio" value="n">
-									<p class="main-form-labelRadio">Não</p>
-								</div>
-							</div>
-							<div style="clear:both;"></div>
-						<textarea rows="15" cols="70" placeholder="Qual? Tem necessidades?"></textarea>
 						<div class="main-form-course">
 							<label  class="main-form-label main-form-labelCurso">Cursos</label>
 							<select class="main-form-input main-form-selectCurso" name="course">
@@ -159,13 +160,13 @@
 			<footer id="footer">
 				<div class="footer-content">
 					<div class="footer-content-logotipo footer-content-cefet">
-						<img class="footer-content-cefet-img" src="#" alt="CEFET/RJ">
+						<img class="footer-content-cefet-img" src="#" alt="CEFET/RJ">	
 					</div>
 					<div class="footer-content-logotipo  footer-content-fabricadesoftware">
-						<img class="footer-content-fabricadesoftware-img" src="#" alt="CEFET/RJ">
+						<img class="footer-content-fabricadesoftware-img" src="#" alt="CEFET/RJ">	
 					</div>
 					<div class="footer-content-logotipo footer-content-wordpress">
-						<img class="footer-content-wordpress-img" src="#" alt="CEFET/RJ">
+						<img class="footer-content-wordpress-img" src="#" alt="CEFET/RJ">	
 					</div>
 				</div>
 			</footer>

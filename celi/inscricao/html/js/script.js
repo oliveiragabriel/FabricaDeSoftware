@@ -14,6 +14,7 @@ $(function(){
 		var vldComplemento = validarComplemento();
 		var vldSituacao = validarSituacao();
 		var vldCurso = validarCurso();
+	
 		if(!vldNome|| !vldCpf|| !vldCpfEmissor|| !vldRg|| !vldRgEmissor||  !vldTel1 || !vldTel2 ||!vldEmail|| !vldCidade || !vldCidade || !vldCidade || !vldBairro || !vldLogradouro || !vldComplemento || !vldCurso || !vldSituacao ){
 			return false;
 		}
@@ -24,7 +25,7 @@ $(function(){
 });
 
 function validarNome(){
-	var nome=formulario.name.value ;
+	var nome= $(".main-form-inputNome").val() ;
 	nome= nome.trim();
 	var i=0;
 	if (nome == ""){
@@ -40,7 +41,7 @@ function validarNome(){
 };
 
 function validarRg (){
-	var Rg = formulario.document1.value;
+	var Rg =$(".main-form-inputRG").val() ;
 	if(Rg == ""){
 		return false;
 	}
@@ -58,7 +59,7 @@ function validarRg (){
 };
 
 function validarRGEmissor(){
-	var RGEmissor = formulario.RGEmissor.value ;
+	var RGEmissor = $(".main-form-inputOrgRG").val() ;
 	RGEmissor= RGEmissor.trim();
 	var i=0;
 	if (RGEmissor == ""){
@@ -76,24 +77,9 @@ function validarRGEmissor(){
 	return true;
 };
 
-function validarCpfEmissor(){
-	var CpfEmissor = formulario.CpfEmissor.value ;
-	CpfEmissor= CpfEmissor.trim();
-	var i=0;
-	if (CpfEmissor == ""){
-		return false;
-	}
-	for (i=0; i<CpfEmissor.length; i++) {
-		var c = CpfEmissor.charCodeAt(i);
-		if((c<65 || c>90 && c<97 || c<128 && c>154 || c<160 && c>165 || c<181 && c>183 || c<198 && c>199 || c<224 || c<226 && c>229 || c<233 && c>235 || c>122) && c!=240){
-			return false;
-		}
-	}
-	return true;
-};
 
 function validarTelefone1 (){
-	var telefone1 = formulario.phone1.value;
+	var telefone1 = $(".main-form-inputTelefone1").val() ;
 	if(telefone1 == ""){
 		return false;
 	}
@@ -107,7 +93,7 @@ function validarTelefone1 (){
 };
 
 function validarTelefone2 (){
-	var telefone2 = formulario.phone2.value;
+	var telefone2 =  $(".main-form-inputTelefone2").val() ;
 	if(telefone2 == ""){
 		return false;
 	}
@@ -121,7 +107,7 @@ function validarTelefone2 (){
 };
 
 function validarEmail(){
-	var email = formulario.email.value;
+	var email =  $(".main-form-inputEmail").val() ;
 	var usuario= email.substring(0, email.indexOf("@"));
 	var dominio= email.substring(email.indexOf("@")+1, email.length);
 	if(email == ""){
@@ -142,7 +128,7 @@ function validarEmail(){
 };
 
 function validarUf(){
-	var Uf =  ($('.main-form-Uf').val()).trim();
+	var Uf =  ($('.main-form-inputUf').val()).trim();
 	if( Uf ==""){ 
 		return false;
 		}
@@ -159,7 +145,7 @@ function validarUf(){
 };	
 
 function validarCidade(){
-	var cidade = formulario.cidade.value ;
+	var cidade =  $(".main-form-inputCidade").val() ;
 	cidade= cidade.trim();
 	var i=0;
 	if (cidade == ""){
@@ -175,7 +161,7 @@ function validarCidade(){
 };
 
 function validarBairro(){
-	var bairro = formulario.bairro.value ;
+	var bairro =  $(".main-form-inputBairro").val() ;
 	bairro = bairro.trim();
 	var i=0;
 	
@@ -192,7 +178,7 @@ function validarBairro(){
 	};
 
 function validarLogradouro(){
-	var logradouro = formulario.logradouro.value ;
+	var logradouro =  $(".main-form-inputLogradouro").val() ;
 	logradouro = logradouro.trim();
 	var i=0;
 	
@@ -208,7 +194,7 @@ function validarLogradouro(){
 };
 	
 	function validarComplemento(){
-		var complemento = formulario.complemento.value ;
+		var complemento =$(".main-form-inputComplemento").val() ; ;
 		complemento = complemento.trim();
 		var i=0;
 		
@@ -239,7 +225,7 @@ function validarSituacao(){
 };
 
 function validarCurso(){
-	var Curso =  ($('.main-form-selectCurso').val()).trim();
+	var Curso =  ($('.main-form-course').val()).trim();
 	if( curso ==""){ 
 		return false;
 		}
@@ -254,3 +240,37 @@ function validarCurso(){
 			}
 		}	
 };	
+
+function validarNascimento(){
+	var nascimento= ($('.main-form-inputNascimento').val()).trim();
+	nascimento= nascimento.trim();
+	if(nascimento == ""){
+		return false;
+	}
+	for (i=0; i<nascimento.length; i++) {
+		var c = nascimento.charAt(i);
+		if(isNaN(c)){
+			return false;
+		}
+	}
+	var datanascimento = nascimento.split("-");
+	var diaNasc = parseInt(datanascimento[2]);
+	var mesNasc = parseInt(datanascimento[1]);
+	var anoNasc = parseInt(datanascimento[0]);
+	
+	var hoje = new Date();
+	var diaHoje = hoje.getDate();
+	var mesHoje = hoje.getMonth() + 1;
+	var anoHoje = hoje.getFullYear(); 
+	
+	var total= anoHoje-anoNasc;
+	if( mesHoje >= mesNasc ){
+		
+		if(diaHoje>diaNasc){
+			total=total-1;
+		}
+	}
+		
+		return true;
+	
+};

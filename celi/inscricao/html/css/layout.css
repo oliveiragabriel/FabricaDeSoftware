@@ -24,36 +24,36 @@
 	width: auto;
 	margin: 0 auto;
 }
-.main-form-informations{
+.main-form-informations, .main-form-contact, .main-form-endereco{
 	width: 1100px;
 	height: auto;
 	margin: 0 auto;
 }
-.main-form-informations-nome, .main-form-informations-nascimento, .main-form-informations-rg, .main-form-informations-emiEg, .main-form-informations-cpf, .main-form-informations-telefone1, .main-form-informations-telefone2, .main-form-informations-email,  .main-form-informations-uf, .main-form-informations-cidade, .main-form-informations-bairro, .main-form-informations-rua, .main-form-informations-complemento, .main-form-informations-situation{
+.main-form-informations-nome, .main-form-informations-documento, .main-form-contact-telefone1, .main-form-contact-telefone2, .main-form-endereco-uf, .main-form-endereco-cidade, .main-form-endereco-bairro, .main-form-endereco-rua, .main-form-endereco-complemento, .main-form-contact-email{
 	display: block;
 	float: left;
-	width: 50%;
+	width: 50% !important;
 }
-.main-form-labelSituation{
-	clear: both;
-	display: block;
-	width: 80%;
+.main-form-situation{
+	width: 300px;
+	height: auto;
 	margin: 0 auto;
-	margin-top: 15px;
-	text-align: center;
-	padding: 10px;
 }
-.main-form-radiobutton-interno, .main-form-radiobutton-externo{
-	width: auto;
-	line-height: 40px;
-	width: 40%;
+.main-form-situation-label{
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	text-align: center;
 }
 .main-form-radiobutton-interno{
-	text-align: right;
 	float: left;
+	width: auto;
 }
 .main-form-radiobutton-externo{
 	float: right;
+	width: auto;
 }
 .main-form-labelRadio, .main-form-inputRadio{
 	display: inline-block;
@@ -78,7 +78,7 @@
 	padding: 10px;
 }
 
-.main-form-label:not(.main-form-situation-label):not(.main-form-labelCurso):not(.main-form-labelSituation){
+.main-form-label:not(.main-form-situation-label):not(.main-form-labelCurso){
 	clear: both;
 	display: block;
 	width: 80%;
