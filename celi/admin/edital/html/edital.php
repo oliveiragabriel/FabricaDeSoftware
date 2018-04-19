@@ -1,5 +1,10 @@
 <?php
-	include('../control/itensedital.php');
+	// include('../control/itensedital.php');
+	require "../../../arquivosfixos/pdao/pdaoscript.php";
+
+	$campos = "idcurso, nome";
+	$tabela = "curso";
+	$sql =  selecionarbd($campos, $tabela, NULL);
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +44,7 @@
 			<main id="main">
 				<div class="main-content">
 					<h1 class="main-title">Informações de Edital</h1>
-					<form class="main-form" action="../control/inserirdados.php" method="post">
+					<form class="main-form" action="../control/inserteditalbd.php" method="post">
 						<div class="main-form-box">
 							<div class="main-form-box-dataAbert">
 								<label class="main-form-label main-form-labelDataAbert">Data de abertura</label>
@@ -83,7 +88,7 @@
 										<input class="main-form-input main-form-inputVagasExt" id="input-vagas" type="number" name="vagaexterno[<?php echo $curso['idcurso']; ?>]" min="0" placeholder="Externo" disabled>
 									</td>
 								</tr>
-								<?php 
+								<?php
 								}
 								?>
 							</table>
@@ -94,7 +99,7 @@
 							<input class="main-form-input main-form-inputCondicoes" type="text" name="condicao">
 							<div style="clear:both;"></div>
 						</div>
-						
+
 						<button class="main-form-inputButton" type="submit">Inserir</button>
 					</form>
 				</div>
@@ -102,13 +107,13 @@
 			<footer id="footer">
 				<div class="footer-content">
 					<div class="footer-content-logotipo footer-content-cefet">
-						<img class="footer-content-cefet-img" src="#" alt="CEFET/RJ">	
+						<img class="footer-content-cefet-img" src="#" alt="Logotipo do CEFET/RJ">
 					</div>
 					<div class="footer-content-logotipo  footer-content-fabricadesoftware">
-						<img class="footer-content-fabricadesoftware-img" src="#" alt="CEFET/RJ">	
+						<img class="footer-content-fabricadesoftware-img" src="#" alt="Logotipo da Fábrica de Software">
 					</div>
 					<div class="footer-content-logotipo footer-content-wordpress">
-						<img class="footer-content-wordpress-img" src="#" alt="CEFET/RJ">	
+						<img class="footer-content-wordpress-img" src="#" alt="Créditos do Wordpress">
 					</div>
 				</div>
 			</footer>

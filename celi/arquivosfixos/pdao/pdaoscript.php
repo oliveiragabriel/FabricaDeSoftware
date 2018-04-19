@@ -1,6 +1,10 @@
 <?php
-	
-	// Conexao com o Banco De Dados
+
+	/*
+			Conexao com o Banco De Dados
+		Estabelece conexão como Banco de dados. Normalmente essa função já é chamada, automaticamente, quando chama-se uma
+		dessas funções abaixo, não necessitando estabelecer conexao com o BD antes de utilizar-se delas.
+	*/
 	function conexaobd (){
 		$conexao = mysqli_connect("localhost", "root", "", "celi");
 		if (!$conexao){
@@ -11,11 +15,15 @@
 		return $conexao;
 	};
 
-	// Verificação a existencia de determinado elemento no Banco De Dados
-	function verificarbd ($tabela, $condicao){
+	/*
+			Verificação do Banco de Dados
+		Verificação a existência de determinado elemento no Banco De Dados. Em caso afirmativo, retorna a quantidade de vezes
+		que é encontrada.
+	*/
+	function verificarbd ($campo, $tabela, $condicao){
 		$conexao = conexaobd();
 		if($conexao){
-			$sql = "SELECT nome FROM ".$tabela." WHERE ".$condicao.";";
+			$sql = "SELECT ".$campo." FROM ".$tabela." WHERE ".$condicao.";";
 			$query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 			$qtdelinha = mysqli_num_rows($query);
 
@@ -28,7 +36,13 @@
 
 	}
 
-	// Inserir no Banco De Dados
+	/*
+				Inserir no Banco De Dados
+			$tabela = a tabela na qual será realizada o insert;
+			$elementos = os compos da tabela escolhida;
+			$conteudo = os dados que serão inseridos na tabela;
+			$condicao = caso você necessita de uma condição para realizar o insert coloque-a aqui, caso contrario passa NULL como parâmetro;
+	*/
 	function inserirbd ($tabela, $elementos, $conteudo, $condicao){
 		$conexao = conexaobd();
 		if($conexao){
@@ -56,5 +70,35 @@
 			echo "Conexão com o BD não estabelecida!";
 			return FALSE;
 		}
+	}
+
+
+	/*
+			Realizar um select no Banco De Dados
+	 	$campos = os campos da tabela que vc quer selecionar;
+		$tabela = a tabela em que vc quer realizar o select;
+		$condicao = caso você necessita de uma condição para realizar o select coloque-a aqui, caso contrario passa NULL como parâmetro;
+	*/
+	function selecionarbd ($campo, $tabela, $condicao){
+		$conexao = conexaobd();
+		if($conexao){
+			if($condicao == NULL){
+				$sql = "SELECT $campo FROM ".$tabela.";";
+				$query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+
+				return $query;
+			}
+			else{
+				$sql = "SELECT $campo FROM ".$tabela." WHERE ".$condicao.";";
+				$query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+
+				return $query;
+			}
+		}
+		else{
+			echo "Conexão com o BD não estabelecida!";
+			return FALSE;
+		}
+
 	}
 ?>
