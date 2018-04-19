@@ -34,13 +34,15 @@ CREATE TABLE `candidato` (
   `cpf` varchar(11) DEFAULT NULL,
   `nascimento` date NOT NULL,
   `logradouro` varchar(75) NOT NULL,
+  `complemento` varchar(45) DEFAULT NULL,
   `bairro` varchar(45) NOT NULL,
   `cep` varchar(8) NOT NULL,
   `cidade` varchar(40) NOT NULL,
   `uf` enum('AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RR','RO','RJ','RN','RS','SC','SP','SE','TO') NOT NULL,
   `email` varchar(50) DEFAULT NULL,
   `telefone1` varchar(11) NOT NULL,
-  `telefone2` varchar(11) NOT NULL
+  `telefone2` varchar(11) NOT NULL,
+  `situacao` enum('I','E')
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
