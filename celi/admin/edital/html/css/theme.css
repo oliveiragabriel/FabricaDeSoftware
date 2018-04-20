@@ -1,7 +1,6 @@
 .main-title{
 	font-family: 'arial';
 	font-size: 50px;
-	text-transform: uppercase;
 	font-weight: normal;
 	word-spacing: 10px;
 	color: rgb(20,20,20);
@@ -9,10 +8,22 @@
 }
 .main-form-label{
 	font-family: arial;
-	font-size: 15px;
+	font-size: 12px;
 	color: #444;
-	text-transform: uppercase;
+	text-transform: capitalize;
 	letter-spacing: 1px;
-	/* margin-left: 5px; */
-	/* margin-bottom: 5px; */
+}
+.main-form-box-title{
+	font-family: arial;
+	font-size: 20px;
+	color: #444;
+	text-transform: capitalize;
+	letter-spacing: 1px;
+}
+.main-form-input:not(.main-form-labelCurso):not(.main-form-labelVagas){
+	border: 0;
+	border-top: 2px solid #ddd;
+}
+.header-menuItem-content{
+	font-weight: bold;
 }
