@@ -32,10 +32,10 @@ table, tr, td{
 	width: 100%;
 	height: auto;
 }
-.main-form-abertTitle-ctt-text, .main-form-encerTitle-ctt-text{
+.main-form-abertTitle-ctt-text, .main-form-encerTitle-ctt-text, .main-form-condicao-title-text, .main-form-cursoTitle-ctt-text, .main-form-vagasTitle-ctt-text, .main-form-vagasTitle-ctt-text{
 	text-align: center;
 }
-.main-form-abertInput-data-text, .main-form-abertInput-hora-text, .main-form-encerInput-data-text, .main-form-encerInput-hora-text{
+.main-form-abertInput-data-text, .main-form-abertInput-hora-text, .main-form-encerInput-data-text, .main-form-encerInput-hora-text, .main-form-cursoLine-vagas-interno, .main-form-cursoLine-vagas-externo{
 	width: 100%;
 }
 .main-form-inputButton{

@@ -37,7 +37,7 @@
 						<span class="header-menuItem-content header-menuItem-icon">+</span>
 						<p class="header-menuItem-content header-menuItem-text">Edital</p>
 					</a>
-					<a class="header-menuItem" href="#">
+					<a class="header-menuItem" href="../../../cadastrarcurso/html/cadastrarcurso.html">
 						<span class="header-menuItem-content header-menuItem-icon">+</span>
 						<p class="header-menuItem-content header-menuItem-text">Cursos</p>
 					</a>
@@ -134,10 +134,10 @@
 								<td class="main-form-cursoLine-nome">
 									<p class="main-form-cursoLine-nome-text"><?php echo $curso['nome']; ?></p>
 								</td>
-								<td class="main-form-cursoLine-vagas">
+								<td class="main-form-cursoLine-vagas vagas-interno">
 									<input class="main-form-cursoLine-vagas-interno" type="number" name="<?php echo "interno".$curso['idcurso']; ?>" min="0" placeholder="Interno" disabled>
 								</td>
-								<td class="main-form-cursoLine-vagas">
+								<td class="main-form-cursoLine-vagas vagas-externo">
 									<input class="main-form-cursoLine-vagas-externo" type="number" name="<?php echo "externo".$curso['idcurso']; ?>" min="0" placeholder="Externo" disabled>
 								</td>
 							</tr>

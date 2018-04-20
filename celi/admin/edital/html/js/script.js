@@ -4,33 +4,34 @@ $(function(){
 		var vldDataEncerramento =ddsd;
 
 	});
-	
-	$(".main-form-checkbox").click(function(){
+
+	$(".main-form-cursoLine-checkbox-element").click(function(){
 		if($(this).is(':checked')){
-			var vagasInt = $(this).parent(".main-form-box-col1").next(".main-form-box-col2").find(".main-form-inputVagasInt");
-			var vagasExt = $(this).parent(".main-form-box-col1").next(".main-form-box-col2").next(".main-form-box-col3").find(".main-form-inputVagasExt");
+			var vagasInt = $(this).parent(".main-form-cursoLine-checkbox").next(".main-form-cursoLine-nome").next(".vagas-interno").find(".main-form-cursoLine-vagas-interno");
+			var vagasExt = $(this).parent(".main-form-cursoLine-checkbox").next(".main-form-cursoLine-nome").next(".vagas-interno").next(".vagas-externo").find(".main-form-cursoLine-vagas-externo");
+			// console.log(vagasInt);
 			vagasInt.prop("disabled", false);
 			vagasExt.prop("disabled", false);
 		}
 		else{
-			var vagasInt = $(this).parent(".main-form-box-col1").next(".main-form-box-col2").find(".main-form-inputVagasInt");
-			var vagasExt = $(this).parent(".main-form-box-col1").next(".main-form-box-col2").next(".main-form-box-col3").find(".main-form-inputVagasExt");
+			var vagasInt = $(this).parent(".main-form-cursoLine-checkbox").next(".main-form-cursoLine-nome").next(".vagas-interno").find(".main-form-cursoLine-vagas-interno");
+			var vagasExt = $(this).parent(".main-form-cursoLine-checkbox").next(".main-form-cursoLine-nome").next(".vagas-interno").next(".vagas-externo").find(".main-form-cursoLine-vagas-externo");
 			vagasInt.prop("disabled", true);
 			vagasExt.prop("disabled", true);
 		}
 	});
-	
+
 	function validaDataAbertura(){
 		var dataCompleta = $(".main-form-inputDataAbert").val();
 		var arrayData = dataCompleta.split("-");
 		var anoAbertura = arrayData[0];
 		var mesAbertura = arrayData[1];
 		var diaAbertura = arrayData[2];
-		
+
 		if(mesAbertura < 1|| mesAbertura > 12){
 			var erro = 1;
 		}
-		
+
 		else if (diaAbertura < 1|| diaAbertura > 31){
 			var erro = 1;
 		}
@@ -42,23 +43,23 @@ $(function(){
 		var anoEncerramento = arrayData[0];
 		var mesEncerramento = arrayData[1];
 		var diaEncerramento = arrayData[2];
-		
+
 		if(mesEncerramento < 1|| mesEncerramento > 12){
 			var erro = 1;
 		}
-		
+
 		else if (diaEncerramento < 1|| diaEncerramento > 31){
 			var erro = 1;
 		}
 	};
-	
+
 	function validaHorarioAbertura(){
 		var horarioCompleto = $(".main-form-inputHoraAbert").val();
 		var arrayHorario = horaCompleta.split(":");
 		var horaAbertura = arrayHorario[0];
 		var minutosAbertura = arrayHorario[1];
 		var segundosAbertura = arrayHorario[2];
-		
+
 		if (horaAbertura < 0|| horaAbertura > 24){
 			var erro = 1;
 		}
@@ -69,14 +70,14 @@ $(function(){
 			var erro = 1;
 		}
 	};
-	
+
 	function validaHorarioEncerramento(){
 		var horarioCompleto = $(".main-form-inputHoraEncer").val();
 		var arrayHorario = horaCompleta.split(":");
 		var horaEncerramento = arrayHorario[0];
 		var minutosEncerramento= arrayHorario[1];
 		var segundosEncerramento = arrayHorario[2];
-		
+
 		if (horaEncerramento < 0|| horaEncerramento > 24){
 			var erro = 1;
 		}
@@ -87,7 +88,7 @@ $(function(){
 			var erro = 1;
 		}
 	};
-	
+
 	function validaRelacaoAberturaEncerramento(){
 		var dataCompletaAbertura = $(".main-form-inputDataAbert").val();
 		var arrayDataAbertura = dataCompletaAbertura.split("-");
@@ -109,7 +110,7 @@ $(function(){
 		var horaEncerramento = arrayHorarioEncerramento[0];
 		var minutosEncerramento = arrayHorarioEncerramento[1];
 		var segundosEncerramento = arrayHorarioEncerramento[2];
-		
+
 		  if(anoAbertura < anoEncerramento){
 	        // Datas coerentes!
 	        var erro = 0;
