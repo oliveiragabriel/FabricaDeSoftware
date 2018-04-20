@@ -7,6 +7,7 @@
 	*/
 	function conexaobd (){
 		$conexao = mysqli_connect("localhost", "root", "", "celi");
+		mysqli_set_charset($conexao, "utf8");
 		if (!$conexao){
 			echo "ERROR! failure to connect to the database.";
 			echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
@@ -55,7 +56,7 @@
 			else{
 				$verificacao = verificarbd($tabela, $condicao);
 				if($verificacao == 0){
-					$sql = "INSERT INTO $tabela ($elementos) VALUES ($conteudo);";
+					$sql = "INSERT INTO $tabela ($elementos) VALUES ($conteudo) $condicao;";
 					$query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 
 					return TRUE;
@@ -89,7 +90,7 @@
 				return $query;
 			}
 			else{
-				$sql = "SELECT $campo FROM ".$tabela." WHERE ".$condicao.";";
+				$sql = "SELECT $campo FROM $tabela $condicao";
 				$query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 
 				return $query;

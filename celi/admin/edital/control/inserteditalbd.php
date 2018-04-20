@@ -14,15 +14,49 @@
     $condicao = $_POST['condicao'];
 
     // validando as datas
-    $valid = validarDataCoerencia($dataAbert, $dataEncer, $horaAbert, $horaEncer);
-    if($valid == 0){
+    $validDataHora = validarDataCoerencia($dataAbert, $dataEncer, $horaAbert, $horaEncer);
+    if($validDataHora == 0){
       // Data coerente (correto!)
       $tabela = "edital";
       $elementos = "data_ini, data_fim, hora_ini, hora_fim, condicao";
       $conteudo = "'$dataAbert', '$dataEncer', '$horaAbert', '$horaEncer', '$condicao'";
 
-      // Inseri do Banco de Dados
+      // Inseri na tabela "edital" do Banco de Dados
       $insert = inserirbd($tabela, $elementos, $conteudo, NULL);
+
+      // Pegando a quantidade de cursos registradas
+      $qtdeCursos = verificarbd("idcurso", "curso", "idcurso > 0");
+
+      // Cria um array de array com o curso e as vagas estabelecidas para cada curso selecionado
+      $arrayCursosDados = array();
+      for($i = 1; $i <= $qtdeCursos; $i++){
+        if(isset($_POST['curso'.$i]) && isset($_POST['interno'.$i]) && isset($_POST['externo'.$i])){
+          $idCurso = $_POST['curso'.$i];
+          $vagasInt = $_POST['interno'.$i];
+          $vagasExt = $_POST['externo'.$i];
+
+          $result = $idCurso."-".$vagasInt."-".$vagasExt;
+
+          array_push($arrayCursosDados, $result);
+        }
+      };
+
+      // Pegando o id do último edital adicionado
+      $campo = "idedital";
+      $tabela = "edital";
+      $condicao = "ORDER BY idedital DESC LIMIT 1";
+      $select = selecionarbd($campo, $tabela, $condicao);
+      $idEdital = mysqli_fetch_assoc($select);
+
+      // Inserindo os dados na tabela editalcurso no Banco de dados
+      $tabela = "editalcurso";
+      $elementos = "idedital, idcurso, vagainterna, vagaexterna";
+      $condicao = NULL;
+      for($i = 0; $i < count($arrayCursosDados); $i++){
+        $arrayContent = explode("-", $arrayCursosDados[$i]);
+        $conteudo = $idEdital['idedital'].", ".$arrayContent[0].", ".$arrayContent[1].", ".$arrayContent[2];
+        $insert += inserirbd($tabela, $elementos, $conteudo, $condicao);
+      }
 
       // Verifica o insert...
       if($insert){

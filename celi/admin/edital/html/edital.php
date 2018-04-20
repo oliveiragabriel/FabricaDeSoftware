@@ -82,10 +82,10 @@
 										<?php echo $curso['nome']; ?>
 									</td>
 									<td class="main-form-box-col2">
-										<input class="main-form-input main-form-inputVagasInt" id="input-vagas" type="number" name="vagainterno[<?php echo $curso['idcurso']; ?>]" min="0" placeholder="Interno" disabled>
+										<input class="main-form-input main-form-inputVagasInt" id="input-vagas" type="number" name="<?php echo "interno".$curso['idcurso']; ?>" min="0" placeholder="Interno" disabled>
 									</td>
 									<td class="main-form-box-col3">
-										<input class="main-form-input main-form-inputVagasExt" id="input-vagas" type="number" name="vagaexterno[<?php echo $curso['idcurso']; ?>]" min="0" placeholder="Externo" disabled>
+										<input class="main-form-input main-form-inputVagasExt" id="input-vagas" type="number" name="<?php echo "externo".$curso['idcurso']; ?>" min="0" placeholder="Externo" disabled>
 									</td>
 								</tr>
 								<?php
@@ -96,7 +96,7 @@
 						</div>
 						<div class="main-form-boxCondicao">
 							<label class="main-form-label main-form-labelCondicoes">Condições de Participação</label>
-							<input class="main-form-input main-form-inputCondicoes" type="text" name="condicao">
+							<textarea class="main-form-input main-form-inputCondicoes" type="text" name="condicao"></textarea>
 							<div style="clear:both;"></div>
 						</div>
 

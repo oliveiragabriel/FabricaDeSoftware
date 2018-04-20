@@ -117,12 +117,12 @@
   }
 
   // Função para validar o curso e quantidade de vagas disponibilizadas
-  function FunctionName(){
+  // function FunctionName(){
 
-  }
+  // }
 
   // Função para validar a condição inseridas
-  function FunctionName(){
+  // function FunctionName(){
 
-  }
+  // }
 ?>
