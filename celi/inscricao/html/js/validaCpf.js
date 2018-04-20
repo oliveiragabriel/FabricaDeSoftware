@@ -1,4 +1,5 @@
-$(function(){	
+$(function (){	
+	function validarCpf(){
 	var foco = "";
 	var msgstatus = "";
 	
@@ -293,4 +294,5 @@ $(function(){
 	        $("#btnRecarregar_captcha_serpro_gov_br").click();
 	    }
 	}
+	};	
 });

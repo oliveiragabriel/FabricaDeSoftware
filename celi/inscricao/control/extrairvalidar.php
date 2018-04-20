@@ -6,62 +6,65 @@
        if(isset($_POST['name']) && isset($_POST['course']) && isset($_POST['phone1']) && isset($_POST['nascimento']) && isset($_POST['phone2']) && isset($_POST['uf']) && isset($_POST['cidade']) && isset($_POST['bairro']) && isset($_POST['logradouro']) && isset($_POST['complemento']) && isset($_POST['radio'])){
          $nome=$_POST['name'];
          $RG=$_POST['document1'];
-         $OrgRG=$_POST['OrgEmiRg'];
+         $orgRG=$_POST['OrgEmiRg'];
          $CPF=$_POST['document2'];
          $nasc=$_POST['nascimento'];
          $curso= $_POST['course'];
          $telefone1=$_POST['phone1'];
          $telefone2=$_POST['phone2'];
-         $UF=$_POST['uf'];
+         $uf=$_POST['uf'];
          $cidade=$_POST['cidade'];
          $bairro=$_POST['bairro'];
          $logradouro=$_POST['logradouro'];
          $complemento=$_POST['complemento'];
          $email=$_POST['email'];
-         $ie=$_POST['radio'];
+         $situacao=$_POST['radio'];
 
          // Função que dispara todas as outras funções e, estando tudo certo, inseri no BD
-         function validar($nome, $telefone1, $telefone2, $email, $ie, $CPF, $nascimento, $RG, $orgRG, $uf, $cidade, $bairro, $logradouro, $complemento, $curso) {
+         function validar($nome, $telefone1, $telefone2, $email, $situacao, $CPF, $nasc, $RG, $orgRG, $uf, $cidade, $bairro, $logradouro, $complemento, $curso) {
                 $validnome = validarnome($nome);
-                $validtelefone1 = validartelefone1($telefone1);
-                $validtelefone2 = validartelefone2($telefone2);
+                $validtelefone1 = validartelefone($telefone1);
+                $validtelefone2 = validartelefone($telefone2);
                 $validemail = validaremail($email);
-                $validsituacao = validarie($ie);
-                $validCPF = validarCPF($CPF);
-                $validNascimento = validarNascimento($nascimento);
-                $validRG = validarRg($RG);
+                $validsituacao = validarie($situacao);
+                $validCpfRg = cpf_rg($CPF, $RG);
+                $validCPF = validarCpf($CPF);
+                $validNascimento = validarNascimento($nasc);
                 $validOrgRG =  validarOrgRG($orgRG);
-                $validUf = validarUF($UF);
+                $validUf = validarUF($uf);
                 $validCidade =  validarCidade($cidade);
                 $validBairro =  validarBairro($bairro);
                 $validLogradouro = validarLogradouro($logradouro);
-                $validComplemento = validarComplemento($complemento);
                 $validCurso = validarCurso($curso);
-                if($validnome == 0 && $validdocumento == 0 && $validtelefone1 == 0 && $validtelefone2 == 0 && $validemail == 0 && $validsituacao == 0){
-                        // Instanciando as variáveis que será utilizadas no inserta na tabela candidato
-                        $tabela = "candidato";
-                        $elementos = "nome, rg, cpf, nascimento, logradouro, bairro, cep, cidade, uf, email, telefone1, telefone2";
-                        $conteudo = "'$nomecurso'";
-                        $condicao = NULL;
-                        // Chamando a função de insert no BD
-                        $insert = inserirbd($tabela, $elementos, $conteudo, $condicao);
-                        // Feedback do insert
-                        if($insert){
-                          echo "Inseriu!";
-                        }
-                        else{
-                          echo "Não inseriu!";
-                        }
+                if($validnome == 0 && $validtelefone1 == 0 && $validtelefone2 == 0 && $validemail == 0 && $validsituacao == 0 && $validCpfRg == 0 && $validCPF == 0 
+                    && $validNascimento==0 && $validOrgRG==0 && $validUf==0 && $validCidade==0 &&  $validBairro==0 && $validLogradouro==0 &&  $validCurso==0){
+                       session_start();
+                       $_SESSION['name'] = $nome;
+                       $_SESSION['phone1'] = $telefone1;
+                       $_SESSION['phone2'] = $telefone2;
+                       $_SESSION['document1'] = $RG;
+                       $_SESSION['OrgEmiRg'] = $orgRG;
+                       $_SESSION['document2'] = $CPF;
+                       $_SESSION['uf'] = $uf;
+                       $_SESSION['cidade'] = $cidade;
+                       $_SESSION['bairro'] = $bairro;
+                       $_SESSION['logradouro'] = $logradouro;
+                       $_SESSION['complemento'] = $complemento;
+                       $_SESSION['situacao'] = $situacao;
+                       $_SESSION['curso'] = $curso;
+                       $_SESSION['email'] = $email;
+                       $_SESSION['dataNascimento'] = $nasc;
+                       
+                       header('location: ../html/confirmaInscricao.php');
                 }
          };
        }
-
+   
        // Função para validar o nome
        function validarnome($nome){
               $erronome = 0;
               if( trim($nome)=="" ){
-                     $erronome = 1;
-                     echo "ERRO: campo 'nome' está vazio<br/>";
+                     $erronome = 1;       
               }
               else{
                      $arraynome= str_split($nome);
@@ -82,79 +85,44 @@
                      }
                      if($erroletra==1){
                             $erronome = 1;
-                            echo "ERRO: contém números no campo 'nome'<br/>";
                      }
                      if($erroespecial==1){
                             $erronome = 1;
-                            echo "ERRO: contém caractere especial no campo 'nome'<br/>";
                      }
               }
               return $erronome;
        };
 
        // Função para validar o telefone
-       function validartelefone1($telefone1){
-              $errotelefone1 = 0;
-              if( trim($telefone1)=="" ){
-                     $errotelefone1 = 1;
-                     echo "ERRO: campo 'telefone' está vazio<br/>";
+       function validartelefone($telefone){
+              $errotelefone = 0;
+              if( trim($telefone)=="" ){
+                     $errotelefone = 1;
               }
               else{
-                     $arraytelefone1= str_split($telefone1);
-                     $lengthtelefone1= strlen($telefone1);
+                     $arraytelefone= str_split($telefone);
+                     $lengthtelefone= strlen($telefone);
                      $erroespecial=0;
-                     for($i=0;$i<$lengthtelefone1;$i++){
-                            $caracasciicode=ord($arraytelefone1[$i]);
+                     for($i=0;$i<$lengthtelefone;$i++){
+                            $caracasciicode=ord($arraytelefone[$i]);
                             if($caracasciicode==45 || $caracasciicode==32 || $caracasciicode>=40 && $caracasciicode<=41 ||$caracasciicode>=48 && $caracasciicode<=57){}
                             else{
                                    $erroespecial=1;
                             }
                      }
                      if($erroespecial==1){
-                            $errotelefone1 = 1;
-                            echo "ERRO: contém caractere especias no campo 'telefone'<br/>";
+                            $errotelefone = 1;
                      }
               }
-              return $errotelefone1;
-       };
-
-       // Função para validar o telefone
-       function validartelefone2($telefone2){
-           $errotelefone2 = 0;
-           if( trim($telefone2)=="" ){
-               $errotelefone2 = 1;
-               echo "ERRO: campo 'telefone' está vazio<br/>";
-           }
-           else{
-               $arraytelefone2= str_split($telefone2);
-               $lengthtelefone2= strlen($telefone2);
-               $erroespecial=0;
-               for($i=0;$i<$lengthtelefone2;$i++){
-                   $caracasciicode=ord($arraytelefone2[$i]);
-                   if($caracasciicode==45 || $caracasciicode==32 || $caracasciicode>=40 && $caracasciicode<=41 ||$caracasciicode>=48 && $caracasciicode<=57){}
-                   else{
-                       $erroespecial=1;
-                   }
-               }
-               if($erroespecial==1){
-                   $errotelefone2 = 1;
-                   echo "ERRO: contém caractere especias no campo 'telefone'<br/>";
-               }
-           }
-           return $errotelefone2;
+              return $errotelefone;
        };
        
 
        // Função para validar o email
        function validaremail($email){
               $erroemail = 0;
-              if( trim($email)=="" ){
-                     $erroemail = 1;
-                     echo "ERRO: campo 'email' está vazio<br/>";
-              }
               if(!(filter_var($email, FILTER_VALIDATE_EMAIL))){
                      $erroemail = 1;
-                     echo "ERRO: campo 'email' invalido<br/>";
               }
               return $erroemail;
        };
@@ -162,102 +130,102 @@
        // Função para validar a situação
        function validarie($ie){
               $errosituacao = 0;
-              if(!isset($ie)){
+              if($ie!="i" && $ie!="e"){
                      $errosituacao = 1;
-                     echo "ERRO: campo 'situação' não marcado<br/>";
               }
               return $errosituacao;
        };
+       
+       //Verifica se algum dos dois foram preenchidos
+       function cpf_rg ($cpf, $rg){
+           $erroCpfRg = 0;
+           if(trim($cpf)=="" && trim($rg)==""){
+               $erroCpfRg = 1;
+           }
+           
+           return $erroCpfRg;
+         
+       };
 
        // Função para validar o CPF
-       function validarCpf($CPF){
+       function validarCpf($cpf){
            $erroCpf = 0;
+           if( trim($cpf)!="" ){
+               
+               // Extrai somente os números
+               $cpf = preg_replace( '/[^0-9]/is', '', $cpf );
+               
+               // Verifica se foi informado todos os digitos corretamente
+               if (strlen($cpf) != 11) {
+                   return $erroCpf = 1;
+               }
+               
+               // Verifica se foi informada uma sequência de digitos repetidos. Ex: 111.111.111-11
+               if (preg_match('/(\d)\1{10}/', $cpf)) {
+                   return $erroCpf = 1;
+               }
+               // Faz o calculo para validar o CPF
+               for ($t = 9; $t < 11; $t++) {
+                   for ($d = 0, $c = 0; $c < $t; $c++) {
+                       $d += $cpf{$c} * (($t + 1) - $c);
+                   }
+                   $d = ((10 * $d) % 11) % 10;
+                   if ($cpf{$c} != $d) {
+                       return $erroCpf = 1;
+                   }
+               }
            if( trim($CPF)=="" ){
                $erroCpf = 1;
-               echo "ERRO: campo 'CPF' está vazio<br/>";
            };
-       };
-       
-       // Função para validar a data de nascimento
-       function validarNascimento($nascimento){
-           $nascimento = explode("/","$dat"); // fatia a string $dat em pedados, usando / como referência
-           $d = $nascimento[0];
-           $m = $nascimento[1];
-           $y = $nascimento[2];
-           
-           // 1 = true (válida)
-           // 0 = false (inválida)
-           $res = checkdate($m,$d,$y);
-           if ($res == 1){
-               echo "data ok!";
-           } else {
-               echo "data inválida!";
-           }
-       
-       //Exemplo de chamada a função
-      // ValidarNascimento("31/02/2002");
-       };
-
-       // Função para validar o RG
-       function validarRg($RG){
-           $RG = preg_replace('/[^0-9]/', '', (string) $RG);
-           // Valida tamanho
-           if (strlen($RG) != 9)
-               return false;
-               // Calcula e confere primeiro d�gito verificador
-               for ($i = 0, $j = 10, $soma = 0; $i < 9; $i++, $j--)
-                   $soma += $RG{$i} * $j;
-                   $resto = $soma % 11;
-                   if ($RG{9} != ($resto < 2 ? 0 : 11 - $resto))
-                       return false;
-                       // Calcula e confere segundo d�gito verificador
-                       for ($i = 0, $j = 11, $soma = 0; $i < 10; $i++, $j--)
-                           $soma += $RG{$i} * $j;
-                           $resto = $soma % 11;
-                           return $RG{10} == ($resto < 2 ? 0 : 11 - $resto);
        };
        
        // Função para validar o orgão emissor do RG
        function validarOrgRG($orgRG){
-           $orgRG= 0;
-           if( trim($orgRG)=="" ){
-               $errodoOrgRG = 1;
-               echo "ERRO: campo 'Orgão emissor do Rg' está vazio<br/>";
+           $erroOrgRG= 0;
+           if( (trim($rg)!= "" && trim($orgRG) == "") || (trim($rg)== "" && trim($orgRG) != "")){
+               $erroOrgRG = 1;
            }
            else{
-               $arraydoOrgRG= str_split($orgRG);
+               $arrayOrgRG= str_split($orgRG);
                $lengthOrgRG= strlen($orgRG);
-               $erroespecial=0;
                for($i=0;$i<$lengthOrgRG;$i++){
                    $caracasciicode=ord($arrayOrgRG[$i]);
-                   if($caracasciicode==32 || ($caracasciicode>=45 && $caracasciicode<=46) ||  ($caracasciicode>=65 && $caracasciicode<=90) || ($caracasciicode>=97 && $caracasciicode<=122) || ($caracasciicode>=128 && $caracasciicode<=155) || $caracasciicode>=157 || ($caracasciicode>=160 && $caracasciicode<=165)){}
-                   else{
-                       $erroespecial=1;
+                   if($caracasciicode==32 || ($caracasciicode>=45 && $caracasciicode<=47) ||  ($caracasciicode>=65 && $caracasciicode<=90) || ($caracasciicode>=97 && $caracasciicode<=122) || ($caracasciicode>=128 && $caracasciicode<=155) || $caracasciicode>=157 || ($caracasciicode>=160 && $caracasciicode<=165)){
+                       $erroOrgRG = 0;
                    }
-               }
-               if($erroespecial==1){
-                   $erroOrgRG = 1;
-                   echo "ERRO: contém caractere especial no campo 'Orgão emissor do RG'<br/>";
+                   else{
+                       $erroOrgRG = 1;
+                   }
                }
            }
            return $erroOrgRG;
        };
        
+       // Função para validar a data de nascimento
+       function validarNascimento($nascimento){
+           $erroNascimento = 0;
+           $arrayNascimento = explode("-","$nascimento");
+           $y = $arrayNascimento[0];
+           $m = $arrayNascimento[1];
+           $d = $arrayNascimento[2];
+           
+           $res = checkdate($m,$d,$y);
+           if ($res){
+               //verificar se a pessoa tem 15 ou mais
+           } else {
+               $erroNascimento = 1;
+           }
+           return $erroNascimento;
+           
+       };
+
        // Função para validar o UF
        function validarUF($UF){
         $erroUF=0;
         if( trim($UF)=="" ){
             $erroUF = 1;
-            echo "ERRO: campo 'UF' está vazio<br/>";
         }
-        else{
-            $arraydoUF= str_split($UF);
-            $lengthUF= strlen($UF);
-            if($lengthUF>1){
-                $erroUF = 1;
-                echo "ERRO: campo 'UF' está como mais de um campo preenchido<br/>";
-                }
-            }
+        return $erroUF;
        };
 
        // Função para validar a Cidade
@@ -265,7 +233,6 @@
            $erroCidade = 0;
            if( trim($cidade)=="" ){
                $erroCidade = 1;
-               echo "ERRO: campo 'cidade' está vazio<br/>";
            }
            else{
                $arrayCidade= str_split($cidade);
@@ -286,11 +253,9 @@
                }
                if($erroletra==1){
                    $erroCidade = 1;
-                   echo "ERRO: contém números no campo 'cidade'<br/>";
                }
                if($erroespecial==1){
-                   $erronome = 1;
-                   echo "ERRO: contém caractere especial no campo 'cidade'<br/>";
+                   $erroCidade = 1;
                }
            }
            return $erroCidade;
@@ -299,34 +264,31 @@
        // Função para validar o Bairro
        function validarBairro($bairro){
            $erroBairro = 0;
-           if( trim($nome)=="" ){
+           if( trim($bairro)=="" ){
                $erroBairro = 1;
-               echo "ERRO: campo 'bairro' está vazio<br/>";
            }
            else{
                $arrayBairro= str_split($bairro);
                $lengthBairro= strlen($bairro);
                $erroespecial=0;
                $erroletra=0;
-               for($i=0;$i<$lengthnome;$i++){
+               for($i=0;$i<$lengthBairro;$i++){
                    if(is_numeric ($arrayBairro[$i])){
                        $erroletra=1;
                    }
                }
                for($i=0;$i<$lengthBairro;$i++){
                    $caracasciicode=ord($arrayBairro[$i]);
-                   if($caracasciicode==32 || ($caracasciicode>=65 && $caracasciicode<=90) || ($caracasciicode>=97 && $caracasciicode<=122) || ($caracasciicode>=128 && $caracasciicode<=155) || $caracasciicode>=157 || ($caracasciicode>=160 && $caracasciicode<=165)){}
+                   if($caracasciicode==32 || ($caracasciicode>=45 && $caracasciicode<=47) || ($caracasciicode>=65 && $caracasciicode<=90) || ($caracasciicode>=97 && $caracasciicode<=122) || ($caracasciicode>=128 && $caracasciicode<=155) || $caracasciicode>=157 || ($caracasciicode>=160 && $caracasciicode<=165)){}
                    else{
                        $erroespecial=1;
                    }
                }
                if($erroletra==1){
-                   $erronome = 1;
-                   echo "ERRO: contém números no campo 'bairro'<br/>";
+                   $erroBairro = 1;
                }
                if($erroespecial==1){
-                   $erronome = 1;
-                   echo "ERRO: contém caractere especial no campo 'bairro'<br/>";
+                   $erroBairro = 1;
                }
            }
            return $erroBairro;
@@ -337,7 +299,6 @@
            $erroLogradouro = 0;
            if( trim($logradouro)=="" ){
                $erroLogradouro = 1;
-               echo "ERRO: campo 'logradouro' está vazio<br/>";
            }
            else{
                $arrayLogradouro= str_split($logradouro);
@@ -350,58 +311,20 @@
                    }
                }
                for($i=0;$i<$lengthLogradouro;$i++){
-                   $caracasciicode=ord($array[$i]);
-                   if($caracasciicode==32 || ($caracasciicode>=48 && $caracasciicode<=57) || ($caracasciicode>=65 && $caracasciicode<=90) || ($caracasciicode>=97 && $caracasciicode<=122) || ($caracasciicode>=128 && $caracasciicode<=155) || $caracasciicode>=157 || ($caracasciicode>=160 && $caracasciicode<=165)){}
+                   $caracasciicode=ord($arrayLogradouro[$i]);
+                   if($caracasciicode==32 || ($caracasciicode>=45 && $caracasciicode<=57) || ($caracasciicode>=65 && $caracasciicode<=90) || ($caracasciicode>=97 && $caracasciicode<=122) || ($caracasciicode>=128 && $caracasciicode<=155) || $caracasciicode>=157 || ($caracasciicode>=160 && $caracasciicode<=165)){}
                    else{
                        $erroespecial=1;
                    }
                }
                if($erroletra==1){
                    $erroLogradouro = 1;
-                   echo "ERRO: contém números no campo 'logradouro'<br/>";
                }
                if($erroespecial==1){
-                   $erronome = 1;
-                   echo "ERRO: contém caractere especial no campo 'logradouro'<br/>";
+                   $erroLogradouro = 1;
                }
            }
-           return $erroLogradoro;
-       };
-
-       // Função para validar o Complemento
-       function validarComplemento($complemento){
-           $erroComplemento = 0;
-           if( trim($complemento)=="" ){
-               $erroComplemento = 1;
-               echo "ERRO: campo 'complemento' está vazio<br/>";
-           }
-           else{
-               $arrayComplemento= str_split($complemento);
-               $lengthComplemento= strlen($complemento);
-               $erroespecial=0;
-               $erroletra=0;
-               for($i=0;$i<$lengthComplemento;$i++){
-                   if(is_numeric ($arrayComplemento[$i])){
-                       $erroletra=1;
-                   }
-               }
-               for($i=0;$i<$lengthComplemento;$i++){
-                   $caracasciicode=ord($array[$i]);
-                   if($caracasciicode==32 || ($caracasciicode>=48 && $caracasciicode<=57) || ($caracasciicode>=65 && $caracasciicode<=90) || ($caracasciicode>=97 && $caracasciicode<=122) || ($caracasciicode>=128 && $caracasciicode<=155) || $caracasciicode>=157 || ($caracasciicode>=160 && $caracasciicode<=165)){}
-                   else{
-                       $erroespecial=1;
-                   }
-               }
-               if($erroletra==1){
-                   $erroComplemento = 1;
-                   echo "ERRO: contém números no campo 'complemento'<br/>";
-               }
-               if($erroespecial==1){
-                   $erroComplemento = 1;
-                   echo "ERRO: contém caractere especial no campo 'complemento'<br/>";
-               }
-           }
-           return $erroComplemento;
+           return $erroLogradouro;
        };
        
        // Função para validar o Curso
@@ -409,16 +332,20 @@
            $erroCursoF=0;
            if( trim($curso)=="" ){
                $erroCurso = 1;
-               echo "ERRO: campo 'UF' está vazio<br/>";
            }
-           else{
-               $arraydoCurso= str_split($curso);
-               $lengthCurso= strlen($curso);
-               if($lengthCurso>1){
-                   $erroCurso = 1;
-                   echo "ERRO: campo 'Curso' está como mais de um campo preenchido<br/>";
-               }
+           
+       }
+       
+       //Função para validar Deficiência
+       function validarDeficiencia ($sim, $nao, $complemento){
+           $erroDeficiencia = 0;
+           if($sim == "" && $nao==""){
+               $erroDeficiencia = 1;
+           }elseif($sim!="" && $complemento==""){
+                   $erroDeficiencia = 1;
+               
            }
+           return $erroDeficiencia;
        }
 
 ?>
