@@ -1,5 +1,20 @@
 <?php
 
+require_once'candidato.php';
+
+$tabelaDesejada1= "curso";
+$colunaDesejada1= "idCurso";
+$contaCursos = contaCursos($tabelaDesejada1, $colunaDesejada1)
+
+function contaCursos ($tabelaDesejada1, $colunaDesejada1){
+    $conexao = conexaobd();
+    $sql = " SELECT COUNT" . "(" . $colunaDesejada1 .") FROM" . $tabelaDesejada1 . ";";
+    $query = mysqli_query($conexao, $sql);
+    $qtdCursos = msql_affected_rows($query);
+    
+    return $qtdelinha;
+};
+
   // Função para validar a data
   function validarData($data){
     // tranformar a string em um array, onde se tem o dia, mês e ano nas posições 0, 1 e 2, respectivamente, do array
@@ -38,7 +53,25 @@
     }
     return $erro;
   }
-
+  
+  function validaQtdVagas(){
+      
+  }
+  
+  /* ----------------------------> A ARRUMAR <------------------------------------
+  function validaQtdVagas(){
+      if($(".main-form-cursoLine-checkbox-element").is(":checked")){
+          var vagasInterno = $(".main-form-cursoLine-vagas-interno").val().trim();
+          var vagasExterno = $(".main-form-cursoLine-vagas-externo").val().trim();
+          if(vagasInterno == ""){
+              vagasInterno = 0;
+          }
+          if(vagasExterno ==""){
+              vagasExterno = 0;
+          }
+      }
+  }
+*/
   // Função para validar a coerência das datas e horas inseridas
   function validarDataCoerencia($dataAbert, $dataEncer, $tempoAbert, $tempoEncer){
     // Validação das datas e Horas
@@ -46,6 +79,7 @@
     $validDataEncer = validarData($dataEncer);
     $validHoraAbert = validarHora($tempoAbert);
     $validHoraEncer = validarHora($tempoEncer);
+    $validQtdVagas =  validaQtdVagas();
     // Verificação da validação
     if($validDataAbert == 0 && $validDataEncer == 0 && $validHoraAbert == 0 && $validHoraEncer == 0){
       // Separando as datas e horas em variáveis individualizadas
