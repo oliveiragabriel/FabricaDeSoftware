@@ -12,7 +12,7 @@ function contaCursos ($tabelaDesejada1, $colunaDesejada1){
     $query = mysqli_query($conexao, $sql);
     $qtdCursos = msql_affected_rows($query);
     
-    return $qtdelinha;
+    return $qtdelinha; 
 };
 
   // Função para validar a data
