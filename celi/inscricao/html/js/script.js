@@ -264,13 +264,26 @@ function validarNascimento(){
 	var anoHoje = hoje.getFullYear(); 
 	
 	var total= anoHoje-anoNasc;
-	if( mesHoje >= mesNasc ){
-		
-		if(diaHoje>diaNasc){
-			total=total-1;
-		}
+	 if (mesHoje < mesNasc || mesHoje == mesNasc && diaHoje < diaNasc) {
+	        total--;
+	    
 	}
 		
 		return true;
-	
+};
+function validarDeficiencia(){
+    var sim= ($('.inputButtonInterno').val()).trim();
+    var nao = ($('.inputButtonExterno').val()).trim();
+    
+    if((sim != "" && nao == "") || (sim == "" && nao != "")){ 
+        return true;
+    	if((sim!="") && complemento !=""){ //verificar se complemento esta vazio 
+    		var complemento = ($('.textArea').val()).trim();
+   		 }else{
+    		return false;
+    	}
+  	}else{
+        return false;
+    }
+    
 };
