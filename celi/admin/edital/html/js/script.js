@@ -161,7 +161,7 @@ $(function(){
 	      }
 	      return erro;
 	    };
-	    
+	  
 	function validaQtdVagas(){
 		if($(".main-form-cursoLine-checkbox-element").is(":checked")){
 			var vagasInterno = $(".main-form-cursoLine-vagas-interno").val().trim();
