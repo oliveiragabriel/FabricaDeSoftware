@@ -20,6 +20,8 @@
 		<link rel="stylesheet" type="text/css" href="../../../arquivosfixos/css/footer/style.css">
 		<script src="../../../arquivosfixos/js/jquery.min.js"></script>
 		<script src="../../../arquivosfixos/js/headerslidebar.js"></script>
+		<script type="text/javascript" src="../../../arquivosfixos/js/jquerymask/dist/jquery.mask.min.js"></script>
+		<script type="text/javascript" src="./js/teste.js"></script>
 		<script src="./js/script.js"></script>
 	</head>
 	<body>
@@ -68,48 +70,51 @@
 					<h1 class="main-title">Registrar Edital</h1>
 					<form class="main-form" action="../control/inserteditalbd.php" method="post">
 						<table class="main-form-content">
-							<tr class="main-form-abertTitle">
+							<!--<tr class="main-form-abertTitle">
 								<td class="main-form-abertTitle-ctt" colspan="4">
 									<p class="main-form-abertTitle-ctt-text">abertura</p>
 								</td>
-							</tr>
+							</tr>-->
 							<tr class="main-form-abertLabel">
 								<td class="main-form-abertLabel-data" colspan="2">
-									<label class="main-form-abertLabel-data-text">Data de abertura</label>
+									<label class="main-form-abertLabel-data-text">data de abertura</label>
 								</td>
 								<td class="main-form-abertLabel-hora" colspan="2">
-									<label class="main-form-abertLabel-hora-text">Hora de abertura</label>
+									<label class="main-form-abertLabel-hora-text">hora de abertura</label>
 								</td>
 							</tr>
 							<tr class="main-form-abertInput">
 								<td class="main-form-abertInput-data"colspan="2">
-									<input class="main-form-abertInput-data-text" type="date" name="dataabertura">
+									<input class="main-form-abertInput-data-text" type="text" name="dataabertura">
 								</td>
 								<td class="main-form-abertInput-hora" colspan="2">
-									<input class="main-form-abertInput-hora-text" type="time" name="horaabertura">
+									<input class="main-form-abertInput-hora-text" type="text" name="horaabertura">
 								</td>
 							</tr>
-							<tr class="main-form-encerTitle">
+							<!--<tr class="main-form-encerTitle">
 								<td class="main-form-encerTitle-ctt" colspan="4">
 									<p class="main-form-encerTitle-ctt-text">encerramento</p>
 								</td>
-							</tr>
+							</tr>-->
 							<tr class="main-form-encerLabel">
 								<td class="main-form-encerLabel-data" colspan="2">
-									<label class="main-form-encerLabel-data-text">Data de encerramento</label>
+									<label class="main-form-encerLabel-data-text">data de encerramento</label>
 								</td>
 								<td class="main-form-encerLabel-hora" colspan="2">
-									<label class="main-form-encerLabel-hora-text">Hora de encerramento</label>
+									<label class="main-form-encerLabel-hora-text">hora de encerramento</label>
 								</td>
 							</tr>
 							<tr class="main-form-encerInput">
 								<td class="main-form-encerInput-data" colspan="2">
-									<input class="main-form-encerInput-data-text" type="date" name="dataencerramento">
+									<input class="main-form-encerInput-data-text" type="text" name="dataencerramento">
 								</td>
 								<td class="main-form-encerInput-hora" colspan="2">
-									<input class="main-form-encerInput-hora-text" type="time" name="horaencerramento">
+									<input class="main-form-encerInput-hora-text" type="text" name="horaencerramento">
 								</td>
 							</tr>
+							<!--<tr class="main-form-cursoH1">
+								<td class="main-form-cursoH1-title" colspan="4">cursos</td>
+							</tr>-->
 							<tr class="main-form-cursoTitle">
 								<td class="main-form-check-ctt">
 									<span class="main-form-check-ctt-text"> </span>
@@ -156,7 +161,7 @@
 							</tr>
 						</table>
 
-						<button class="main-form-inputButton" type="submit">Inserir</button>
+						<button class="main-form-inputButton" type="submit">Registrar</button>
 					</form>
 				</div>
 			</main>

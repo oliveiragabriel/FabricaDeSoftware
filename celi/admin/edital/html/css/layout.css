@@ -20,29 +20,58 @@ table, tr, td{
 }
 .main-title{
 	display: block;
-	width: 1000px;
+	width: 500px;
 	margin: 0 auto;
 	text-align: center;
 }
 .main-form{
-	width: 700px;
+	width: 500px;
 	margin: 0 auto;
 }
-.main-form-content{
+.main-form-content,.main-form-cursoH1-title{
 	width: 100%;
 	height: auto;
 }
-.main-form-abertTitle-ctt-text, .main-form-encerTitle-ctt-text, .main-form-condicao-title-text, .main-form-cursoTitle-ctt-text, .main-form-vagasTitle-ctt-text, .main-form-vagasTitle-ctt-text{
+.main-form-cursoH1-title{
 	text-align: center;
 }
-.main-form-abertInput-data-text, .main-form-abertInput-hora-text, .main-form-encerInput-data-text, .main-form-encerInput-hora-text, .main-form-cursoLine-vagas-interno, .main-form-cursoLine-vagas-externo{
+.main-form-abertTitle-ctt-text, .main-form-encerTitle-ctt-text, .main-form-cursoH1-title, .main-form-condicao-title-text{
+	padding-top: 40px;
+	padding-bottom: 15px;
+}
+.main-form-abertTitle-ctt-text{
+	padding-top: 0;
+}
+.main-form-encerLabel-data-text, .main-form-encerLabel-hora-text, .main-form-check-ctt-text, .main-form-cursoTitle-ctt-text, .main-form-vagasTitle-ctt-text, .main-form-vagasTitle-ctt-text{
+	display: block;
+	padding-top: 20px;
+}
+.main-form-abertTitle-ctt-text, .main-form-encerTitle-ctt-text, .main-form-condicao-title-text, .main-form-cursoTitle-ctt-text, .main-form-vagasTitle-ctt-text, .main-form-vagasTitle-ctt-text{
+	display: block;
+	text-align: center;
+}
+.main-form-abertInput-data-text, .main-form-abertInput-hora-text, .main-form-encerInput-data-text, .main-form-encerInput-hora-text, .main-form-cursoLine-vagas-interno, .main-form-cursoLine-vagas-externo, .main-form-condicao-input-element{
 	width: 100%;
+}
+.main-form-cursoLine-checkbox{
+	width: 5%
+}
+.main-form-cursoLine-nome{
+	width: 45%;
+}
+.main-form-cursoLine-vagas{
+	width: 25%;
+}
+.main-form-condicao-input-element{
+	width: 100%;
+	height: 100px;
+	resize: none;
 }
 .main-form-inputButton{
 	display: block;
 	margin: 0 auto;
 	margin-top: 30px;
-	clear: both;
-	width: 100px;
-	height: 25px;
+	margin-right: 0;
+	width: 125px;
+	height: 35px;
 }
