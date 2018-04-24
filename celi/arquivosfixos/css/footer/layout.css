@@ -1,33 +1,164 @@
+/*
+ *	FOOTER
+*/
+
 #footer{
-	display: flex;
-	height: 5vh;
-}
-.footer-content{
-	display: flex;
-	margin: auto;
-	width: auto;
+	display: block;
+	width: 100%;
 	height: auto;
 }
-.footer-content-logotipo{
-	width: 400px;
+.footer-developer{
+	display: flex;
+	width: 100%;
+	height: 100%;
 }
+.footer-content{
+	position: relative;
+	width: 1000px;
+	margin: auto;
+	padding: 40px 0;
+}
+
+/*
+ * DIV: cefet
+*/
+
 .footer-content-cefet{
 	display: flex;
+	width: 350px;
+	float: left;
 }
-.footer-content-cefet-img{
-	margin: auto;
-	margin-left: 0;
-}
-.footer-content-fabricadesoftware{
-	display: flex;
-}
-.footer-content-fabricadesoftware-img{
+.footer-content-cefet-container{
 	margin: auto;
 }
-.footer-content-wordpress{
+.footer-content-cefet-imagotipo{
 	display: flex;
+	width: 50%;
+	height: auto;
+	margin: auto;
 }
-.footer-content-wordpress-img{
+.footer-content-cefet-imagotipo{
+}
+.footer-content-cefet-imagotipo-isotipo{
+	height: 50px;
+	padding: 25px 0;
+	margin: auto;
+}
+.footer-content-cefet-contato{
+	display: block;
+	width: 100%;
+	height: auto;
+	padding-top: 30px;
+}
+.footer-content-cefet-contato-endereco{
+	height: auto;
+}
+.footer-content-cefet-contato-endereco-icon{
+	display: flex;
+	width: 10%;
+	height: 50px;
+	float: left;
+}
+.footer-content-cefet-contato-endereco-icon-ctt{
+	margin: auto;
+	height: 25px;
+	margin-right: 15px;
+}
+.footer-content-cefet-contato-endereco-text{
+	display: flex;
+	width: 90%;
+	float: right;
+}
+.footer-content-cefet-contato-endereco-text-ctt{
 	margin: auto;
 	margin-right: 0;
+	width: 95%;
+	line-height: 25px;
+	float: right;
+	text-align: justify;
+}
+.footer-content-cefet-contato-telefone{
+	height: 30px;
+	padding-top: 30px;
+}
+.footer-content-cefet-contato-telefone-icon{
+	display: flex;
+	width: 10%;
+	height: 25px;
+	float: left;
+}
+.footer-content-cefet-contato-telefone-icon-ctt{
+	margin: auto;
+	height: 25px;
+	margin-right: 15px;
+}
+.footer-content-cefet-contato-telefone-text{
+	display: flex;
+	width: 90%;
+	float: right;
+}
+.footer-content-cefet-contato-telefone-text-ctt{
+	margin: auto;
+	margin-right: 0;
+	width: 95%;
+	line-height: 25px;
+	float: right;
+	text-align: justify;
+}
+
+/*
+ * DIV: fabrica de software
+*/
+
+.footer-content-fabricadesoftware{
+	display: flex;
+	width: 350px;
+	float: right;
+}
+.footer-content-fabricadesoftware-container{
+ margin: auto;
+}
+.footer-content-fabricadesoftware-imagotipo, .footer-content-fabricadesoftware-descricao{
+	display: block;
+	width: 100%;
+	height: auto;
+}
+.footer-content-fabricadesoftware-imagotipo{
+	display: flex;
+}
+.footer-content-fabricadesoftware-imagotipo-isotipo, .footer-content-fabricadesoftware-imagotipo-logotipo{
+	float: left;
+}
+.footer-content-fabricadesoftware-imagotipo-isotipo{
+	height: 80px;
+	padding: 10px 0;
+	margin: auto;
+}
+.footer-content-fabricadesoftware-imagotipo-logotipo{
+	width: 350px;
+	margin: auto;
+	text-align: left;
+}
+.footer-content-fabricadesoftware-descricao{
+	padding-top: 40px;
+	padding-bottom: 10px;
+}
+.footer-content-fabricadesoftware-descricao-text{
+	width: inherit;
+}
+.footer-content-fabricadesoftware-descricao-text-ctt{
+	line-height: 30px;
+	text-align: justify;
+}
+
+/*
+ *	Creditos do WordPress
+*/
+.creditosWP{
+	display: flex;
+	width: 100%;
+	height: 30px;
+}
+.creditosWP-text{
+	margin: auto;
 }

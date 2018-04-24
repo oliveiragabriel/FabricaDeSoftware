@@ -1,7 +1,8 @@
 $(function(){
+  var heightMain = $("#main").css("height");
+  $(".header-nav").css("height", heightMain);
   $(".header-menuIcon").on("click", function(){
-    var slidebar = $(".content").css("transform");
-    $(".content").toggleClass("slider");
-    $(".header-menu").toggleClass("slider");
+    $("#main").toggleClass("sliderCTT");
+    $(".header-menu").toggleClass("sliderHDR");
   });
 })

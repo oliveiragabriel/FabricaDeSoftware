@@ -1,0 +1,26 @@
+.main-content{
+	background-color: #ddd;
+}
+.main-content-title-content{
+	text-transform: capitalize;
+	color: #111;
+	font-size: 30px;
+	letter-spacing: 1px;
+	word-spacing: 3px;
+}
+.main-content-form-content-input{
+	background-color: #eee;
+	outline: none;
+	color: #000;
+}
+.main-content-form-content-send{
+	background-color: #bbb;
+	cursor: pointer;
+	font-size: 18px;
+	color: rgba(0,0,0, .8);
+	letter-spacing: 1px;
+	transition: .3s;
+}
+.main-content-form-content-send:hover{
+	background-color: #b7ae75;
+}

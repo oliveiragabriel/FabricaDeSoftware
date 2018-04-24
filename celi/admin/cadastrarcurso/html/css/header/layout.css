@@ -1,0 +1,81 @@
+<<<<<<< HEAD:celi/css/header/headerlayout.css
+#header{
+	width: 100%;
+	height: 100px;
+	display: flex;
+}
+.header-content{
+	width: 1100px;
+	height: 100%;
+	margin: auto;
+}
+.header-logotipo{
+	height: 100%;
+	width: auto;
+	display: flex;
+	float: left;
+}
+.header-logotipo-img{
+	margin: auto 0;
+	width: 200px;
+}
+.header-menu{
+	width: 700px;
+	height: 100%;
+	display: flex;
+	float: right;
+}
+.header-nav{
+	margin: auto;
+	margin-right: 0;
+}
+.header-list{
+	width: 100%;
+	height: 100%;
+}
+.header-menuItem{
+	display: inline-block;
+	padding: 5px 20px;
+	margin: 0 10px;
+}
+=======
+#header{
+	width: 100%;
+	height: 15vh;
+	display: flex;
+}
+.header-content{
+	width: 1100px;
+	height: 100%;
+	margin: auto;
+}
+.header-logotipo{
+	height: 100%;
+	width: auto;
+	display: flex;
+	float: left;
+}
+.header-logotipo-img{
+	margin: auto 0;
+	width: 100px;
+}
+.header-menu{
+	width: 700px;
+	height: 100%;
+	display: flex;
+	float: right;
+}
+.header-nav{
+	margin: auto;
+	margin-right: 0;
+}
+.header-list{
+	width: 100%;
+	height: 100%;
+}
+.header-menuItem{
+	display: inline-block;
+	padding: 5px 20px;
+	margin: 0 10px;
+}
+>>>>>>> da98bc171508b5eec23b157faad677b12ab9a95e:celi/cadastrarcurso/html/css/header/layout.css

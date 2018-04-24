@@ -1,4 +1,41 @@
 #footer{
+	background-color: #414c57;
+}
+.footer-content::before{
+	position: absolute;
+	top: 50px;
+	left: 499px;
+	display: block;
+	content: '';
+	width: 2px;
+	height: 250px;
+	background-color: rgba(0,0,0, .4);
+}
+.footer-content-cefet-imagotipo-logotipo, .footer-content-fabricadesoftware-imagotipo-logotipo{
+	font-size: 18px;
+	padding: 10px;
+	text-transform: capitalize;
+	line-height: 30px;
+	letter-spacing: 1px;
+	color: rgba(255,255,255, .6);
+}
+.footer-content-cefet-contato-endereco, .footer-content-cefet-contato-telefone, .footer-content-fabricadesoftware-descricao-text{
+	font-size: 14px;
+	text-transform: capitalize;
+	color: #e0e0e0;
+}
+.creditosWP{
+	background-color: #aaa;
+}
+.creditosWP-text{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: rgba(0,0,0, .6);
+}
+
+
+/*
+#footer{
 	background-color: #e8d351;
 }
 .footer-title{
@@ -6,4 +43,4 @@
 	text-transform: uppercase;
 	font-family: arial;
 	color: #fff;
-}
+} */

@@ -1,5 +1,12 @@
-.main-title{
+*{
 	font-family: 'arial';
+}
+
+/*
+ *	MAIN
+*/
+
+.main-title{
 	font-size: 45px;
 	font-weight: normal;
 	word-spacing: 10px;
@@ -15,33 +22,93 @@
 	margin: 15px 0;
 	background-color: #586777;
 }
-.main-form-abertTitle-ctt-text, .main-form-encerTitle-ctt-text, .main-form-cursoH1-title{
-	text-transform: capitalize;
-	font-size: 20px;
-	letter-spacing: 1px;
-}
-.main-form-abertLabel-data-text, .main-form-abertLabel-hora-text, .main-form-encerLabel-data-text, .main-form-encerLabel-hora-text, .main-form-condicao-title-text{
+
+/*
+ *	TABELA: data e hora
+*/
+
+/* conteúdo dos label's de abertura */
+.main-form-abertLabel-data-text, .main-form-abertLabel-hora-text{
 	font-size: 15px;
-	padding-left: 15px;
 	color: #666;
 	text-transform: capitalize;
+	text-align: left;
 }
-.main-form-cursoTitle-ctt-text, .main-form-vagasTitle-ctt-text{
+/* conteúdo dos label's de encerramento */
+.main-form-encerLabel-data-text, .main-form-encerLabel-hora-text{
 	font-size: 15px;
-	padding-left: 0px;
-	padding-bottom: 5px;
 	color: #666;
+	text-transform: capitalize;
+	text-align: right;
 }
-.main-form-abertInput-data-text, .main-form-abertInput-hora-text, .main-form-encerInput-data-text, .main-form-encerInput-hora-text, .main-form-cursoLine-vagas-interno, .main-form-cursoLine-vagas-externo, .main-form-condicao-input-element{
+/* conteúdo dos input's */
+.main-form-abertInput-data-text, .main-form-abertInput-hora-text, .main-form-encerInput-data-text, .main-form-encerInput-hora-text{
 	padding: 7px 15px;
 	box-sizing: border-box;
 	border-radius: 5px;
 	border: 1px solid #999;
 	outline: none;
 }
-.header-menuItem-content{
-	font-weight: bold;
+
+/*
+ *	TABELA: cursos
+*/
+
+/* conteúdo dos label's */
+.main-form-cursoLabel-ctt, .main-form-vagasLabel-ctt{
+	font-size: 15px;
+	color: #666;
+	text-transform: capitalize;
+	text-align: center;
 }
+/* conteúdo dos input's */
+.main-form-cursoLine-vagas-interno, .main-form-cursoLine-vagas-externo{
+	padding: 7px 15px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: 1px solid #999;
+	outline: none;
+}
+
+/*
+ *	TABELA: cursos
+*/
+
+/* conteúdo do label */
+.main-form-condicaoLabel-ctt-text{
+	font-size: 15px;
+	color: #666;
+	text-transform: capitalize;
+	text-align: center;
+}
+/* conteúdo do input */
+.main-form-condicaoInput-ctt-element{
+	padding: 7px 15px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: 1px solid #999;
+	outline: none;
+}
+
+/*
+
+.main-form-cursoTitle-ctt-text, .main-form-vagasTitle-ctt-text{
+	font-size: 15px;
+	padding-left: 0px;
+	padding-bottom: 5px;
+	color: #666;
+}
+.main-form-cursoLine-vagas-interno, .main-form-cursoLine-vagas-externo, .main-form-condicao-input-element{
+	padding: 7px 15px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: 1px solid #999;
+	outline: none;
+}
+
+*/
+
+/* button send */
 .main-form-inputButton{
 	border: 1px solid #414c57;
 	border-radius: 5px;

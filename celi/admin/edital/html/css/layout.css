@@ -3,10 +3,6 @@
 	padding: 0px;
 }
 
-table, tr, td{
-	/* border: 1px solid #000; */
-}
-
 #main{
 	width: 100%;
 	height: auto;
@@ -28,45 +24,139 @@ table, tr, td{
 	width: 500px;
 	margin: 0 auto;
 }
-.main-form-content,.main-form-cursoH1-title{
-	width: 100%;
-	height: auto;
-}
-.main-form-cursoH1-title{
-	text-align: center;
-}
-.main-form-abertTitle-ctt-text, .main-form-encerTitle-ctt-text, .main-form-cursoH1-title, .main-form-condicao-title-text{
-	padding-top: 40px;
-	padding-bottom: 15px;
-}
-.main-form-abertTitle-ctt-text{
-	padding-top: 0;
-}
-.main-form-encerLabel-data-text, .main-form-encerLabel-hora-text, .main-form-check-ctt-text, .main-form-cursoTitle-ctt-text, .main-form-vagasTitle-ctt-text, .main-form-vagasTitle-ctt-text{
+
+/*
+ *	TABLE: data e hora
+*/
+
+/* tabela */
+.main-form-content-dataHora{
+	position: relative;
 	display: block;
-	padding-top: 20px;
+	width: inherit;
+	margin-bottom: 20px;
+	margin-top: 40px;
 }
-.main-form-abertTitle-ctt-text, .main-form-encerTitle-ctt-text, .main-form-condicao-title-text, .main-form-cursoTitle-ctt-text, .main-form-vagasTitle-ctt-text, .main-form-vagasTitle-ctt-text{
+/* tr's */
+.main-form-dataLabel, .main-form-dataInput, .main-form-horaLabel, .main-form-horaInput{
 	display: block;
-	text-align: center;
+	width: inherit;
 }
-.main-form-abertInput-data-text, .main-form-abertInput-hora-text, .main-form-encerInput-data-text, .main-form-encerInput-hora-text, .main-form-cursoLine-vagas-interno, .main-form-cursoLine-vagas-externo, .main-form-condicao-input-element{
+/* td's: separador e os demais td's */
+.main-form-separador-horaData{
+	width: 150px;
+}
+.main-form-abertLabel-data, .main-form-encerLabel-data, .main-form-abertInput-data, .main-form-encerInput-data, .main-form-abertLabel-hora, .main-form-encerLabel-hora, .main-form-abertInput-hora, .main-form-encerInput-hora{
+	width: 175px;
+}
+/* Conteúdo do separador: span */
+.main-form-content-dataHora::before{
+	display: block;
+	position: absolute;
+	top: -10px;
+	left: 249px;
+	content: '';
+	width: 2px;
+	height: 162px;
+	background-color: #ccc;
+}
+/* conteúdo dos td's */
+.main-form-abertLabel-data-text, .main-form-encerLabel-data-text, .main-form-abertLabel-hora-text, .main-form-encerLabel-hora-text{
+	display: block;
 	width: 100%;
+	margin-bottom: 3px;
+}
+.main-form-abertInput-data-text, .main-form-encerInput-data-text, .main-form-abertInput-hora-text, .main-form-encerInput-hora-text{
+	width: 100%;
+	margin-bottom: 20px
+}
+
+/*
+ *	TABLE: cursos
+*/
+
+/* tabela */
+.main-form-content-curso{
+	display: block;
+	width: inherit;
+	margin-bottom: 20px;
+}
+/* tr's */
+.main-form-cursoTitle, .main-form-cursoLine{
+	display: block;
+	width: inherit;
+}
+/* td: checkbox */
+.main-form-checkLabel, .main-form-cursoLine-checkbox{
+	width: 30px;
 }
 .main-form-cursoLine-checkbox{
-	width: 5%
+	/* border: 1px solid #888; */
+	/* border-radius: 5px; */
 }
-.main-form-cursoLine-nome{
-	width: 45%;
+/* td: nome do curso */
+.main-form-cursoLabel{
+	padding-bottom: 3px;
 }
-.main-form-cursoLine-vagas{
-	width: 25%;
+.main-form-cursoLabel, .main-form-cursoLine-nome{
+	width: 240px;
 }
-.main-form-condicao-input-element{
+/* td: vagas(interno e externo) */
+.main-form-vagasLabel{
+	padding-bottom: 3px;
+}
+.main-form-vagasLabel, .main-form-cursoLine-vagas{
+	width: 110px;
+}
+/* conteúdo dos td's */
+.main-form-checkLabel-ctt, .main-form-cursoLabel-ctt, .main-form-vagasLabel-ctt, .main-form-vagasLabel-ctt, .main-form-cursoLine-checkbox-element, .main-form-cursoLine-nome-text, .main-form-cursoLine-vagas-interno, .main-form-cursoLine-vagas-externo{
+	width: 100%;
+}
+/* conteúdo do checkbox */
+.main-form-cursoLine-checkbox-element{
+	width: 15px;
+	height: 15px;
+	margin: 7.5px;
+	margin-left: 0;
+}
+
+/*
+ *	TABLE: condição
+*/
+
+/* tabela */
+.main-form-content-condicao{
+	width: inherit;
+	margin-bottom: 20px;
+}
+/* tr's */
+.main-form-condicaoLabel, .main-form-condicaoInput{
+	display: block;
+	width: inherit;
+}
+/* td's */
+.main-form-condicaoLabel-ctt, .main-form-condicaoInput-ctt{
+	display: block;
+	width: 100%;
+}
+/* conteúdo do label */
+.main-form-condicaoLabel-ctt-text{
+	display: block;
+	padding-bottom: 3px;
+}
+/* conteúdo do input */
+.main-form-condicaoInput-ctt-element{
+	display: block;
 	width: 100%;
 	height: 100px;
+	outline: none;
 	resize: none;
 }
+
+/*
+ *	BUTTON: enviar formulário
+*/
+
 .main-form-inputButton{
 	display: block;
 	margin: 0 auto;
@@ -74,4 +164,4 @@ table, tr, td{
 	margin-right: 0;
 	width: 125px;
 	height: 35px;
-}
+} */

@@ -2,11 +2,17 @@
 	background-color: #414c57;
 }
 .header-menu{
-	background-color: #e0e0e0;
+	background-color: #576777;
 	transition: .5s;
 }
 .header-menuIcon{
 	cursor: pointer;
+	transition: .5s;
+}
+.header-menuIcon-legenda{
+	color: #fff;
+	text-transform: capitalize;
+	transition: .3s;
 }
 .header-menuIcon-content, .header-menuIcon-content:before, .header-menuIcon-content:after{
 	display: block;
@@ -15,6 +21,8 @@
 	width: 18px;
 	height: 4px;
 	background-color: #fff;
+	z-index: 999;
+	transition: .5s;
 }
 .header-menuIcon-content:before{
 	transform: translateY(-8px);
@@ -25,21 +33,26 @@
 	width: 21px;
 	margin-left: 0;
 }
+.header-menuIcon:hover{
+	box-shadow: inset 0 50px 0 rgba(0,0,0, .1);
+}
 .header-menuItem{
 	text-decoration: none;
 	font-family: arial;
-	font-size: 19px;
+	font-size: 18px;
 	text-transform: capitalize;
-	color: rgba(0,0,0, .5);
-	border-bottom: 2px solid #dadada;
+	color: rgba(255,255,255, .95);
+	font-weight: bold;
+	letter-spacing: 1px;
+	border-bottom: 1px solid #515f6c;
 	cursor: pointer;
 }
-.header-menuItem:last-child, .header-menuItem:first-child{
+.header-menuItem:last-child{
 	border: 0;
 }
 .header-menuItem:hover{
-	color: rgba(0,0,0, .9);
+	color: rgba(255,255,255, 1);
 }
 .header-menuItem:not(.header-menuItemLogotipo):hover{
-	background-color: #dadada;
+	background-color: #515f6c;
 }
