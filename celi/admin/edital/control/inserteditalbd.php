@@ -27,13 +27,26 @@
       // Pegando a quantidade de cursos registradas
       $qtdeCursos = verificarbd("idcurso", "curso", "idcurso > 0");
 
-      // Cria um array de array com o curso e as vagas estabelecidas para cada curso selecionado
+      // Cria um array de arrays com o curso e as vagas estabelecidas para cada curso selecionado
       $arrayCursosDados = array();
       for($i = 1; $i <= $qtdeCursos; $i++){
         if(isset($_POST['curso'.$i]) && isset($_POST['interno'.$i]) && isset($_POST['externo'.$i])){
+
           $idCurso = $_POST['curso'.$i];
           $vagasInt = $_POST['interno'.$i];
           $vagasExt = $_POST['externo'.$i];
+
+          $vagasInt = validarVagas($vagasInt);
+          $vagasExt = validarVagas($vagasExt);
+
+          if($vagasInt == NULL){
+            echo "Vaga Interna Inválida!!";
+            exit();
+          }
+          if($vagasExt == NULL){
+            echo "Vaga Externa Inválida!!";
+            exit();
+          }
 
           $result = $idCurso."-".$vagasInt."-".$vagasExt;
 
@@ -48,14 +61,16 @@
       $select = selecionarbd($campo, $tabela, $condicao);
       $idEdital = mysqli_fetch_assoc($select);
 
-      // Inserindo os dados na tabela editalcurso no Banco de dados
-      $tabela = "editalcurso";
-      $elementos = "idedital, idcurso, vagainterna, vagaexterna";
-      $condicao = NULL;
-      for($i = 0; $i < count($arrayCursosDados); $i++){
-        $arrayContent = explode("-", $arrayCursosDados[$i]);
-        $conteudo = $idEdital['idedital'].", ".$arrayContent[0].", ".$arrayContent[1].", ".$arrayContent[2];
-        $insert += inserirbd($tabela, $elementos, $conteudo, $condicao);
+      if($vagasInt == NULL || $vagasExt == NULL){
+        // Inserindo os dados na tabela editalcurso no Banco de dados
+        $tabela = "editalcurso";
+        $elementos = "idedital, idcurso, vagainterna, vagaexterna";
+        $condicao = NULL;
+        for($i = 0; $i < count($arrayCursosDados); $i++){
+          $arrayContent = explode("-", $arrayCursosDados[$i]);
+          $conteudo = $idEdital['idedital'].", ".$arrayContent[0].", ".$arrayContent[1].", ".$arrayContent[2];
+          $insert += inserirbd($tabela, $elementos, $conteudo, $condicao);
+        }
       }
 
       // Verifica o insert...
