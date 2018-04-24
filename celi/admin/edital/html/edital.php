@@ -5,6 +5,13 @@
 	$campos = "idcurso, nome";
 	$tabela = "curso";
 	$sql =  selecionarbd($campos, $tabela, NULL);
+	
+	if(isset($_SESSION['usuario']) && isset($_SESSION['senha'])){
+	   exit(); 
+	}
+	else{
+	    header('location: ../../login/html/loginAdmin.html');
+	}
 ?>
 
 <!DOCTYPE html>
