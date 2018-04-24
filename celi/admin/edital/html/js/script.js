@@ -22,6 +22,7 @@ $(function(){
 	});
 
 });
+
 	function validaDataAbertura(){
 		var dataCompleta = $(".main-form-inputDataAbert").val();
 		var arrayData = dataCompleta.split("-");
@@ -162,16 +163,3 @@ $(function(){
 	      }
 	      return erro;
 	    };
-
-	function validaQtdVagas(){
-		if($(".main-form-cursoLine-checkbox-element").is(":checked")){
-			var vagasInterno = $(".main-form-cursoLine-vagas-interno").val().trim();
-			var vagasExterno = $(".main-form-cursoLine-vagas-externo").val().trim();
-				if(vagasInterno == ""){
-					vagasInterno = 0;
-				}
-				if(vagasExterno ==""){
-					vagasExterno = 0;
-				}
-		}
-	}
