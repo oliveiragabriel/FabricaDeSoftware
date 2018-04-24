@@ -1,5 +1,7 @@
  <?php
    
+    include_once"loginAdmin.html";
+    include_once "pdaoscript.php";
     $usuarioDigitado=$_POST['nameUsuario'];
     $senhaDigitado=$_POST['nameSenha'];
     $conexao='';
@@ -16,6 +18,10 @@
    $senhaBd=$array['senha'];
 
    if(($senhaBd==$senhaDigitado) && ($usuarioBd==$usuarioDigitado)){
-     header('paginaAdmin.html');
+        echo "Bem vindo!";
+       header('paginaAdmin.html');
+     
+   }else{
+       echo "Inválido!";
    }
 ?>
