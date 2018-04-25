@@ -27,6 +27,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `admin`
+--
+
+CREATE TABLE `admin` (
+  `idadmin` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Fazendo dump de dados para tabela `admin`
+--
+
+INSERT INTO `admin` (`idadmin`, `username`, `password`) VALUES
+(1, 'celi123', 'd212d10967e549b7cb02a55cbfbc4567');
+
+--
 -- Estrutura para tabela `candidato`
 --
 
@@ -202,6 +219,12 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 
 --
+-- Índices de tabela `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`idadmin`);
+
+--
 -- Índices de tabela `candidato`
 --
 ALTER TABLE `candidato`
@@ -241,6 +264,12 @@ ALTER TABLE `editalcurso`
 --
 -- AUTO_INCREMENT de tabelas apagadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `idadmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `candidato`

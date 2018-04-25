@@ -1,22 +1,5 @@
 <?php
 
-  // require_once 'candidato.php';
-  //
-  // $tabelaDesejada1= "curso";
-  // $colunaDesejada1= "idCurso";
-  // $contaCursos = contaCursos($tabelaDesejada1, $colunaDesejada1)
-  //
-  // function contaCursos ($tabelaDesejada1, $colunaDesejada1){
-  //     $conexao = conexaobd();
-  //     $sql = " SELECT COUNT" . "(" . $colunaDesejada1 .") FROM" . $tabelaDesejada1 . ";";
-  //     $query = mysqli_query($conexao, $sql);
-  //     $qtdCursos = msql_affected_rows($query);
-  //
-  //
-  //
-  //     return $qtdelinha;
-  // };
-
   // Função para validar a qtde de vagas inseridas
   function validarVagas($vaga){
     if($vaga == ""){

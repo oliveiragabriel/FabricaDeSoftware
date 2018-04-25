@@ -1,12 +1,9 @@
-<?php 
+<?php
+  session_start();
 
-if(isset($_SESSION['usuario']) && isset($_SESSION['senha'])){
-    exit();
-}
-else{
-    header('location: ../../login/html/loginAdmin.html');
-}
-
+  if(!isset($_SESSION['usuario']) && !isset($_SESSION['senha'])){
+      header('location: ../../login/html/loginAdmin.html');
+  }
 ?>
 <!DOCTYPE html>
 <html>

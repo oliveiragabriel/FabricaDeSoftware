@@ -1,16 +1,18 @@
 <?php
-	// include('../control/itensedital.php');
+	// Inicia a sessão
+	session_start();
+
+	// Linka o arquivo pdao para pegar os cursos a fim de exibi-los
 	require "../../../arquivosfixos/pdao/pdaoscript.php";
 
+	// Instanciando as variáveis que serão utilizadas para executar a função
 	$campos = "idcurso, nome";
 	$tabela = "curso";
 	$sql =  selecionarbd($campos, $tabela, NULL);
-	
-	if(isset($_SESSION['usuario']) && isset($_SESSION['senha'])){
-	   exit(); 
-	}
-	else{
-	    header('location: ../../login/html/loginAdmin.html');
+
+	// Verificando se já tem sessão estabelecida
+	if(!isset($_SESSION['usuario']) && !isset($_SESSION['senha'])){
+		header('location: ../../login/html/loginAdmin.html');
 	}
 ?>
 
@@ -59,7 +61,7 @@
 								<span class="header-menuItem-content header-menuItem-icon">+</span>
 								<p class="header-menuItem-content header-menuItem-text">Edital</p>
 							</a>
-							<a class="header-menuItem" href="../../cadastrarcurso/html/cadastrarcurso.html">
+							<a class="header-menuItem" href="../../cadastrarcurso/html/cadastrarcurso.php">
 								<span class="header-menuItem-content header-menuItem-icon">+</span>
 								<p class="header-menuItem-content header-menuItem-text">Cursos</p>
 							</a>
