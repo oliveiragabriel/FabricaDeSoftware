@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 $(function(){
 	$(".main-content-form-content").submit(function(){
 		var nomecurso = $(".main-content-form-content-input").val();
@@ -21,7 +20,7 @@ function validarnomecurso(curso){
 	// });
 	alert("teste");
 	return 1;
-=======
+}
 $(function(){
 	$(".main-content-form-content").submit(function(){
 		var nomecurso = $(".main-content-form-content-input").val();
@@ -45,5 +44,4 @@ function validarnomecurso(curso){
 		}
 	}
 	return erro;
->>>>>>> da98bc171508b5eec23b157faad677b12ab9a95e
 }

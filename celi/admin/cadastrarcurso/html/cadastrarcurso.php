@@ -16,6 +16,8 @@
 		<link rel="stylesheet" type="text/css" href="../../../arquivosfixos/css/footer/style.css">
 		<script src="../../../arquivosfixos/js/jquery.min.js"></script>
 		<script src="./js/script.js"></script>
+    <!-- SCRIPT do submenu -->
+		<script src="../../../arquivosfixos/js/headersubmenu.js"></script>
 	</head>
 	<body class="fadeIn">
 		<div class="content">

@@ -22,7 +22,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Registrar Edital</title>
-		<!-- ESTILO da página -->
+		<!-- ESTILO da páginas -->
 		<link rel="stylesheet" type="text/css" href="../../../arquivosfixos/css/reset.css">
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
 		<!-- ESTILO do header e do footer -->
@@ -34,7 +34,7 @@
 		<script type="text/javascript" src="../../../arquivosfixos/js/jquerymask/dist/jquery.mask.min.js"></script>
 		<!-- SCRIPT da validação js -->
 		<script type="text/javascript" src="./js/script.js"></script>
-
+		<!-- SCRIPT do submenu -->
 		<script src="../../../arquivosfixos/js/headersubmenu.js"></script>
 	</head>
 	<body>
