@@ -1,4 +1,4 @@
-#header{
+/* #header{
 	background-color: #414c57;
 }
 .header-menu{
@@ -55,4 +55,110 @@
 }
 .header-menuItem:not(.header-menuItemLogotipo):hover{
 	background-color: #515f6c;
+} */
+
+
+
+
+#header{
+	background-color: #414c57;
 }
+.header-menu{
+	background-color: #414c57;
+	transition: .5s;
+}
+.header-menuItem{
+	text-decoration: none;
+	font-family: arial;
+	font-size: 18px;
+	text-transform: capitalize;
+	color: rgba(255,255,255, .7);
+	font-weight: normal;
+	letter-spacing: 1px;
+	box-shadow: inset 0 0 0 #576777;
+	text-align: center;
+	cursor: pointer;
+	transition: .3s;
+}
+.menuItem-edital, .menuItem-curso{
+	cursor: default;
+}
+.header-menuItem:hover{
+	color: #eee;
+	background-color: rgba(0,0,0, .05);
+}
+.header-menuItem::after{
+	display: block;
+	content: '';
+	width: 0px;
+	height: 4px;
+	background-color: #576777;
+	margin: 0 auto;
+	transform: translateY(-4px);
+	transition: .3s;
+	font-weight: normal;
+}
+.header-menuItem:hover::after{
+	width: 50px;
+}
+.header-subItem{
+	position: relative;
+	text-decoration: none;
+	font-family: arial;
+	font-size: 17.5px;
+	text-transform: capitalize;
+	color: rgba(255,255,255, .7);
+	font-weight: normal;
+	letter-spacing: 1px;
+	box-shadow: inset 0 0 0 #576777;
+	text-align: center;
+	cursor: pointer;
+	transition: .3s;
+}
+.header-subItem::after{
+	position: absolute;
+	top: 10px;
+	right: 0;
+	display: block;
+	content: '';
+	width: 0px;
+	height: 60px;
+	background-color: #4e5b69;
+	margin: 0 auto;
+	transform: translateY(-4px);
+	transition: .3s;
+	font-weight: normal;
+}
+.header-subItem:hover::after{
+	width: 10px;
+}
+.header-subItem::before{
+	position: absolute;
+	top: 10px;
+	left: 0;
+	display: block;
+	content: '';
+	width: 0px;
+	height: 60px;
+	background-color: #4e5b69;
+	margin: 0 auto;
+	transform: translateY(-4px);
+	transition: .3s;
+	font-weight: normal;
+}
+.header-subItem:hover::before{
+	width: 10px;
+}
+.header-subItem:hover{
+	color: #eee;
+}
+.header-subMenu{
+	background-color: #576777;
+	border-radius: 0 0 10px 10px;
+}
+/* .menuItem-edital:hover .header-subMenu-edital{
+	display: block !important;
+}
+.menuItem-curso:hover .header-subMenu-curso{
+	display: block !important;
+} */

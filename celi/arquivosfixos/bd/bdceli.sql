@@ -37,7 +37,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Fazendo dump de dados para tabela `admin`
+-- Fazendo dump de dados para tabela `admin` senha: celi012
 --
 
 INSERT INTO `admin` (`idadmin`, `username`, `password`) VALUES

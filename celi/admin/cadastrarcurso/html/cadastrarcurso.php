@@ -15,60 +15,72 @@
 		<link rel="stylesheet" type="text/css" href="../../../arquivosfixos/css/header/style.css">
 		<link rel="stylesheet" type="text/css" href="../../../arquivosfixos/css/footer/style.css">
 		<script src="../../../arquivosfixos/js/jquery.min.js"></script>
-		<script src="../../../arquivosfixos/js/headerslidebar.js"></script>
 		<script src="./js/script.js"></script>
 	</head>
 	<body class="fadeIn">
 		<div class="content">
-			<header id="header">
+      <header id="header">
 				<div class="header-content">
 					<div class="header-logotipo">
-						<img class="header-logotipo-img" src="../../../arquivosfixos/midia/logo-white2.png" alt="logotipo">
+						<img class="header-logotipo-img" src="../../../arquivosfixos/midia/logo-white.png" alt="logotipo">
 					</div>
-					<div class="header-menuIcon">
-						<span class="header-menuIcon-content"></span>
-						<p class="header-menuIcon-legenda">menu</p>
-					</div>
-				</div>
-				<div class="header-menu">
-					<nav class="header-nav">
-						<ul class="header-list">
-							<a class="header-menuItem" href="#">
-								<span class="header-menuItem-content header-menuItem-icon">+</span>
-								<p class="header-menuItem-content header-menuItem-text">Início</p>
-							</a>
-							<a class="header-menuItem" href="../../edital/html/edital.php">
-								<span class="header-menuItem-content header-menuItem-icon">+</span>
-								<p class="header-menuItem-content header-menuItem-text">Edital</p>
-							</a>
-							<a class="header-menuItem" href="../../../cadastrarcurso/html/cadastrarcurso.html">
-								<span class="header-menuItem-content header-menuItem-icon">+</span>
-								<p class="header-menuItem-content header-menuItem-text">Cursos</p>
-							</a>
-							<a class="header-menuItem" href="../../../inscricao/html/inscricao.html">
-								<span class="header-menuItem-content header-menuItem-icon">+</span>
-								<p class="header-menuItem-content header-menuItem-text">Inscrições</p>
-							</a>
-							<a class="header-menuItem" href="#">
-								<span class="header-menuItem-content header-menuItem-icon">+</span>
-								<p class="header-menuItem-content header-menuItem-text">Sorteio</p>
-							</a>
-						</ul>
-					</nav>
+          <div class="header-menu">
+  					<nav class="header-nav">
+  						<ul class="header-list">
+  							<a class="header-menuItem" href="#">
+  								<p class="header-menuItem-content">Início</p>
+  							</a>
+  							<li class="header-menuItem menuItem-edital">
+  								<p class="header-menuItem-content">Edital</p>
+									<div class="header-subMenu header-subMenu-edital">
+										<ul class="header-subList">
+											<a class="header-subItem" href="../../edital/html/edital.php">
+												<p class="header-subItem-content">Registrar edital</p>
+											</a>
+											<a class="header-subItem" href="#">
+												<p class="header-subItem-content">Alterar edital</p>
+											</a>
+											<a class="header-subItem" href="#">
+												<p class="header-subItem-content">Apagar edital</p>
+											</a>
+										</ul>
+									</div>
+  							</li>
+  							<li class="header-menuItem menuItem-curso">
+  								<p class="header-menuItem-content">Cursos</p>
+									<div class="header-subMenu header-subMenu-curso">
+										<ul class="header-subList">
+											<a class="header-subItem" href="../../cadastrarcurso/html/cadastrarcurso.php">
+												<p class="header-subItem-content">Registrar curso</p>
+											</a>
+											<a class="header-subItem" href="#">
+												<p class="header-subItem-content">Alterar curso</p>
+											</a>
+											<a class="header-subItem" href="#">
+												<p class="header-subItem-content">Apagar curso</p>
+											</a>
+										</ul>
+									</div>
+  							</li>
+  							<a class="header-menuItem" href="../../../inscricao/html/inscricao.html">
+  								<p class="header-menuItem-content">Inscrições</p>
+  							</a>
+  							<a class="header-menuItem" href="#">
+  								<p class="header-menuItem-content">Sorteio</p>
+  							</a>
+  						</ul>
+  					</nav>
+  				</div>
 				</div>
 			</header>
 			<div id="main">
 				<div class="main-content">
-					<div class="main-content-title">
-						<h1 class="main-content-title-content">cadastrar um novo curso</h1>
-					</div>
-					<div class="main-content-form">
-						<form class="main-content-form-content" action="../control/insertcursobd.php" method="get">
-							<label class="main-content-form-content-label">Nome</label>
-							<input class="main-content-form-content-input" type="text" name="nomecurso" placeholder="Digite o nome do curso novo aqui...">
-							<input class="main-content-form-content-send" type="submit" name="registro" value="cadastrar">
-						</form>
-					</div>
+					<h1 class="main-title">Registrar curso</h1>
+					<form class="main-form" action="../control/insertcursobd.php" method="get">
+						<label class="main-content-form-content-label">Nome</label>
+						<input class="main-content-form-content-input" type="text" name="nomecurso" placeholder="Digite o nome do curso novo aqui...">
+						<input class="main-content-form-content-send" type="submit" name="registro" value="cadastrar">
+					</form>
 				</div>
 			</div>
 			<footer id="footer">

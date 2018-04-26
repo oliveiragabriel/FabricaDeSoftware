@@ -17,22 +17,22 @@
 .main-title::after{
 	display: block;
 	content: '';
-	width: 400px;
+	width: 300px;
 	height: 4px;
 	margin: 15px 0;
 	background-color: #586777;
 }
 
 /* conteúdo do label */
-.main-content-form-content-label{
+.main-form-labelUser, .main-form-labelPass{
 	font-size: 15px;
 	color: #666;
 	text-transform: capitalize;
-	padding-left: 15px;
 	text-align: left;
+  padding: 10px 0;
 }
 /* conteúdo do input */
-.main-content-form-content-input{
+.main-form-inputUser, .main-form-inputPass{
 	padding: 7px 15px;
 	box-sizing: border-box;
 	border-radius: 5px;
@@ -41,7 +41,7 @@
 }
 
 /* button send */
-.main-content-form-content-send{
+.main-form-buttonSend{
 	border: 1px solid #414c57;
 	border-radius: 5px;
 	background-color: #414c57;
@@ -51,7 +51,7 @@
 	color: #f0f0f0;
 	transition: .3s;
 }
-.main-content-form-content-send:hover{
+.main-form-buttonSend:hover{
 	background-color: #586777;
 	border-color: #586777;
 }
