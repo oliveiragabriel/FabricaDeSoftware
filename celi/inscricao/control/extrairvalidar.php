@@ -1,9 +1,7 @@
 <?php
-       // Chamando o arquivo .php pdao
-       require_once '../../arquivosfixos/pdaoscript.php';
 
        // Pegando os dados do form
-       if(isset($_POST['name']) && isset($_POST['course']) && isset($_POST['phone1']) && isset($_POST['nascimento']) && isset($_POST['phone2']) && isset($_POST['uf']) && isset($_POST['cidade']) && isset($_POST['bairro']) && isset($_POST['logradouro']) && isset($_POST['complemento']) && isset($_POST['radio'])){
+       if(isset($_POST['name']) && isset($_POST['course']) && isset($_POST['phone1']) && isset($_POST['nascimento']) && isset($_POST['uf']) && isset($_POST['cidade']) && isset($_POST['bairro']) && isset($_POST['logradouro']) && isset($_POST['radio'])){
          $nome=$_POST['name'];
          $RG=$_POST['document1'];
          $orgRG=$_POST['OrgEmiRg'];
@@ -21,22 +19,23 @@
          $situacao=$_POST['radio'];
 
          // Função que dispara todas as outras funções e, estando tudo certo, inseri no BD
-         function validar($nome, $telefone1, $telefone2, $email, $situacao, $CPF, $nasc, $RG, $orgRG, $uf, $cidade, $bairro, $logradouro, $complemento, $curso) {
+
                 $validnome = validarnome($nome);
-                $validtelefone1 = validartelefone($telefone1);
-                $validtelefone2 = validartelefone($telefone2);
+                $validtelefone1 = validartelefone1($telefone1);
+                $validtelefone2 = validartelefone2($telefone2);
                 $validemail = validaremail($email);
                 $validsituacao = validarie($situacao);
                 $validCpfRg = cpf_rg($CPF, $RG);
                 $validCPF = validarCpf($CPF);
                 $validNascimento = validarNascimento($nasc);
-                $validOrgRG =  validarOrgRG($orgRG);
+                $validOrgRG =  validarOrgRG($orgRG, $RG);
                 $validUf = validarUF($uf);
                 $validCidade =  validarCidade($cidade);
                 $validBairro =  validarBairro($bairro);
                 $validLogradouro = validarLogradouro($logradouro);
                 $validCurso = validarCurso($curso);
-                if($validnome == 0 && $validtelefone1 == 0 && $validtelefone2 == 0 && $validemail == 0 && $validsituacao == 0 && $validCpfRg == 0 && $validCPF == 0 
+
+               if($validnome == 0 && $validtelefone1 == 0 && $validemail == 0 && $validsituacao == 0 && $validCpfRg == 0 && $validCPF == 0
                     && $validNascimento==0 && $validOrgRG==0 && $validUf==0 && $validCidade==0 &&  $validBairro==0 && $validLogradouro==0 &&  $validCurso==0){
                        session_start();
                        $_SESSION['name'] = $nome;
@@ -50,21 +49,22 @@
                        $_SESSION['bairro'] = $bairro;
                        $_SESSION['logradouro'] = $logradouro;
                        $_SESSION['complemento'] = $complemento;
-                       $_SESSION['situacao'] = $situacao;
-                       $_SESSION['curso'] = $curso;
+                       $_SESSION['radio'] = $situacao;
+                       $_SESSION['course'] = $curso;
                        $_SESSION['email'] = $email;
-                       $_SESSION['dataNascimento'] = $nasc;
-                       
+                       $_SESSION['nascimento'] = $nasc;
+
+
                        header('location: ../html/confirmaInscricao.php');
-                }
-         };
+               }
+
        }
-   
+
        // Função para validar o nome
        function validarnome($nome){
               $erronome = 0;
               if( trim($nome)=="" ){
-                     $erronome = 1;       
+                     $erronome = 1;
               }
               else{
                      $arraynome= str_split($nome);
@@ -94,7 +94,7 @@
        };
 
        // Função para validar o telefone
-       function validartelefone($telefone){
+       function validartelefone1($telefone){
               $errotelefone = 0;
               if( trim($telefone)=="" ){
                      $errotelefone = 1;
@@ -116,13 +116,35 @@
               }
               return $errotelefone;
        };
-       
+
+       function validartelefone2($telefone){
+           $errotelefone = 0;
+           if( trim($telefone)!="" ){
+               $arraytelefone= str_split($telefone);
+               $lengthtelefone= strlen($telefone);
+               $erroespecial=0;
+               for($i=0;$i<$lengthtelefone;$i++){
+                   $caracasciicode=ord($arraytelefone[$i]);
+                   if($caracasciicode==45 || $caracasciicode==32 || $caracasciicode>=40 && $caracasciicode<=41 ||$caracasciicode>=48 && $caracasciicode<=57){}
+                   else{
+                       $erroespecial=1;
+                   }
+               }
+               if($erroespecial==1){
+                   $errotelefone = 1;
+               }
+           }
+           return $errotelefone;
+       };
+
 
        // Função para validar o email
        function validaremail($email){
               $erroemail = 0;
-              if(!(filter_var($email, FILTER_VALIDATE_EMAIL))){
+              if(trim($email)!=""){
+                if(!(filter_var($email, FILTER_VALIDATE_EMAIL))){
                      $erroemail = 1;
+                }
               }
               return $erroemail;
        };
@@ -135,31 +157,31 @@
               }
               return $errosituacao;
        };
-       
+
        //Verifica se algum dos dois foram preenchidos
        function cpf_rg ($cpf, $rg){
            $erroCpfRg = 0;
            if(trim($cpf)=="" && trim($rg)==""){
                $erroCpfRg = 1;
            }
-           
+
            return $erroCpfRg;
-         
+
        };
 
        // Função para validar o CPF
        function validarCpf($cpf){
            $erroCpf = 0;
            if( trim($cpf)!="" ){
-               
+
                // Extrai somente os números
                $cpf = preg_replace( '/[^0-9]/is', '', $cpf );
-               
+
                // Verifica se foi informado todos os digitos corretamente
                if (strlen($cpf) != 11) {
                    return $erroCpf = 1;
                }
-               
+
                // Verifica se foi informada uma sequência de digitos repetidos. Ex: 111.111.111-11
                if (preg_match('/(\d)\1{10}/', $cpf)) {
                    return $erroCpf = 1;
@@ -174,13 +196,12 @@
                        return $erroCpf = 1;
                    }
                }
-           if( trim($CPF)=="" ){
-               $erroCpf = 1;
-           };
+           }
+           return $erroCpf;
        };
-       
+
        // Função para validar o orgão emissor do RG
-       function validarOrgRG($orgRG){
+       function validarOrgRG($orgRG,$rg){
            $erroOrgRG= 0;
            if( (trim($rg)!= "" && trim($orgRG) == "") || (trim($rg)== "" && trim($orgRG) != "")){
                $erroOrgRG = 1;
@@ -200,23 +221,27 @@
            }
            return $erroOrgRG;
        };
-       
+
        // Função para validar a data de nascimento
        function validarNascimento($nascimento){
            $erroNascimento = 0;
-           $arrayNascimento = explode("-","$nascimento");
-           $y = $arrayNascimento[0];
-           $m = $arrayNascimento[1];
-           $d = $arrayNascimento[2];
-           
-           $res = checkdate($m,$d,$y);
-           if ($res){
-               //verificar se a pessoa tem 15 ou mais
-           } else {
-               $erroNascimento = 1;
+           if((trim($nascimento)== "")){
+               $erroNascimento=1;
+           }else{
+               $arrayNascimento = explode("-","$nascimento");
+               $y = $arrayNascimento[0];
+               $m = $arrayNascimento[1];
+               $d = $arrayNascimento[2];
+
+               $res = checkdate($m,$d,$y);
+               if ($res){
+                   //verificar se a pessoa tem 15 ou mais
+               } else {
+                   $erroNascimento = 1;
+               }
            }
            return $erroNascimento;
-           
+
        };
 
        // Função para validar o UF
@@ -326,16 +351,17 @@
            }
            return $erroLogradouro;
        };
-       
+
        // Função para validar o Curso
        function validarCurso($curso){
-           $erroCursoF=0;
+           $erroCurso=0;
            if( trim($curso)=="" ){
                $erroCurso = 1;
            }
-           
+           return $erroCurso;
+
        }
-       
+
        //Função para validar Deficiência
        function validarDeficiencia ($sim, $nao, $complemento){
            $erroDeficiencia = 0;
@@ -343,7 +369,7 @@
                $erroDeficiencia = 1;
            }elseif($sim!="" && $complemento==""){
                    $erroDeficiencia = 1;
-               
+
            }
            return $erroDeficiencia;
        }

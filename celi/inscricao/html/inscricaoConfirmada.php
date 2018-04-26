@@ -1,10 +1,14 @@
 <?php
+include("../control/extrairvalidar.php");
+include("../control/candidatopdao.php");
+include("../control/candidatocursopdao.php");
 session_start();
-if((!isset ($_SESSION['name']) == true) && (!isset ($_SESSION['phone1']) == true) && (!isset ($_SESSION['phone2']) == true) && (!isset ($_SESSION['document1']) == true) && (!isset ($_SESSION['OrgEmiRg']) == true) && (!isset ($_SESSION['document2']) == true) && (!isset ($_SESSION['nascimento']) == true) && (!isset ($_SESSION['uf']) == true) && (!isset ($_SESSION['cidade']) == true) && (!isset ($_SESSION['bairro']) == true) && (!isset ($_SESSION['logradouro']) == true) && (!isset ($_SESSION['complemento']) == true) && (!isset ($_SESSION['radio']) == true) && (!isset ($_SESSION['course']) == true) && (!isset ($_SESSION['radioDeficiencia']) == true))//fazer isso com todos os campos obrigatórios
+if((!isset ($_SESSION['nascimento']) == true) && (!isset ($_SESSION['course']) == true) && (!isset ($_SESSION['radio']) == true) && (!isset ($_SESSION['logradouro']) == true) && (!isset ($_SESSION['bairro']) == true) && (!isset ($_SESSION['cidade']) == true) && (!isset ($_SESSION['uf']) == true) && (!isset ($_SESSION['phone1']) == true) && (!isset ($_SESSION['name']) == true))
 {
-    unset($_SESSION['name']);// fazer com todas os campos
+    unset($_SESSION['name']);
     unset($_SESSION['phone1']);
     unset($_SESSION['phone2']);
+    unset($_SESSION['email']);
     unset($_SESSION['document1']);
     unset($_SESSION['OrgEmiRg']);
     unset($_SESSION['document2']);
@@ -16,19 +20,17 @@ if((!isset ($_SESSION['name']) == true) && (!isset ($_SESSION['phone1']) == true
     unset($_SESSION['complemento']);
     unset($_SESSION['radio']);
     unset($_SESSION['course']);
-    unset($_SESSION['radioSim']);
-    unset($_SESSION['radioNao']);
- 
 
-    header('location:index.php');
+    header('location:inscricao.php');
 }
-$nome = $_SESSION['name'];//fazer com todas os campos - botar email e nascimento
+$nome = $_SESSION['name'];
 $telefone1 = $_SESSION['phone1'];
 $telefone2 = $_SESSION['phone2'];
+$email = $_SESSION['email'];
 $rg = $_SESSION['document1'];
 $orgaoEmissor = $_SESSION['OrgEmiRg'];
 $cpf = $_SESSION['document2'];
-$datNascimento = $_SESSION['nascimento']
+$datNascimento = $_SESSION['nascimento'];
 $uf = $_SESSION['uf'];
 $cidade = $_SESSION['cidade'];
 $bairro = $_SESSION['bairro'];
@@ -36,38 +38,79 @@ $logradouro = $_SESSION['logradouro'];
 $complemento = $_SESSION['complemento'];
 $situacao = $_SESSION['radio'];
 $curso = $_SESSION['course'];
-$deficiencia = $_SESSION['radioDeficiencia'];
 
+$arrayNascimento = explode("-","$datNascimento");
+$y = $arrayNascimento[0];
+$m = $arrayNascimento[1];
+$d = $arrayNascimento[2];
+$datNascimento="$d/$m/$y";
+
+if($email == null){
+    $email = '-';
+}if($telefone2 == null){
+    $telefone2 = '-';
+}if($cpf == null){
+    $cpf = '-';
+}if($orgaoEmissor == null){
+    $orgaoEmissor = '-';
+}if($rg == null){
+    $rg = '-';
+}if($rg == null){
+    $rg = '-';
+}if($orgaoEmissor == null){
+    $orgaoEmissor = '-';
+}
+if($situacao =="i"){
+    $situacao="Interno";
+}elseif($situacao =="e"){
+    $situacao="Externo";
+}
+
+$conexao = conexao(); /*mysqli_connect("localhost", "root", "", "celi");
+if (!$conexao){
+    echo "ERROR! failure to connect to the database.";
+    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+    exit();
+}*/
+$sql = "SELECT curso.nome FROM editalcurso JOIN curso ON editalcurso.idcurso=curso.idcurso WHERE editalcurso.ideditalcurso = $curso ";
+$query = mysqli_query($conexao, $sql);
+$nomeCurso= mysqli_fetch_assoc($query);
+
+//inserir no bd
+insert ($nome,$email,$telefone1,$telefone2,$rg,$orgaoEmissor,$cpf,$datNascimento,$uf,$cidade,$bairro,$logradouro,$situacao);
+inserirCandidatocurso($curso);
 ?>
+
 <!DOCTYPE HTML>
 <html>
 	<head></head>
 	<body>
 		<header></header>
 		<!-- colocar classe -->
-		<p>Confirção de Inscrição </p>
+		<p>Confirmação de Inscrição </p>
 		<div>
 			<h1>Dados</h1>
-			<p>Nome: <?php $nome; ?> </p> <!-- fazer  com todos os campos-->
-			<p>Telefone 1: <?php $telefone1; ?> </p>
-			<p>Telefone 2: <?php $telefone2; ?> </p>
-			<p>RG: <?php $rg; ?> </p>
-			<p>Órgão: <?php $orgaoEmissor; ?> </p>
-			<p>CPF: <?php $cpf; ?> </p>
-			<p>Data de Nascimento: <?php $datNascimento; ?> </p>
-			<p>UF: <?php $uf; ?> </p>
-			<p>Cidade: <?php $cidade; ?> </p>
-			<p>Bairro: <?php $bairro; ?> </p>
-			<p>Logradouro: <?php $logradouro; ?> </p>
-			<p>Complemento: <?php $complemento; ?> </p>
-			<p>Situação: <?php $situacao; ?> </p>
-			<p>Curso: <?php $curso; ?> </p>
-			<p>Deficiência: <?php $deficiencia ?></p>
-			
+			<p>Nome: <?php echo $nome; ?> </p>
+			<p>Telefone 1: <?php echo$telefone1; ?> </p>
+			<p>Telefone 2: <?php echo$telefone2; ?> </p>
+			<p>Email: <?php echo$email; ?></p>
+			<p>RG: <?php echo $rg; ?> </p>
+			<p>Órgão: <?php echo $orgaoEmissor; ?> </p>
+			<p>CPF: <?php echo $cpf; ?> </p>
+			<p>Data de Nascimento: <?php echo $datNascimento; ?> </p>
+			<p>UF: <?php echo $uf; ?> </p>
+			<p>Cidade: <?php echo $cidade; ?> </p>
+			<p>Bairro: <?php echo $bairro; ?> </p>
+			<p>Logradouro: <?php echo $logradouro; ?> </p>
+			<p>Complemento: <?php echo $complemento; ?> </p>
+			<p>Situação: <?php echo $situacao; ?> </p>
+			<p>Curso: <?php echo $nomeCurso['nome']; ?> </p>
+
 			<input type="button" value="Imprimir">
-			<a href = "inscricaoConfirmada.html" ><input type="button" value="Concluir"></a>
-			
+			<input type="button" value="Enviar por e-mail">
+
 		</div>
-		<footer></footer>		
+		<footer></footer>
 	</body>
 </html>

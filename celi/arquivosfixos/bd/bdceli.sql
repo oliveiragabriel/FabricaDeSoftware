@@ -51,6 +51,7 @@ CREATE TABLE `candidato` (
   `idcandidato` int(11) NOT NULL,
   `nome` varchar(75) NOT NULL,
   `rg` varchar(9) DEFAULT NULL,
+  `orgaoemissor` VARCHAR(50) DEFAULT NULL,
   `cpf` varchar(11) DEFAULT NULL,
   `nascimento` date NOT NULL,
   `logradouro` varchar(75) NOT NULL,
@@ -60,20 +61,21 @@ CREATE TABLE `candidato` (
   `uf` enum('AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RR','RO','RJ','RN','RS','SC','SP','SE','TO') NOT NULL,
   `email` varchar(50) DEFAULT NULL,
   `telefone1` varchar(11) NOT NULL,
-  `telefone2` varchar(11) NOT NULL
+  `telefone2` varchar(11) DEFAULT NULL,
+  `situacao` ENUM('i', 'e') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Fazendo dump de dados para tabela `candidato`
 --
 
-INSERT INTO `candidato` (`idcandidato`, `nome`, `rg`, `cpf`, `nascimento`, `logradouro`, `bairro`, `cep`, `cidade`, `uf`, `email`, `telefone1`, `telefone2`) VALUES
-(1, 'Leonardo Pinto Guilherme', '300899996', '19821905781', '1917-03-01', 'Rua Leopoldo Bulhões, 66/101', 'Centro', '21032000', 'Nova Friburgo', 'RJ', 'leozinho.guilherme@hotmail.com', '21999990919', '2234546709'),
-(2, 'Eliezer Dutra Gonçalvez', '021093010', '17293020701', '1948-03-05', 'Avenida Presidente Costa e Silva, 302, Bloco 2, Apartamento 204', 'Leblon', '21035001', 'São Paulo', 'SP', 'eliezerdutragoncalvez@gmail.com', '22938284920', '2128492034'),
-(3, 'Alessandra Mitie', '302301929', '30284929790', '1988-11-06', 'Praça Getúlio Vargas, 46/3092', 'Vila Nova', '28328399', 'Nova Friburgo', 'RJ', 'alessandramitie@hotmail.com', '22938493843', '2239742709'),
-(4, 'Michel Miguel Elias Temer Lulia', '323242535', '17132169881', '1798-07-13', 'Palácio do Jaburu', 'Liberdade', '22437868', 'Brasília', 'DF', 'michel.temer@terra.com.br', '6198876754', '6123549228'),
-(5, 'Neymar Júnior', '189999209', '32040320121', '1987-01-14', 'Rua Marechal Rondon, 45', 'Vargem Grande', '28193019', 'Nova Friburgo', 'RJ', 'neymarjr@gmail.com', '1128839029', '11999437845'),
-(6, 'Luiz Fernando Pezão', '940293200', '18293012983', '1972-08-22', 'Avenida Governador Roberto Silveira, 1900/2', 'Prado', '29103910', 'Nova Friburgo', 'RJ', 'lfpezao@hotmail.com', '2129930293', '21998979525');
+INSERT INTO `candidato` (`idcandidato`, `nome`, `rg`, `orgaoemissor`, `cpf`, `nascimento`, `logradouro`, `bairro`, `cep`, `cidade`, `uf`, `email`, `telefone1`, `telefone2`, `situacao`) VALUES
+(1, 'Leonardo Pinto Guilherme', '300899996', 'detran' , '19821905781', '1917-03-01', 'Rua Leopoldo Bulhões, 66/101', 'Centro', '21032000', 'Nova Friburgo', 'RJ', 'leozinho.guilherme@hotmail.com', '21999990919', '2234546709', 'e'),
+(2, 'Eliezer Dutra Gonçalvez', '021093010', 'detran' , '17293020701', '1948-03-05', 'Avenida Presidente Costa e Silva, 302, Bloco 2, Apartamento 204', 'Leblon', '21035001', 'São Paulo', 'SP', 'eliezerdutragoncalvez@gmail.com', '22938284920', '2128492034', 'i'),
+(3, 'Alessandra Mitie', '302301929', 'detran'  '30284929790', '1988-11-06', 'Praça Getúlio Vargas, 46/3092', 'Vila Nova', '28328399', 'Nova Friburgo', 'RJ', 'alessandramitie@hotmail.com', '22938493843', '2239742709', 'e'),
+(4, 'Michel Miguel Elias Temer Lulia', '323242535', 'detran'  '17132169881', '1798-07-13', 'Palácio do Jaburu', 'Liberdade', '22437868', 'Brasília', 'DF', 'michel.temer@terra.com.br', '6198876754', '6123549228', 'e'),
+(5, 'Neymar Júnior', '189999209', 'detran'  '32040320121', '1987-01-14', 'Rua Marechal Rondon, 45', 'Vargem Grande', '28193019', 'Nova Friburgo', 'RJ', 'neymarjr@gmail.com', '1128839029', '11999437845', 'i'),
+(6, 'Luiz Fernando Pezão', '940293200', 'detran'  '18293012983', '1972-08-22', 'Avenida Governador Roberto Silveira, 1900/2', 'Prado', '29103910', 'Nova Friburgo', 'RJ', 'lfpezao@hotmail.com', '2129930293', '21998979525', 'e');
 
 -- --------------------------------------------------------
 
