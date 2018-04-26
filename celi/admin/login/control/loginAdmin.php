@@ -1,7 +1,7 @@
 <?php
   session_start();
 
-  require_once "C:\wamp\www\FabricaDeSoftware\celi\arquivosfixos\pdao\pdaoscript.php";
+  require_once "../../../arquivosfixos/pdao/pdaoscript.php";
   require_once "./cripAdmin.php";
 
   $usuarioDigitado = $_POST['username'];
