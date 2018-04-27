@@ -72,10 +72,10 @@ CREATE TABLE `candidato` (
 INSERT INTO `candidato` (`idcandidato`, `nome`, `rg`, `orgaoemissor`, `cpf`, `nascimento`, `logradouro`, `bairro`, `cep`, `cidade`, `uf`, `email`, `telefone1`, `telefone2`, `situacao`) VALUES
 (1, 'Leonardo Pinto Guilherme', '300899996', 'detran' , '19821905781', '1917-03-01', 'Rua Leopoldo Bulhões, 66/101', 'Centro', '21032000', 'Nova Friburgo', 'RJ', 'leozinho.guilherme@hotmail.com', '21999990919', '2234546709', 'e'),
 (2, 'Eliezer Dutra Gonçalvez', '021093010', 'detran' , '17293020701', '1948-03-05', 'Avenida Presidente Costa e Silva, 302, Bloco 2, Apartamento 204', 'Leblon', '21035001', 'São Paulo', 'SP', 'eliezerdutragoncalvez@gmail.com', '22938284920', '2128492034', 'i'),
-(3, 'Alessandra Mitie', '302301929', 'detran'  '30284929790', '1988-11-06', 'Praça Getúlio Vargas, 46/3092', 'Vila Nova', '28328399', 'Nova Friburgo', 'RJ', 'alessandramitie@hotmail.com', '22938493843', '2239742709', 'e'),
-(4, 'Michel Miguel Elias Temer Lulia', '323242535', 'detran'  '17132169881', '1798-07-13', 'Palácio do Jaburu', 'Liberdade', '22437868', 'Brasília', 'DF', 'michel.temer@terra.com.br', '6198876754', '6123549228', 'e'),
-(5, 'Neymar Júnior', '189999209', 'detran'  '32040320121', '1987-01-14', 'Rua Marechal Rondon, 45', 'Vargem Grande', '28193019', 'Nova Friburgo', 'RJ', 'neymarjr@gmail.com', '1128839029', '11999437845', 'i'),
-(6, 'Luiz Fernando Pezão', '940293200', 'detran'  '18293012983', '1972-08-22', 'Avenida Governador Roberto Silveira, 1900/2', 'Prado', '29103910', 'Nova Friburgo', 'RJ', 'lfpezao@hotmail.com', '2129930293', '21998979525', 'e');
+(3, 'Alessandra Mitie', '302301929', 'detran',  '30284929790', '1988-11-06', 'Praça Getúlio Vargas, 46/3092', 'Vila Nova', '28328399', 'Nova Friburgo', 'RJ', 'alessandramitie@hotmail.com', '22938493843', '2239742709', 'e'),
+(4, 'Michel Miguel Elias Temer Lulia', '323242535', 'detran', '17132169881', '1798-07-13', 'Palácio do Jaburu', 'Liberdade', '22437868', 'Brasília', 'DF', 'michel.temer@terra.com.br', '6198876754', '6123549228', 'e'),
+(5, 'Neymar Júnior', '189999209', 'detran' , '32040320121', '1987-01-14', 'Rua Marechal Rondon, 45', 'Vargem Grande', '28193019', 'Nova Friburgo', 'RJ', 'neymarjr@gmail.com', '1128839029', '11999437845', 'i'),
+(6, 'Luiz Fernando Pezão', '940293200', 'detran','18293012983', '1972-08-22', 'Avenida Governador Roberto Silveira, 1900/2', 'Prado', '29103910', 'Nova Friburgo', 'RJ', 'lfpezao@hotmail.com', '2129930293', '21998979525', 'e');
 
 -- --------------------------------------------------------
 
