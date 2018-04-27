@@ -1,3 +1,6 @@
+<?php 
+    $idEdital = 28;
+?>
 <!DOCTYPE html>
 
 <html lang="pt">
@@ -83,27 +86,27 @@
     					<table class="tabela-informacoes">
     						<tr>
     							<th class="tabela-informacoes-celula" > ID do Edital: </th> 
-    							<td class="tabela-informacoes-celula"> exemplo </td>
+    							<td class="tabela-informacoes-celula"> <?php echo "exemplo" ?> </td>
     						</tr>
     						<tr>
     							<th class="tabela-informacoes-celula"> Data de início: </th> 
-    							<td class="tabela-informacoes-celula"> exemplo </td>
+    							<td class="tabela-informacoes-celula">  <?php echo "exemplo" ?></td>
     						</tr>	
-    						<<tr>
+    						<tr>
     							<th class="tabela-informacoes-celula"> Data de encerramento:</th> 
-    							<td class="tabela-informacoes-celula"> exemplo </td>
+    							<td class="tabela-informacoes-celula"> <?php echo "exemplo" ?> </td>
     						</tr>	
     						<tr>
     							<th class="tabela-informacoes-celula"> Horário de abertura: </th> 
-    							<td class="tabela-informacoes-celula"> exemplo </td>
+    							<td class="tabela-informacoes-celula"> <?php echo "exemplo" ?> </td>
     						</tr>	
     						<tr>
     							<th class="tabela-informacoes-celula"> Horário de encerramento: </th> 
-    							<td class="tabela-informacoes-celula"> exemplo </td>
+    							<td class="tabela-informacoes-celula"> <?php echo "exemplo" ?> </td>
     						</tr>
     						<tr>
     							<th class="tabela-informacoes-celula"> Condições de participação: </th> 
-    							<td class="tabela-informacoes-celula"> exemplo </td>
+    							<td class="tabela-informacoes-celula"> <?php echo "exemplo  exemplo  exemplo  exemplo  exemplo  exemplo  exemplo exemplo  exemplo  exemplo  exemplo  exemplo  exemplo  exemplo exemplo  exemplo  exemplo  exemplo  exemplo  exemplo  exemplo echo exemplo" ?> </td>
     						</tr>						
     					</table>
 					</div>
