@@ -99,7 +99,7 @@
           			$selectEdital = selectEdital("idedital, data_ini, hora_ini, data_fim, hora_fim", NULL);
           			while($row = mysqli_fetch_array($selectEdital)){
         			?>
-        			   <option value="<?php echo 'edital'.$row[0] ?>"><?php echo "Edital ".$row[0]." | inicio: ".$row[1].", ".$row[2]." Fim: ".$row[3].", ".$row[4] ?></option>
+        			   <option value="<?php echo $row[0] ?>"><?php echo "Edital ".$row[0]." | inicio: ".$row[1].", ".$row[2]." Fim: ".$row[3].", ".$row[4] ?></option>
         			<?php
                 }
         			?>
@@ -108,6 +108,7 @@
 
             </select>
         	</form>
+          <p class="teste"></p>
         </div>
       </main>
       <!-- FOOTER -->

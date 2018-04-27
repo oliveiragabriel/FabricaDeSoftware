@@ -24,7 +24,7 @@
 	function verificarbd ($campo, $tabela, $condicao){
 		$conexao = conexaobd();
 		if($conexao){
-			$sql = "SELECT ".$campo." FROM ".$tabela." WHERE ".$condicao.";";
+			$sql = "SELECT $campo FROM $tabela WHERE $condicao";
 			$query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 			$qtdelinha = mysqli_num_rows($query);
 

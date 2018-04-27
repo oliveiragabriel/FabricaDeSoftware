@@ -40,12 +40,12 @@
           $vagasExt = validarVagas($vagasExt);
 
           if($vagasInt == NULL){
-            echo "Vaga Interna Inválida!!";
-            exit();
+            $vagasInt = 0;
+            // exit();
           }
           if($vagasExt == NULL){
-            echo "Vaga Externa Inválida!!";
-            exit();
+            $vagasExt = 0;
+            // exit();
           }
 
           $result = $idCurso."-".$vagasInt."-".$vagasExt;
@@ -61,20 +61,18 @@
       $select = selecionarbd($campo, $tabela, $condicao);
       $idEdital = mysqli_fetch_assoc($select);
 
-      if($vagasInt == NULL || $vagasExt == NULL){
-        // Inserindo os dados na tabela editalcurso no Banco de dados
-        $tabela = "editalcurso";
-        $elementos = "idedital, idcurso, vagainterna, vagaexterna";
-        $condicao = NULL;
-        for($i = 0; $i < count($arrayCursosDados); $i++){
-          $arrayContent = explode("-", $arrayCursosDados[$i]);
-          $conteudo = $idEdital['idedital'].", ".$arrayContent[0].", ".$arrayContent[1].", ".$arrayContent[2];
-          $insert += inserirbd($tabela, $elementos, $conteudo, $condicao);
-        }
+      // Inserindo os dados na tabela editalcurso no Banco de dados
+      $tabela = "editalcurso";
+      $elementos = "idedital, idcurso, vagainterna, vagaexterna";
+      $condicao = NULL;
+      for($i = 0; $i < count($arrayCursosDados); $i++){
+        $arrayContent = explode("-", $arrayCursosDados[$i]);
+        $conteudo = $idEdital['idedital'].", ".$arrayContent[0].", ".$arrayContent[1].", ".$arrayContent[2];
+        $insert2 = inserirbd($tabela, $elementos, $conteudo, $condicao);
       }
 
       // Verifica o insert...
-      if($insert){
+      if($insert && $insert2){
         // Deu Certo. Inseriu!
         echo "Inseriu!";
       }
