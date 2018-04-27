@@ -165,3 +165,11 @@
 	width: 125px;
 	height: 35px;
 }
+
+.tabela{
+	display: flex;
+}
+
+.tabela-informacoes{
+	margin: auto;
+}

@@ -123,3 +123,19 @@
 	background-color: #586777;
 	border-color: #586777;
 }
+
+.tabela-informacoes{
+	width: 700px;
+	/* border-left: 1px solid;
+	border-right: 1px solid;
+	border-color: #414c57; */
+}
+
+.tabela-informacoes-celula{
+ 	text-align: left;
+ 	/* padding-left: 30px; */
+ 	height: 75px;
+ 	font-size: 15px;
+	color: #666;
+	text-transform: capitalize;
+}
