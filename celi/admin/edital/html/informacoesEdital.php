@@ -1,5 +1,21 @@
 <?php 
-    $idEdital = 28;
+    $idEdital = 2 /* $_POST['idEdital'] */;
+    
+ // conexão com o Banco de Dados.   
+    $conexao = mysqli_connect("localhost", "root", "", "celi");
+    mysqli_set_charset($conexao, "utf8");
+    if (!$conexao){
+        echo "ERROR! failure to connect to the database.";
+        echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+        echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+    }
+    
+    else{
+        $sql = "SELECT * FROM edital WHERE idedital= 2" /*.$idEdital*/.";";
+        $query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
+ 
+    } 
+    
 ?>
 <!DOCTYPE html>
 
@@ -85,7 +101,7 @@
 					<div class='tabela'>
     					<table class="tabela-informacoes">
     						<tr>
-    							<th class="tabela-informacoes-celula" > ID do Edital: </th> 
+    							<th class="tabela-informacoes-celula" > ID deste Edital: </th> 
     							<td class="tabela-informacoes-celula"> <?php echo "exemplo" ?> </td>
     						</tr>
     						<tr>
@@ -98,10 +114,14 @@
     						</tr>	
     						<tr>
     							<th class="tabela-informacoes-celula"> Horário de abertura: </th> 
-    							<td class="tabela-informacoes-celula"> <?php echo "exemplo" ?> </td>
+    							<td class="tabela-informacoes-celula"> <?php echo $query ?> </td>
     						</tr>	
     						<tr>
     							<th class="tabela-informacoes-celula"> Horário de encerramento: </th> 
+    							<td class="tabela-informacoes-celula"> <?php echo "exemplo" ?> </td>
+    						</tr>
+    						<tr>
+    							<th class="tabela-informacoes-celula"> Cursos presentes neste Edital: </th> 
     							<td class="tabela-informacoes-celula"> <?php echo "exemplo" ?> </td>
     						</tr>
     						<tr>
