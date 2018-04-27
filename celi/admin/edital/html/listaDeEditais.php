@@ -90,18 +90,18 @@ require "../control/listarEdital.php";
 			<table class="main-form">
 				<tr>
 				
-				<td>#</td>
-				<td>Início</td>
-				<td>Término</td>
-				<td>Link</td>
+				<td class="main-table-title" >#</td>
+				<td class="main-table-title" >Início</td>
+				<td class="main-table-title" >Término</td>
+				<td class="main-table-title" >Link</td>
 				</tr>
 				
 				<?php while ($edital = mysqli_fetch_array($result)) { ?>
 				<tr>
-					<td><?php echo $edital['idedital']; ?></td>
-					<td><?php echo $edital['inicio'] . " às " . $edital['hora_inicio']; ?></td>
-					<td><?php echo $edital['fim'] . " às " . $edital['hora_final']; ?></td>
-					<td>Acessar</td>
+					<td class="main-table-td"><?php echo $edital['idedital']; ?></td>
+					<td class="main-table-td"><?php echo $edital['inicio'] . " às " . $edital['hora_inicio']; ?></td>
+					<td class="main-table-td"><?php echo $edital['fim'] . " às " . $edital['hora_final']; ?></td>
+					<td class="main-table-td">Acessar</td>
 				</tr> <?php } ?>
 			</table>
 			<p>Total de registros: <?php echo $conta->num_rows; ?></p>
