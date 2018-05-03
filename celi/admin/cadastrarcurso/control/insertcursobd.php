@@ -3,7 +3,7 @@
 	include "../../../arquivosfixos/pdao/pdaoscript.php";
 
 	// Pegando os dados do formulário e validando
-	$nomecurso = $_GET['nomecurso'];
+	$nomecurso = trim($_GET['nomecurso']);
 	$validacaocurso = validarnomecurso($nomecurso);
 	if($validacaocurso == 0){
 		// Instanciando as variáveis que será enviadas a função
