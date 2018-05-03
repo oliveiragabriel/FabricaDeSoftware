@@ -107,7 +107,7 @@
 								<td class="main-form-encerLabel-data" colspan="2">
 									<label class="main-form-encerLabel-data-text">data de encerramento</label>
 								</td>
-							</tr>
+							</tr> 
 							<tr class="main-form-dataInput">
 								<td class="main-form-abertInput-data"colspan="2">
 									<input class="main-form-abertInput-data-text" type="date" name="dataabertura">
