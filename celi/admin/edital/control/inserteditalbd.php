@@ -74,16 +74,16 @@
       // Verifica o insert...
       if($insert && $insert2){
         // Deu Certo. Inseriu!
-        echo "Inseriu!";
+          header('location: ../html/registrado.html');
       }
       else{
         // Deu Errado. Não inseriu!
-        echo "não inseriu!";
+          header('location: ../html/naoinseriu.html');
       }
     }
     else{
       // Data incoerente (incorreto!)
-      echo "Data Incoerente!";
+        header('location: ../html/invalido.html');
     }
 
   }

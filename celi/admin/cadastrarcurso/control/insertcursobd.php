@@ -15,14 +15,17 @@
 		$insert = inserirbd($tabela, $elementos, $conteudo, $condicao);
 		// Feedback do insert
 		if($insert){
-			echo "Inseriu!";
+			
+			header('location: ../html/registrado.html');
 		}
 		else{
-			echo "Não inseriu!";
+			
+			header('location: ../html/naoInseriu.html');
 		}
 	}
 	else{
-		echo "nome inválido!";
+		
+		header('location: ../html/invalido.html');
 	}
 
 
