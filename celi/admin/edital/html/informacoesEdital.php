@@ -1,5 +1,5 @@
 <?php 
-    $idEdital = 2 /* $_POST['idEdital'] */;
+    $idEdital = $_GET['idEdital'];
     
  // conexão com o Banco de Dados.   
     $conexao = mysqli_connect("localhost", "root", "", "celi");
@@ -11,11 +11,27 @@
     }
     
     else{
-        $sql = "SELECT * FROM edital WHERE idedital= 2" /*.$idEdital*/.";";
+        $sql = "SELECT * FROM edital WHERE idedital=" . $idEdital . ";";
+        $sql2 = "SELECT c.nome, e.vagaexterna, e.vagainterna FROM editalcurso e join curso c WHERE  idedital = $idEdital AND e.idcurso=c.idcurso;";
         $query = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
- 
+        $query2 = mysqli_query($conexao, $sql2) or die(mysqli_error($conexao));
+        $arrayDaConsulta = mysqli_fetch_array($query);
+        
+        $arrayDaConsulta2Nome = array();
+        $arrayDaConsulta2VagasExt = array();
+        $arrayDaConsulta2VagasInt = array();
+        
+        while ($row = mysqli_fetch_array($query2)) {
+            array_push($arrayDaConsulta2Nome, $row[0]);
+            array_push($arrayDaConsulta2VagasExt, $row[1]);
+            array_push($arrayDaConsulta2VagasInt, $row[2]);
+        }
+
+        $linhasAfetadas = mysqli_num_rows($query2);
+        
+        
     } 
-    
+     
 ?>
 <!DOCTYPE html>
 
@@ -102,31 +118,39 @@
     					<table class="tabela-informacoes">
     						<tr>
     							<th class="tabela-informacoes-celula" > ID deste Edital: </th> 
-    							<td class="tabela-informacoes-celula"> <?php echo "exemplo" ?> </td>
+    							<td class="tabela-informacoes-celula"> <?php echo $arrayDaConsulta[0]; ?> </td>
     						</tr>
     						<tr>
     							<th class="tabela-informacoes-celula"> Data de início: </th> 
-    							<td class="tabela-informacoes-celula">  <?php echo "exemplo" ?></td>
-    						</tr>	
-    						<tr>
-    							<th class="tabela-informacoes-celula"> Data de encerramento:</th> 
-    							<td class="tabela-informacoes-celula"> <?php echo "exemplo" ?> </td>
+    							<td class="tabela-informacoes-celula">  <?php echo $arrayDaConsulta[1]; ?></td>
     						</tr>	
     						<tr>
     							<th class="tabela-informacoes-celula"> Horário de abertura: </th> 
-    							<td class="tabela-informacoes-celula"> <?php echo $query ?> </td>
+    							<td class="tabela-informacoes-celula"> <?php echo $arrayDaConsulta[2]; ?> </td>
+    						</tr>
+    							<th class="tabela-informacoes-celula"> Data de encerramento:</th> 
+    							<td class="tabela-informacoes-celula"> <?php echo $arrayDaConsulta[3]; ?> </td>
     						</tr>	
     						<tr>
+    							
+    						<tr>
     							<th class="tabela-informacoes-celula"> Horário de encerramento: </th> 
-    							<td class="tabela-informacoes-celula"> <?php echo "exemplo" ?> </td>
+    							<td class="tabela-informacoes-celula"> <?php echo $arrayDaConsulta[4]; ?> </td>
     						</tr>
     						<tr>
     							<th class="tabela-informacoes-celula"> Cursos presentes neste Edital: </th> 
-    							<td class="tabela-informacoes-celula"> <?php echo "exemplo" ?> </td>
+    							<?php 
+    							for($i = 0; $i< $linhasAfetadas; $i++){ 
+    							 ?>
+    							    <td class="tabela-informacoes-celula"> Curso: <?php echo $arrayDaConsulta2Nome[$i] ?> --- Vagas internas: <?php echo $arrayDaConsulta2VagasInt[$i] ?> --- Vagas externas: <?php echo $arrayDaConsulta2VagasInt[$i] ?></td>   
+    							<?php
+    							} 
+    							?> 							
+    							
     						</tr>
     						<tr>
     							<th class="tabela-informacoes-celula"> Condições de participação: </th> 
-    							<td class="tabela-informacoes-celula"> <?php echo "exemplo  exemplo  exemplo  exemplo  exemplo  exemplo  exemplo exemplo  exemplo  exemplo  exemplo  exemplo  exemplo  exemplo exemplo  exemplo  exemplo  exemplo  exemplo  exemplo  exemplo echo exemplo" ?> </td>
+    							<td class="tabela-informacoes-celula"> <?php echo $arrayDaConsulta[5]?> </td>
     						</tr>						
     					</table>
 					</div>
